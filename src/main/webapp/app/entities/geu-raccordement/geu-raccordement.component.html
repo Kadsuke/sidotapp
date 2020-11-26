@@ -1,0 +1,107 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sidotApp.geuRaccordement.home.title">Geu Raccordements</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-geu-raccordement" [routerLink]="['/geu-raccordement/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sidotApp.geuRaccordement.home.createLabel">
+            Create a new Geu Raccordement
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="geuRaccordements?.length === 0">
+        <span jhiTranslate="sidotApp.geuRaccordement.home.notFound">No geuRaccordements found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="geuRaccordements && geuRaccordements.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numAbonnement"><span jhiTranslate="sidotApp.geuRaccordement.numAbonnement">Num Abonnement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="sidotApp.geuRaccordement.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenom"><span jhiTranslate="sidotApp.geuRaccordement.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="sidotApp.geuRaccordement.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="proprietaireParacelle"><span jhiTranslate="sidotApp.geuRaccordement.proprietaireParacelle">Proprietaire Paracelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="entreprise"><span jhiTranslate="sidotApp.geuRaccordement.entreprise">Entreprise</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="otherUsage"><span jhiTranslate="sidotApp.geuRaccordement.otherUsage">Other Usage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="geoparcelleId"><span jhiTranslate="sidotApp.geuRaccordement.geoparcelle">Geoparcelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="agentId"><span jhiTranslate="sidotApp.geuRaccordement.agent">Agent</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tacheronsId"><span jhiTranslate="sidotApp.geuRaccordement.tacherons">Tacherons</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="geuusageId"><span jhiTranslate="sidotApp.geuRaccordement.geuusage">Geuusage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let geuRaccordement of geuRaccordements ;trackBy: trackId">
+                    <td><a [routerLink]="['/geu-raccordement', geuRaccordement.id, 'view']">{{ geuRaccordement.id }}</a></td>
+                    <td>{{ geuRaccordement.numAbonnement }}</td>
+                    <td>{{ geuRaccordement.nom }}</td>
+                    <td>{{ geuRaccordement.prenom }}</td>
+                    <td>{{ geuRaccordement.adresse }}</td>
+                    <td>{{ geuRaccordement.proprietaireParacelle }}</td>
+                    <td>{{ geuRaccordement.entreprise }}</td>
+                    <td>{{ geuRaccordement.otherUsage }}</td>
+                    <td>
+                        <div *ngIf="geuRaccordement.geoparcelleId">
+                            <a [routerLink]="['/geo-parcelle', geuRaccordement.geoparcelleId , 'view']" >{{ geuRaccordement.geoparcelleId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geuRaccordement.agentId">
+                            <a [routerLink]="['/agent', geuRaccordement.agentId , 'view']" >{{ geuRaccordement.agentId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geuRaccordement.tacheronsId">
+                            <a [routerLink]="['/tacherons', geuRaccordement.tacheronsId , 'view']" >{{ geuRaccordement.tacheronsId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geuRaccordement.geuusageId">
+                            <a [routerLink]="['/geu-usage', geuRaccordement.geuusageId , 'view']" >{{ geuRaccordement.geuusageId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/geu-raccordement', geuRaccordement.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/geu-raccordement', geuRaccordement.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(geuRaccordement)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="geuRaccordements && geuRaccordements.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

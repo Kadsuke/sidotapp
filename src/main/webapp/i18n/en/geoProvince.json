@@ -1,0 +1,24 @@
+{
+  "sidotApp": {
+    "geoProvince": {
+      "home": {
+        "title": "Geo Provinces",
+        "createLabel": "Create a new Geo Province",
+        "createOrEditLabel": "Create or edit a Geo Province",
+        "notFound": "No Geo Provinces found"
+      },
+      "created": "A new Geo Province is created with identifier {{ param }}",
+      "updated": "A Geo Province is updated with identifier {{ param }}",
+      "deleted": "A Geo Province is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geo Province {{ id }}?"
+      },
+      "detail": {
+        "title": "Geo Province"
+      },
+      "libelle": "Libelle",
+      "geoCommune": "Geo Commune",
+      "georegion": "Georegion"
+    }
+  }
+}

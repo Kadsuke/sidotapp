@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="geuSTBV">
+            <h2><span jhiTranslate="sidotApp.geuSTBV.detail.title">Geu STBV</span> {{ geuSTBV.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.geuSTBV.libelStbv">Libel Stbv</span></dt>
+                <dd>
+                    <span>{{ geuSTBV.libelStbv }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuSTBV.responsable">Responsable</span></dt>
+                <dd>
+                    <span>{{ geuSTBV.responsable }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuSTBV.contact">Contact</span></dt>
+                <dd>
+                    <span>{{ geuSTBV.contact }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/geu-stbv', geuSTBV.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

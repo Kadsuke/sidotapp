@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="analyseParametre">
+            <h2><span jhiTranslate="sidotApp.analyseParametre.detail.title">Analyse Parametre</span> {{ analyseParametre.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.analyseParametre.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ analyseParametre.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.analyseParametre.analysespecialite">Analysespecialite</span></dt>
+                <dd>
+                    <div *ngIf="analyseParametre.analysespecialiteId">
+                        <a [routerLink]="['/analyse-specialite', analyseParametre.analysespecialiteId, 'view']">{{ analyseParametre.analysespecialiteId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/analyse-parametre', analyseParametre.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

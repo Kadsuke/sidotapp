@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "typeAnalyse": {
+      "home": {
+        "title": "TypeAnalyses",
+        "createLabel": "Créer un nouveau Type Analyse",
+        "createOrEditLabel": "Créer ou éditer un Type Analyse",
+        "notFound": "Aucun Type Analyse trouvé"
+      },
+      "created": "Un nouveau Type Analyse a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Analyse avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Analyse avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Analyse {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Analyse"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

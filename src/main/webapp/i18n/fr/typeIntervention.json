@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "typeIntervention": {
+      "home": {
+        "title": "TypeInterventions",
+        "createLabel": "Créer un nouveau Type Intervention",
+        "createOrEditLabel": "Créer ou éditer un Type Intervention",
+        "notFound": "Aucun Type Intervention trouvé"
+      },
+      "created": "Un nouveau Type Intervention a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Intervention avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Intervention avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Intervention {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Intervention"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

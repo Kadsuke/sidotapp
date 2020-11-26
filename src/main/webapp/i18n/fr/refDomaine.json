@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "refDomaine": {
+      "home": {
+        "title": "RefDomaines",
+        "createLabel": "Créer un nouveau Ref Domaine",
+        "createOrEditLabel": "Créer ou éditer un Ref Domaine",
+        "notFound": "Aucun Ref Domaine trouvé"
+      },
+      "created": "Un nouveau Ref Domaine a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Domaine avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Domaine avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ref Domaine {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Domaine"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "sidotApp": {
+    "geoSecteur": {
+      "home": {
+        "title": "GeoSecteurs",
+        "createLabel": "Créer un nouveau Geo Secteur",
+        "createOrEditLabel": "Créer ou éditer un Geo Secteur",
+        "notFound": "Aucun Geo Secteur trouvé"
+      },
+      "created": "Un nouveau Geo Secteur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Geo Secteur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Geo Secteur avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Geo Secteur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Geo Secteur"
+      },
+      "libelle": "Libelle",
+      "geoSection": "Geo Section",
+      "geolocalite": "Geolocalite"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "NatureOuvrage",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuAaOuvrage",
+      "otherEntityRelationshipName": "natureouvrage",
+      "relationshipName": "geuAaOuvrage"
+    }
+  ],
+  "changelogDate": "20201126110549",
+  "entityTableName": "nature_ouvrage",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

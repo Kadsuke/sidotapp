@@ -1,0 +1,41 @@
+{
+  "name": "GeoParcelle",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuAaOuvrage",
+      "otherEntityRelationshipName": "geoparcelle",
+      "relationshipName": "geuAaOuvrage"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuRaccordement",
+      "otherEntityRelationshipName": "geoparcelle",
+      "relationshipName": "geuRaccordement"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geoLot",
+      "otherEntityRelationshipName": "geoParcelle",
+      "relationshipName": "geolot",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126103749",
+  "entityTableName": "geo_parcelle",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

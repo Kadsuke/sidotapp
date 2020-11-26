@@ -1,0 +1,35 @@
+{
+  "name": "GeoSecteur",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geoSection",
+      "otherEntityRelationshipName": "geosecteur",
+      "relationshipName": "geoSection"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geoLocalite",
+      "otherEntityRelationshipName": "geoSecteur",
+      "relationshipName": "geolocalite",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126103449",
+  "entityTableName": "geo_secteur",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

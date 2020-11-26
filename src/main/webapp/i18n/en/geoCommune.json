@@ -1,0 +1,26 @@
+{
+  "sidotApp": {
+    "geoCommune": {
+      "home": {
+        "title": "Geo Communes",
+        "createLabel": "Create a new Geo Commune",
+        "createOrEditLabel": "Create or edit a Geo Commune",
+        "notFound": "No Geo Communes found"
+      },
+      "created": "A new Geo Commune is created with identifier {{ param }}",
+      "updated": "A Geo Commune is updated with identifier {{ param }}",
+      "deleted": "A Geo Commune is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geo Commune {{ id }}?"
+      },
+      "detail": {
+        "title": "Geo Commune"
+      },
+      "libelle": "Libelle",
+      "geoLocalite": "Geo Localite",
+      "geuPSA": "Geu PSA",
+      "geoprovince": "Geoprovince",
+      "geotypecommune": "Geotypecommune"
+    }
+  }
+}

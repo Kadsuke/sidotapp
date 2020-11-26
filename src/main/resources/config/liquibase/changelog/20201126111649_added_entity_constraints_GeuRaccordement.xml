@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity GeuRaccordement.
+    -->
+    <changeSet id="20201126111649-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="geoparcelle_id"
+                                 baseTableName="geu_raccordement"
+                                 constraintName="fk_geu_raccordement_geoparcelle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="geo_parcelle"/>
+
+        <addForeignKeyConstraint baseColumnNames="agent_id"
+                                 baseTableName="geu_raccordement"
+                                 constraintName="fk_geu_raccordement_agent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="agent"/>
+
+        <addForeignKeyConstraint baseColumnNames="tacherons_id"
+                                 baseTableName="geu_raccordement"
+                                 constraintName="fk_geu_raccordement_tacherons_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tacherons"/>
+
+        <addForeignKeyConstraint baseColumnNames="geuusage_id"
+                                 baseTableName="geu_raccordement"
+                                 constraintName="fk_geu_raccordement_geuusage_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="geu_usage"/>
+
+    </changeSet>
+</databaseChangeLog>

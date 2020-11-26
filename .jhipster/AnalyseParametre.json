@@ -1,0 +1,29 @@
+{
+  "name": "AnalyseParametre",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "analyseSpecialite",
+      "otherEntityRelationshipName": "analyseParametre",
+      "relationshipName": "analysespecialite",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126105249",
+  "entityTableName": "analyse_parametre",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

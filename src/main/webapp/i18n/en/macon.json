@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "macon": {
+      "home": {
+        "title": "Macons",
+        "createLabel": "Create a new Macon",
+        "createOrEditLabel": "Create or edit a Macon",
+        "notFound": "No Macons found"
+      },
+      "created": "A new Macon is created with identifier {{ param }}",
+      "updated": "A Macon is updated with identifier {{ param }}",
+      "deleted": "A Macon is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Macon {{ id }}?"
+      },
+      "detail": {
+        "title": "Macon"
+      },
+      "libelle": "Libelle",
+      "geuAaOuvrage": "Geu Aa Ouvrage"
+    }
+  }
+}

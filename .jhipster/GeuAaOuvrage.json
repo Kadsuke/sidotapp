@@ -1,0 +1,172 @@
+{
+  "name": "GeuAaOuvrage",
+  "fields": [
+    {
+      "fieldName": "refOuvrage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prjAppuis",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numCompteur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomBenef",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomBenef",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "professionBenef",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nbUsagers",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "codeUn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateRemiseDevis",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateDebutTravaux",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateFinTravaux",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "numNomRue",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numNomPorte",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "menage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subvOnea",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "subvProjet",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "autreSubv",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "refBonFourniture",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "realisPorte",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "realisToles",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "animateur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "superviseur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "controleur",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuRealisation",
+      "otherEntityRelationshipName": "geuaaouvrage",
+      "relationshipName": "geuRealisation"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geoParcelle",
+      "otherEntityRelationshipName": "geuAaOuvrage",
+      "relationshipName": "geoparcelle",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "natureOuvrage",
+      "otherEntityRelationshipName": "geuAaOuvrage",
+      "relationshipName": "natureouvrage",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeHabitation",
+      "otherEntityRelationshipName": "geuAaOuvrage",
+      "relationshipName": "typehabitation",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sourceApprovEp",
+      "otherEntityRelationshipName": "geuAaOuvrage",
+      "relationshipName": "sourceapprovep",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "modeEvacuationEauUsee",
+      "otherEntityRelationshipName": "geuAaOuvrage",
+      "relationshipName": "modeevacuationeauusee",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "modeEvacExcreta",
+      "otherEntityRelationshipName": "geuAaOuvrage",
+      "relationshipName": "modeevacexcreta",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "macon",
+      "otherEntityRelationshipName": "geuAaOuvrage",
+      "relationshipName": "macon",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "prefabricant",
+      "otherEntityRelationshipName": "geuAaOuvrage",
+      "relationshipName": "prefabricant",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126111449",
+  "entityTableName": "geu_aa_ouvrage",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

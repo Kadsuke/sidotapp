@@ -1,0 +1,48 @@
+{
+  "name": "GeoCommune",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geoLocalite",
+      "otherEntityRelationshipName": "geocommune",
+      "relationshipName": "geoLocalite"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuPSA",
+      "otherEntityRelationshipName": "geocommune",
+      "relationshipName": "geuPSA"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geoProvince",
+      "otherEntityRelationshipName": "geoCommune",
+      "relationshipName": "geoprovince",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geoTypeCommune",
+      "otherEntityRelationshipName": "geoCommune",
+      "relationshipName": "geotypecommune",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126103249",
+  "entityTableName": "geo_commune",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

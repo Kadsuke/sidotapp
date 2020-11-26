@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "modeEvacExcreta": {
+      "home": {
+        "title": "ModeEvacExcretas",
+        "createLabel": "Créer un nouveau Mode Evac Excreta",
+        "createOrEditLabel": "Créer ou éditer un Mode Evac Excreta",
+        "notFound": "Aucun Mode Evac Excreta trouvé"
+      },
+      "created": "Un nouveau Mode Evac Excreta a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Mode Evac Excreta avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Mode Evac Excreta avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Mode Evac Excreta {{ id }} ?"
+      },
+      "detail": {
+        "title": "Mode Evac Excreta"
+      },
+      "libelle": "Libelle",
+      "geuAaOuvrage": "Geu Aa Ouvrage"
+    }
+  }
+}

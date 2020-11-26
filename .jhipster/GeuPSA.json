@@ -1,0 +1,33 @@
+{
+  "name": "GeuPSA",
+  "fields": [
+    {
+      "fieldName": "dateElaboration",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateMiseEnOeuvre",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geoCommune",
+      "otherEntityRelationshipName": "geuPSA",
+      "relationshipName": "geocommune",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126111249",
+  "entityTableName": "geu_psa",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

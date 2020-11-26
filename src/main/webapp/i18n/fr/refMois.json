@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "refMois": {
+      "home": {
+        "title": "RefMois",
+        "createLabel": "Créer un nouveau Ref Mois",
+        "createOrEditLabel": "Créer ou éditer un Ref Mois",
+        "notFound": "Aucun Ref Mois trouvé"
+      },
+      "created": "Un nouveau Ref Mois a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Mois avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Mois avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ref Mois {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Mois"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

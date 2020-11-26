@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sidotApp.geuPrevisionSTEP.home.title">Geu Prevision STEPS</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-geu-prevision-step" [routerLink]="['/geu-prevision-step/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sidotApp.geuPrevisionSTEP.home.createLabel">
+            Create a new Geu Prevision STEP
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="geuPrevisionSTEPS?.length === 0">
+        <span jhiTranslate="sidotApp.geuPrevisionSTEP.home.notFound">No geuPrevisionSTEPS found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="geuPrevisionSTEPS && geuPrevisionSTEPS.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="datePrevStep"><span jhiTranslate="sidotApp.geuPrevisionSTEP.datePrevStep">Date Prev Step</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="volumePrevStep"><span jhiTranslate="sidotApp.geuPrevisionSTEP.volumePrevStep">Volume Prev Step</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="geustepId"><span jhiTranslate="sidotApp.geuPrevisionSTEP.geustep">Geustep</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let geuPrevisionSTEP of geuPrevisionSTEPS ;trackBy: trackId">
+                    <td><a [routerLink]="['/geu-prevision-step', geuPrevisionSTEP.id, 'view']">{{ geuPrevisionSTEP.id }}</a></td>
+                    <td>{{ geuPrevisionSTEP.datePrevStep | date:'medium' }}</td>
+                    <td>{{ geuPrevisionSTEP.volumePrevStep }}</td>
+                    <td>
+                        <div *ngIf="geuPrevisionSTEP.geustepId">
+                            <a [routerLink]="['/geu-step', geuPrevisionSTEP.geustepId , 'view']" >{{ geuPrevisionSTEP.geustepId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/geu-prevision-step', geuPrevisionSTEP.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/geu-prevision-step', geuPrevisionSTEP.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(geuPrevisionSTEP)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="geuPrevisionSTEPS && geuPrevisionSTEPS.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

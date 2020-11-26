@@ -1,0 +1,37 @@
+{
+  "name": "GeuPrevisionSTBV",
+  "fields": [
+    {
+      "fieldName": "nbCamions",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "volume",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "energie",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geuSTBV",
+      "otherEntityRelationshipName": "geuPrevisionSTBV",
+      "relationshipName": "geustbv",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126110949",
+  "entityTableName": "geu_prevision_stbv",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,24 @@
+{
+  "sidotApp": {
+    "geoLocalite": {
+      "home": {
+        "title": "Geo Localites",
+        "createLabel": "Create a new Geo Localite",
+        "createOrEditLabel": "Create or edit a Geo Localite",
+        "notFound": "No Geo Localites found"
+      },
+      "created": "A new Geo Localite is created with identifier {{ param }}",
+      "updated": "A Geo Localite is updated with identifier {{ param }}",
+      "deleted": "A Geo Localite is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geo Localite {{ id }}?"
+      },
+      "detail": {
+        "title": "Geo Localite"
+      },
+      "libelle": "Libelle",
+      "geoSecteur": "Geo Secteur",
+      "geocommune": "Geocommune"
+    }
+  }
+}

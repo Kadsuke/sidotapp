@@ -1,0 +1,36 @@
+{
+  "name": "DirectionRegionale",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "responsable",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "centreRegroupement",
+      "otherEntityRelationshipName": "directionregionale",
+      "relationshipName": "centreRegroupement"
+    }
+  ],
+  "changelogDate": "20201126103849",
+  "entityTableName": "direction_regionale",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

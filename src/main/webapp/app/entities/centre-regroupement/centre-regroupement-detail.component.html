@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="centreRegroupement">
+            <h2><span jhiTranslate="sidotApp.centreRegroupement.detail.title">Centre Regroupement</span> {{ centreRegroupement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.centreRegroupement.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ centreRegroupement.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.centreRegroupement.responsable">Responsable</span></dt>
+                <dd>
+                    <span>{{ centreRegroupement.responsable }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.centreRegroupement.contact">Contact</span></dt>
+                <dd>
+                    <span>{{ centreRegroupement.contact }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.centreRegroupement.directionregionale">Directionregionale</span></dt>
+                <dd>
+                    <div *ngIf="centreRegroupement.directionregionaleId">
+                        <a [routerLink]="['/direction-regionale', centreRegroupement.directionregionaleId, 'view']">{{ centreRegroupement.directionregionaleId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/centre-regroupement', centreRegroupement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

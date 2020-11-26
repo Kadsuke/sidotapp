@@ -1,0 +1,37 @@
+{
+  "name": "GeuRealisationSTBV",
+  "fields": [
+    {
+      "fieldName": "nbCamions",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "volume",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "energie",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geuSTBV",
+      "otherEntityRelationshipName": "geuRealisationSTBV",
+      "relationshipName": "geustbv",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126111049",
+  "entityTableName": "geu_realisation_stbv",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

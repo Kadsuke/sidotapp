@@ -1,0 +1,35 @@
+{
+  "name": "GeoLot",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geoParcelle",
+      "otherEntityRelationshipName": "geolot",
+      "relationshipName": "geoParcelle"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geoSection",
+      "otherEntityRelationshipName": "geoLot",
+      "relationshipName": "geosection",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126103649",
+  "entityTableName": "geo_lot",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

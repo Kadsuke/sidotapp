@@ -1,0 +1,25 @@
+{
+  "sidotApp": {
+    "caracteristiqueOuvrage": {
+      "home": {
+        "title": "CaracteristiqueOuvrages",
+        "createLabel": "Créer un nouveau Caracteristique Ouvrage",
+        "createOrEditLabel": "Créer ou éditer un Caracteristique Ouvrage",
+        "notFound": "Aucun Caracteristique Ouvrage trouvé"
+      },
+      "created": "Un nouveau Caracteristique Ouvrage a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Caracteristique Ouvrage avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Caracteristique Ouvrage avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Caracteristique Ouvrage {{ id }} ?"
+      },
+      "detail": {
+        "title": "Caracteristique Ouvrage"
+      },
+      "libelle": "Libelle",
+      "unite": "Unite",
+      "typeOuvrage": "Type Ouvrage",
+      "typeouvrage": "Typeouvrage"
+    }
+  }
+}

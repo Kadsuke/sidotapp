@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "etatOuvrage": {
+      "home": {
+        "title": "EtatOuvrages",
+        "createLabel": "Créer un nouveau Etat Ouvrage",
+        "createOrEditLabel": "Créer ou éditer un Etat Ouvrage",
+        "notFound": "Aucun Etat Ouvrage trouvé"
+      },
+      "created": "Un nouveau Etat Ouvrage a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Etat Ouvrage avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Etat Ouvrage avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Etat Ouvrage {{ id }} ?"
+      },
+      "detail": {
+        "title": "Etat Ouvrage"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

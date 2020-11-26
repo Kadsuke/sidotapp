@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity GeuAaOuvrage.
+    -->
+    <changeSet id="20201126111449-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="geoparcelle_id"
+                                 baseTableName="geu_aa_ouvrage"
+                                 constraintName="fk_geu_aa_ouvrage_geoparcelle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="geo_parcelle"/>
+
+        <addForeignKeyConstraint baseColumnNames="natureouvrage_id"
+                                 baseTableName="geu_aa_ouvrage"
+                                 constraintName="fk_geu_aa_ouvrage_natureouvrage_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nature_ouvrage"/>
+
+        <addForeignKeyConstraint baseColumnNames="typehabitation_id"
+                                 baseTableName="geu_aa_ouvrage"
+                                 constraintName="fk_geu_aa_ouvrage_typehabitation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_habitation"/>
+
+        <addForeignKeyConstraint baseColumnNames="sourceapprovep_id"
+                                 baseTableName="geu_aa_ouvrage"
+                                 constraintName="fk_geu_aa_ouvrage_sourceapprovep_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="source_approv_ep"/>
+
+        <addForeignKeyConstraint baseColumnNames="modeevacuationeauusee_id"
+                                 baseTableName="geu_aa_ouvrage"
+                                 constraintName="fk_geu_aa_ouvrage_modeevacuationeauusee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mode_evacuation_eau_usee"/>
+
+        <addForeignKeyConstraint baseColumnNames="modeevacexcreta_id"
+                                 baseTableName="geu_aa_ouvrage"
+                                 constraintName="fk_geu_aa_ouvrage_modeevacexcreta_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mode_evac_excreta"/>
+
+        <addForeignKeyConstraint baseColumnNames="macon_id"
+                                 baseTableName="geu_aa_ouvrage"
+                                 constraintName="fk_geu_aa_ouvrage_macon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="macon"/>
+
+        <addForeignKeyConstraint baseColumnNames="prefabricant_id"
+                                 baseTableName="geu_aa_ouvrage"
+                                 constraintName="fk_geu_aa_ouvrage_prefabricant_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prefabricant"/>
+
+    </changeSet>
+</databaseChangeLog>

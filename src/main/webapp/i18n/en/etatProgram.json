@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "etatProgram": {
+      "home": {
+        "title": "Etat Programs",
+        "createLabel": "Create a new Etat Program",
+        "createOrEditLabel": "Create or edit a Etat Program",
+        "notFound": "No Etat Programs found"
+      },
+      "created": "A new Etat Program is created with identifier {{ param }}",
+      "updated": "A Etat Program is updated with identifier {{ param }}",
+      "deleted": "A Etat Program is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Etat Program {{ id }}?"
+      },
+      "detail": {
+        "title": "Etat Program"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

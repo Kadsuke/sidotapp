@@ -1,0 +1,43 @@
+{
+  "name": "Centre",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "responsable",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "site",
+      "otherEntityRelationshipName": "centre",
+      "relationshipName": "site"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "centreRegroupement",
+      "otherEntityRelationshipName": "centre",
+      "relationshipName": "centreregroupement",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126104049",
+  "entityTableName": "centre",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

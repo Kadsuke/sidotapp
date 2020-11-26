@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "geoRegion": {
+      "home": {
+        "title": "Geo Regions",
+        "createLabel": "Create a new Geo Region",
+        "createOrEditLabel": "Create or edit a Geo Region",
+        "notFound": "No Geo Regions found"
+      },
+      "created": "A new Geo Region is created with identifier {{ param }}",
+      "updated": "A Geo Region is updated with identifier {{ param }}",
+      "deleted": "A Geo Region is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geo Region {{ id }}?"
+      },
+      "detail": {
+        "title": "Geo Region"
+      },
+      "libelle": "Libelle",
+      "geoProvince": "Geo Province"
+    }
+  }
+}

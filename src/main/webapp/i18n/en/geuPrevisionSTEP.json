@@ -1,0 +1,24 @@
+{
+  "sidotApp": {
+    "geuPrevisionSTEP": {
+      "home": {
+        "title": "Geu Prevision STEPS",
+        "createLabel": "Create a new Geu Prevision STEP",
+        "createOrEditLabel": "Create or edit a Geu Prevision STEP",
+        "notFound": "No Geu Prevision STEPS found"
+      },
+      "created": "A new Geu Prevision STEP is created with identifier {{ param }}",
+      "updated": "A Geu Prevision STEP is updated with identifier {{ param }}",
+      "deleted": "A Geu Prevision STEP is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geu Prevision STEP {{ id }}?"
+      },
+      "detail": {
+        "title": "Geu Prevision STEP"
+      },
+      "datePrevStep": "Date Prev Step",
+      "volumePrevStep": "Volume Prev Step",
+      "geustep": "Geustep"
+    }
+  }
+}

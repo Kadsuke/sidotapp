@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-geu-raccordement-heading" jhiTranslate="sidotApp.geuRaccordement.home.createOrEditLabel">Create or edit a Geu Raccordement</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.numAbonnement" for="field_numAbonnement">Num Abonnement</label>
+                    <input type="number" class="form-control" name="numAbonnement" id="field_numAbonnement"
+                           formControlName="numAbonnement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.nom" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.prenom" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                           formControlName="prenom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.adresse" for="field_adresse">Adresse</label>
+                    <input type="text" class="form-control" name="adresse" id="field_adresse"
+                           formControlName="adresse"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.proprietaireParacelle" for="field_proprietaireParacelle">Proprietaire Paracelle</label>
+                    <input type="text" class="form-control" name="proprietaireParacelle" id="field_proprietaireParacelle"
+                           formControlName="proprietaireParacelle"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.entreprise" for="field_entreprise">Entreprise</label>
+                    <input type="text" class="form-control" name="entreprise" id="field_entreprise"
+                           formControlName="entreprise"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.otherUsage" for="field_otherUsage">Other Usage</label>
+                    <input type="text" class="form-control" name="otherUsage" id="field_otherUsage"
+                           formControlName="otherUsage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.geoparcelle" for="field_geoparcelle">Geoparcelle</label>
+                    <select class="form-control" id="field_geoparcelle" name="geoparcelle" formControlName="geoparcelleId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="geoParcelleOption.id" *ngFor="let geoParcelleOption of geoparcelles; trackBy: trackById">{{ geoParcelleOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.agent" for="field_agent">Agent</label>
+                    <select class="form-control" id="field_agent" name="agent" formControlName="agentId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="agentOption.id" *ngFor="let agentOption of agents; trackBy: trackById">{{ agentOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.tacherons" for="field_tacherons">Tacherons</label>
+                    <select class="form-control" id="field_tacherons" name="tacherons" formControlName="tacheronsId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tacheronsOption.id" *ngFor="let tacheronsOption of tacherons; trackBy: trackById">{{ tacheronsOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.geuusage" for="field_geuusage">Geuusage</label>
+                    <select class="form-control" id="field_geuusage" name="geuusage" formControlName="geuusageId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="geuUsageOption.id" *ngFor="let geuUsageOption of geuusages; trackBy: trackById">{{ geuUsageOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

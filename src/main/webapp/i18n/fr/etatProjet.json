@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "etatProjet": {
+      "home": {
+        "title": "EtatProjets",
+        "createLabel": "Créer un nouveau Etat Projet",
+        "createOrEditLabel": "Créer ou éditer un Etat Projet",
+        "notFound": "Aucun Etat Projet trouvé"
+      },
+      "created": "Un nouveau Etat Projet a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Etat Projet avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Etat Projet avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Etat Projet {{ id }} ?"
+      },
+      "detail": {
+        "title": "Etat Projet"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

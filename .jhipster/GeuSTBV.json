@@ -1,0 +1,42 @@
+{
+  "name": "GeuSTBV",
+  "fields": [
+    {
+      "fieldName": "libelStbv",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "responsable",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuRealisationSTBV",
+      "otherEntityRelationshipName": "geustbv",
+      "relationshipName": "geuRealisationSTBV"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuPrevisionSTBV",
+      "otherEntityRelationshipName": "geustbv",
+      "relationshipName": "geuPrevisionSTBV"
+    }
+  ],
+  "changelogDate": "20201126110849",
+  "entityTableName": "geu_stbv",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

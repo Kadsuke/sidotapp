@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "typePlainte": {
+      "home": {
+        "title": "TypePlaintes",
+        "createLabel": "Créer un nouveau Type Plainte",
+        "createOrEditLabel": "Créer ou éditer un Type Plainte",
+        "notFound": "Aucun Type Plainte trouvé"
+      },
+      "created": "Un nouveau Type Plainte a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Plainte avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Plainte avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Plainte {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Plainte"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

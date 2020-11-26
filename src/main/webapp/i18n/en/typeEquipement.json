@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "typeEquipement": {
+      "home": {
+        "title": "Type Equipements",
+        "createLabel": "Create a new Type Equipement",
+        "createOrEditLabel": "Create or edit a Type Equipement",
+        "notFound": "No Type Equipements found"
+      },
+      "created": "A new Type Equipement is created with identifier {{ param }}",
+      "updated": "A Type Equipement is updated with identifier {{ param }}",
+      "deleted": "A Type Equipement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Equipement {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Equipement"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

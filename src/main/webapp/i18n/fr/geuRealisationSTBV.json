@@ -1,0 +1,25 @@
+{
+  "sidotApp": {
+    "geuRealisationSTBV": {
+      "home": {
+        "title": "GeuRealisationSTBVS",
+        "createLabel": "Créer un nouveau Geu Realisation STBV",
+        "createOrEditLabel": "Créer ou éditer un Geu Realisation STBV",
+        "notFound": "Aucun Geu Realisation STBV trouvé"
+      },
+      "created": "Un nouveau Geu Realisation STBV a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Geu Realisation STBV avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Geu Realisation STBV avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Geu Realisation STBV {{ id }} ?"
+      },
+      "detail": {
+        "title": "Geu Realisation STBV"
+      },
+      "nbCamions": "Nb Camions",
+      "volume": "Volume",
+      "energie": "Energie",
+      "geustbv": "Geustbv"
+    }
+  }
+}

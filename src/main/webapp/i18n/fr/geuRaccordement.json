@@ -1,0 +1,32 @@
+{
+  "sidotApp": {
+    "geuRaccordement": {
+      "home": {
+        "title": "GeuRaccordements",
+        "createLabel": "Créer un nouveau Geu Raccordement",
+        "createOrEditLabel": "Créer ou éditer un Geu Raccordement",
+        "notFound": "Aucun Geu Raccordement trouvé"
+      },
+      "created": "Un nouveau Geu Raccordement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Geu Raccordement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Geu Raccordement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Geu Raccordement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Geu Raccordement"
+      },
+      "numAbonnement": "Num Abonnement",
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "adresse": "Adresse",
+      "proprietaireParacelle": "Proprietaire Paracelle",
+      "entreprise": "Entreprise",
+      "otherUsage": "Other Usage",
+      "geoparcelle": "Geoparcelle",
+      "agent": "Agent",
+      "tacherons": "Tacherons",
+      "geuusage": "Geuusage"
+    }
+  }
+}

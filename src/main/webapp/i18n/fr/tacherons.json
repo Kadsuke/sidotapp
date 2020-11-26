@@ -1,0 +1,25 @@
+{
+  "sidotApp": {
+    "tacherons": {
+      "home": {
+        "title": "Tacherons",
+        "createLabel": "Créer un nouveau Tacherons",
+        "createOrEditLabel": "Créer ou éditer un Tacherons",
+        "notFound": "Aucun Tacherons trouvé"
+      },
+      "created": "Un nouveau Tacherons a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tacherons avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tacherons avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tacherons {{ id }} ?"
+      },
+      "detail": {
+        "title": "Tacherons"
+      },
+      "nom": "Nom",
+      "tel": "Tel",
+      "adresse": "Adresse",
+      "geuRaccordement": "Geu Raccordement"
+    }
+  }
+}

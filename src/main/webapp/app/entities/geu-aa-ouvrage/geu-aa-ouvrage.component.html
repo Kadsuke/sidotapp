@@ -1,0 +1,163 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sidotApp.geuAaOuvrage.home.title">Geu Aa Ouvrages</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-geu-aa-ouvrage" [routerLink]="['/geu-aa-ouvrage/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sidotApp.geuAaOuvrage.home.createLabel">
+            Create a new Geu Aa Ouvrage
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="geuAaOuvrages?.length === 0">
+        <span jhiTranslate="sidotApp.geuAaOuvrage.home.notFound">No geuAaOuvrages found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="geuAaOuvrages && geuAaOuvrages.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refOuvrage"><span jhiTranslate="sidotApp.geuAaOuvrage.refOuvrage">Ref Ouvrage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prjAppuis"><span jhiTranslate="sidotApp.geuAaOuvrage.prjAppuis">Prj Appuis</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numCompteur"><span jhiTranslate="sidotApp.geuAaOuvrage.numCompteur">Num Compteur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nomBenef"><span jhiTranslate="sidotApp.geuAaOuvrage.nomBenef">Nom Benef</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenomBenef"><span jhiTranslate="sidotApp.geuAaOuvrage.prenomBenef">Prenom Benef</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="professionBenef"><span jhiTranslate="sidotApp.geuAaOuvrage.professionBenef">Profession Benef</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbUsagers"><span jhiTranslate="sidotApp.geuAaOuvrage.nbUsagers">Nb Usagers</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="codeUn"><span jhiTranslate="sidotApp.geuAaOuvrage.codeUn">Code Un</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateRemiseDevis"><span jhiTranslate="sidotApp.geuAaOuvrage.dateRemiseDevis">Date Remise Devis</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDebutTravaux"><span jhiTranslate="sidotApp.geuAaOuvrage.dateDebutTravaux">Date Debut Travaux</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateFinTravaux"><span jhiTranslate="sidotApp.geuAaOuvrage.dateFinTravaux">Date Fin Travaux</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numNomRue"><span jhiTranslate="sidotApp.geuAaOuvrage.numNomRue">Num Nom Rue</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numNomPorte"><span jhiTranslate="sidotApp.geuAaOuvrage.numNomPorte">Num Nom Porte</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="menage"><span jhiTranslate="sidotApp.geuAaOuvrage.menage">Menage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subvOnea"><span jhiTranslate="sidotApp.geuAaOuvrage.subvOnea">Subv Onea</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="subvProjet"><span jhiTranslate="sidotApp.geuAaOuvrage.subvProjet">Subv Projet</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="autreSubv"><span jhiTranslate="sidotApp.geuAaOuvrage.autreSubv">Autre Subv</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refBonFourniture"><span jhiTranslate="sidotApp.geuAaOuvrage.refBonFourniture">Ref Bon Fourniture</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="realisPorte"><span jhiTranslate="sidotApp.geuAaOuvrage.realisPorte">Realis Porte</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="realisToles"><span jhiTranslate="sidotApp.geuAaOuvrage.realisToles">Realis Toles</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="animateur"><span jhiTranslate="sidotApp.geuAaOuvrage.animateur">Animateur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="superviseur"><span jhiTranslate="sidotApp.geuAaOuvrage.superviseur">Superviseur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="controleur"><span jhiTranslate="sidotApp.geuAaOuvrage.controleur">Controleur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="geoparcelleId"><span jhiTranslate="sidotApp.geuAaOuvrage.geoparcelle">Geoparcelle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="natureouvrageId"><span jhiTranslate="sidotApp.geuAaOuvrage.natureouvrage">Natureouvrage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="typehabitationId"><span jhiTranslate="sidotApp.geuAaOuvrage.typehabitation">Typehabitation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sourceapprovepId"><span jhiTranslate="sidotApp.geuAaOuvrage.sourceapprovep">Sourceapprovep</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modeevacuationeauuseeId"><span jhiTranslate="sidotApp.geuAaOuvrage.modeevacuationeauusee">Modeevacuationeauusee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="modeevacexcretaId"><span jhiTranslate="sidotApp.geuAaOuvrage.modeevacexcreta">Modeevacexcreta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="maconId"><span jhiTranslate="sidotApp.geuAaOuvrage.macon">Macon</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prefabricantId"><span jhiTranslate="sidotApp.geuAaOuvrage.prefabricant">Prefabricant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let geuAaOuvrage of geuAaOuvrages ;trackBy: trackId">
+                    <td><a [routerLink]="['/geu-aa-ouvrage', geuAaOuvrage.id, 'view']">{{ geuAaOuvrage.id }}</a></td>
+                    <td>{{ geuAaOuvrage.refOuvrage }}</td>
+                    <td>{{ geuAaOuvrage.prjAppuis }}</td>
+                    <td>{{ geuAaOuvrage.numCompteur }}</td>
+                    <td>{{ geuAaOuvrage.nomBenef }}</td>
+                    <td>{{ geuAaOuvrage.prenomBenef }}</td>
+                    <td>{{ geuAaOuvrage.professionBenef }}</td>
+                    <td>{{ geuAaOuvrage.nbUsagers }}</td>
+                    <td>{{ geuAaOuvrage.codeUn }}</td>
+                    <td>{{ geuAaOuvrage.dateRemiseDevis | date:'medium' }}</td>
+                    <td>{{ geuAaOuvrage.dateDebutTravaux | date:'medium' }}</td>
+                    <td>{{ geuAaOuvrage.dateFinTravaux | date:'medium' }}</td>
+                    <td>{{ geuAaOuvrage.numNomRue }}</td>
+                    <td>{{ geuAaOuvrage.numNomPorte }}</td>
+                    <td>{{ geuAaOuvrage.menage }}</td>
+                    <td>{{ geuAaOuvrage.subvOnea }}</td>
+                    <td>{{ geuAaOuvrage.subvProjet }}</td>
+                    <td>{{ geuAaOuvrage.autreSubv }}</td>
+                    <td>{{ geuAaOuvrage.refBonFourniture }}</td>
+                    <td>{{ geuAaOuvrage.realisPorte }}</td>
+                    <td>{{ geuAaOuvrage.realisToles }}</td>
+                    <td>{{ geuAaOuvrage.animateur }}</td>
+                    <td>{{ geuAaOuvrage.superviseur }}</td>
+                    <td>{{ geuAaOuvrage.controleur }}</td>
+                    <td>
+                        <div *ngIf="geuAaOuvrage.geoparcelleId">
+                            <a [routerLink]="['/geo-parcelle', geuAaOuvrage.geoparcelleId , 'view']" >{{ geuAaOuvrage.geoparcelleId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geuAaOuvrage.natureouvrageId">
+                            <a [routerLink]="['/nature-ouvrage', geuAaOuvrage.natureouvrageId , 'view']" >{{ geuAaOuvrage.natureouvrageId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geuAaOuvrage.typehabitationId">
+                            <a [routerLink]="['/type-habitation', geuAaOuvrage.typehabitationId , 'view']" >{{ geuAaOuvrage.typehabitationId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geuAaOuvrage.sourceapprovepId">
+                            <a [routerLink]="['/source-approv-ep', geuAaOuvrage.sourceapprovepId , 'view']" >{{ geuAaOuvrage.sourceapprovepId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geuAaOuvrage.modeevacuationeauuseeId">
+                            <a [routerLink]="['/mode-evacuation-eau-usee', geuAaOuvrage.modeevacuationeauuseeId , 'view']" >{{ geuAaOuvrage.modeevacuationeauuseeId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geuAaOuvrage.modeevacexcretaId">
+                            <a [routerLink]="['/mode-evac-excreta', geuAaOuvrage.modeevacexcretaId , 'view']" >{{ geuAaOuvrage.modeevacexcretaId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geuAaOuvrage.maconId">
+                            <a [routerLink]="['/macon', geuAaOuvrage.maconId , 'view']" >{{ geuAaOuvrage.maconId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="geuAaOuvrage.prefabricantId">
+                            <a [routerLink]="['/prefabricant', geuAaOuvrage.prefabricantId , 'view']" >{{ geuAaOuvrage.prefabricantId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/geu-aa-ouvrage', geuAaOuvrage.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/geu-aa-ouvrage', geuAaOuvrage.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(geuAaOuvrage)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="geuAaOuvrages && geuAaOuvrages.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="geuPrevisionSTEP">
+            <h2><span jhiTranslate="sidotApp.geuPrevisionSTEP.detail.title">Geu Prevision STEP</span> {{ geuPrevisionSTEP.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.geuPrevisionSTEP.datePrevStep">Date Prev Step</span></dt>
+                <dd>
+                    <span>{{ geuPrevisionSTEP.datePrevStep }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuPrevisionSTEP.volumePrevStep">Volume Prev Step</span></dt>
+                <dd>
+                    <span>{{ geuPrevisionSTEP.volumePrevStep }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuPrevisionSTEP.geustep">Geustep</span></dt>
+                <dd>
+                    <div *ngIf="geuPrevisionSTEP.geustepId">
+                        <a [routerLink]="['/geu-step', geuPrevisionSTEP.geustepId, 'view']">{{ geuPrevisionSTEP.geustepId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/geu-prevision-step', geuPrevisionSTEP.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

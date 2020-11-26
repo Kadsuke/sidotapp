@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "typePlainte": {
+      "home": {
+        "title": "Type Plaintes",
+        "createLabel": "Create a new Type Plainte",
+        "createOrEditLabel": "Create or edit a Type Plainte",
+        "notFound": "No Type Plaintes found"
+      },
+      "created": "A new Type Plainte is created with identifier {{ param }}",
+      "updated": "A Type Plainte is updated with identifier {{ param }}",
+      "deleted": "A Type Plainte is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Plainte {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Plainte"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

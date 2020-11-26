@@ -1,0 +1,24 @@
+{
+  "sidotApp": {
+    "geoSection": {
+      "home": {
+        "title": "GeoSections",
+        "createLabel": "Créer un nouveau Geo Section",
+        "createOrEditLabel": "Créer ou éditer un Geo Section",
+        "notFound": "Aucun Geo Section trouvé"
+      },
+      "created": "Un nouveau Geo Section a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Geo Section avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Geo Section avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Geo Section {{ id }} ?"
+      },
+      "detail": {
+        "title": "Geo Section"
+      },
+      "libelle": "Libelle",
+      "geoLot": "Geo Lot",
+      "geosecteur": "Geosecteur"
+    }
+  }
+}

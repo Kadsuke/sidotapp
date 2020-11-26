@@ -1,0 +1,25 @@
+{
+  "sidotApp": {
+    "tacherons": {
+      "home": {
+        "title": "Tacherons",
+        "createLabel": "Create a new Tacherons",
+        "createOrEditLabel": "Create or edit a Tacherons",
+        "notFound": "No Tacherons found"
+      },
+      "created": "A new Tacherons is created with identifier {{ param }}",
+      "updated": "A Tacherons is updated with identifier {{ param }}",
+      "deleted": "A Tacherons is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tacherons {{ id }}?"
+      },
+      "detail": {
+        "title": "Tacherons"
+      },
+      "nom": "Nom",
+      "tel": "Tel",
+      "adresse": "Adresse",
+      "geuRaccordement": "Geu Raccordement"
+    }
+  }
+}

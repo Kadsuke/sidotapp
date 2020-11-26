@@ -1,0 +1,166 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="geuAaOuvrage">
+            <h2><span jhiTranslate="sidotApp.geuAaOuvrage.detail.title">Geu Aa Ouvrage</span> {{ geuAaOuvrage.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.refOuvrage">Ref Ouvrage</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.refOuvrage }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.prjAppuis">Prj Appuis</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.prjAppuis }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.numCompteur">Num Compteur</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.numCompteur }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.nomBenef">Nom Benef</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.nomBenef }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.prenomBenef">Prenom Benef</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.prenomBenef }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.professionBenef">Profession Benef</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.professionBenef }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.nbUsagers">Nb Usagers</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.nbUsagers }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.codeUn">Code Un</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.codeUn }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.dateRemiseDevis">Date Remise Devis</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.dateRemiseDevis }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.dateDebutTravaux">Date Debut Travaux</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.dateDebutTravaux }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.dateFinTravaux">Date Fin Travaux</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.dateFinTravaux }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.numNomRue">Num Nom Rue</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.numNomRue }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.numNomPorte">Num Nom Porte</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.numNomPorte }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.menage">Menage</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.menage }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.subvOnea">Subv Onea</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.subvOnea }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.subvProjet">Subv Projet</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.subvProjet }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.autreSubv">Autre Subv</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.autreSubv }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.refBonFourniture">Ref Bon Fourniture</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.refBonFourniture }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.realisPorte">Realis Porte</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.realisPorte }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.realisToles">Realis Toles</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.realisToles }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.animateur">Animateur</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.animateur }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.superviseur">Superviseur</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.superviseur }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.controleur">Controleur</span></dt>
+                <dd>
+                    <span>{{ geuAaOuvrage.controleur }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.geoparcelle">Geoparcelle</span></dt>
+                <dd>
+                    <div *ngIf="geuAaOuvrage.geoparcelleId">
+                        <a [routerLink]="['/geo-parcelle', geuAaOuvrage.geoparcelleId, 'view']">{{ geuAaOuvrage.geoparcelleId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.natureouvrage">Natureouvrage</span></dt>
+                <dd>
+                    <div *ngIf="geuAaOuvrage.natureouvrageId">
+                        <a [routerLink]="['/nature-ouvrage', geuAaOuvrage.natureouvrageId, 'view']">{{ geuAaOuvrage.natureouvrageId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.typehabitation">Typehabitation</span></dt>
+                <dd>
+                    <div *ngIf="geuAaOuvrage.typehabitationId">
+                        <a [routerLink]="['/type-habitation', geuAaOuvrage.typehabitationId, 'view']">{{ geuAaOuvrage.typehabitationId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.sourceapprovep">Sourceapprovep</span></dt>
+                <dd>
+                    <div *ngIf="geuAaOuvrage.sourceapprovepId">
+                        <a [routerLink]="['/source-approv-ep', geuAaOuvrage.sourceapprovepId, 'view']">{{ geuAaOuvrage.sourceapprovepId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.modeevacuationeauusee">Modeevacuationeauusee</span></dt>
+                <dd>
+                    <div *ngIf="geuAaOuvrage.modeevacuationeauuseeId">
+                        <a [routerLink]="['/mode-evacuation-eau-usee', geuAaOuvrage.modeevacuationeauuseeId, 'view']">{{ geuAaOuvrage.modeevacuationeauuseeId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.modeevacexcreta">Modeevacexcreta</span></dt>
+                <dd>
+                    <div *ngIf="geuAaOuvrage.modeevacexcretaId">
+                        <a [routerLink]="['/mode-evac-excreta', geuAaOuvrage.modeevacexcretaId, 'view']">{{ geuAaOuvrage.modeevacexcretaId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.macon">Macon</span></dt>
+                <dd>
+                    <div *ngIf="geuAaOuvrage.maconId">
+                        <a [routerLink]="['/macon', geuAaOuvrage.maconId, 'view']">{{ geuAaOuvrage.maconId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuAaOuvrage.prefabricant">Prefabricant</span></dt>
+                <dd>
+                    <div *ngIf="geuAaOuvrage.prefabricantId">
+                        <a [routerLink]="['/prefabricant', geuAaOuvrage.prefabricantId, 'view']">{{ geuAaOuvrage.prefabricantId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/geu-aa-ouvrage', geuAaOuvrage.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
