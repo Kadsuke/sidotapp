@@ -1,0 +1,334 @@
+/**
+*Les entites
+*/
+entity RefAnnee{
+	libelle String
+}
+entity RefMois{
+	libelle String
+}
+entity RefDomaine{
+	libelle String
+}
+entity RefSousDomaine{
+	libelle String
+}
+entity RefPeriodicite{
+	libelle String
+}
+entity GeoTypeCommune{
+	libelle String
+}
+entity GeoRegion{
+	libelle String
+}
+entity GeoProvince{
+	libelle String
+}
+entity GeoCommune{
+	libelle String
+}
+entity GeoLocalite{
+	libelle String
+}
+entity GeoSecteur{
+	libelle String
+}
+entity GeoSection{
+	libelle String
+}
+entity GeoLot{
+	libelle String
+}
+entity GeoParcelle{
+	libelle String
+}
+entity DirectionRegionale{
+	libelle String,
+    responsable String,
+    contact String
+}
+entity CentreRegroupement{
+	libelle String,
+    responsable String,
+    contact String
+}
+entity Centre{
+	libelle String,
+    responsable String,
+    contact String
+}
+entity Site{
+	libelle String,
+    responsable String,
+    contact String
+}
+entity Agent{
+	nom String,
+    numero String,
+    role String
+}
+entity CategorieRessources{
+	libelle String
+}
+entity TypeOuvrage{
+	libelle String
+}
+entity CaracteristiqueOuvrage{
+	libelle String,
+    unite String
+}
+entity EtatOuvrage{
+	libelle String
+}
+entity EtatEquipement{
+	libelle String
+}
+entity TypeEquipement{
+	libelle String
+}
+entity ProduitChimique{
+	libelle String
+}
+entity AnalyseSpecialite{
+	libelle String
+}
+entity TypeAnalyse{
+	libelle String
+}
+entity AnalyseParametre{
+	libelle String
+}
+entity TypeBeneficiaire{
+	libelle String
+}
+entity Laboratoire{
+	libelle String
+}
+entity EtatProgram{
+	libelle String
+}
+entity EtatProjet{
+	libelle String
+}
+entity Prestataire{
+	libelle String
+    responsable String,
+    contact String
+}
+entity Bailleur{
+	libelle String,
+    responsbale String,
+    contact String
+}
+entity SourceApprovEp{
+	libelle String
+}
+entity TypeHabitation{
+	libelle String
+}
+entity ModeEvacuationEauUsee{
+	libelle String
+}
+entity ModeEvacExcreta{
+	libelle String
+}
+entity Prefabricant{
+	libelle String
+}
+entity Macon{
+	libelle String
+}
+entity NatureOuvrage{
+	libelle String
+}
+entity TypeIntervention{
+	libelle String
+}
+entity TypePlainte{
+	libelle String
+}
+entity GeuSTBV {
+	libelStbv String,
+    responsable String,
+    contact String
+}
+entity GeuPrevisionSTBV{
+	nbCamions String,
+    volume String,
+    energie String
+}
+entity GeuRealisationSTBV{
+	nbCamions String,
+    volume String,
+    energie String
+}
+
+entity GeuSTEP{
+	libelSTEP String,
+    responsable String,
+    contact String
+}
+
+entity GeuPSA{
+	dateElaboration Instant,
+    dateMiseEnOeuvre Instant
+}
+entity GeuPrevisionSTEP{
+	datePrevStep Instant,
+    volumePrevStep String
+}
+entity GeuAaOuvrage{
+	refOuvrage String,
+    prjAppuis String,
+    numCompteur String,
+    nomBenef String,
+    prenomBenef String,
+    professionBenef String,
+    nbUsagers Long,
+    codeUn String,
+    dateRemiseDevis Instant,
+    dateDebutTravaux Instant,
+    dateFinTravaux Instant,
+    numNomRue String,
+    numNomPorte String,
+    menage String,
+    subvOnea Integer,
+    subvProjet Integer,
+    autreSubv Integer,
+    refBonFourniture String,
+    realisPorte Integer,
+    realisToles Integer,
+    animateur String,
+    superviseur String,
+    controleur String,
+    menage String,
+}
+entity GeuRealisation{
+	nbRealisation Float
+}
+entity GeuRaccordement{
+	  numAbonnement Long,
+      nom	String,
+      prenom String,
+      adresse String,
+      proprietaireParacelle String,
+      entreprise String,
+      otherUsage String
+}
+entity Tacherons{
+	  nom String,
+      tel String,
+      adresse String
+}
+entity GeuUsage{
+	libelle String
+}
+/***
+*Les relations
+*/
+relationship OneToMany {
+GeoRegion to GeoProvince {georegion}
+}
+relationship OneToMany {
+GeoProvince to GeoCommune {geoprovince}
+}
+relationship OneToMany {
+GeoTypeCommune to GeoCommune {geotypecommune}
+}
+relationship OneToMany {
+GeoCommune to GeoLocalite {geocommune}
+}
+relationship OneToMany {
+GeoLocalite to GeoSecteur {geolocalite}
+}
+relationship OneToMany {
+GeoSecteur to GeoSection {geosecteur}
+}
+relationship OneToMany {
+GeoSection to GeoLot {geosection}
+}
+relationship OneToMany {
+GeoLot to GeoParcelle {geolot}
+}
+relationship OneToMany {
+DirectionRegionale to CentreRegroupement {directionregionale}
+}
+relationship OneToMany {
+CentreRegroupement to Centre {centreregroupement}
+}
+relationship OneToMany {
+Centre to Site {centre}
+}
+relationship OneToMany {
+Site to Agent {site}
+}
+relationship OneToMany {
+CategorieRessources to TypeOuvrage {categorieressources}
+}
+relationship OneToMany {
+TypeOuvrage to CaracteristiqueOuvrage{typeouvrage}
+}
+relationship OneToMany {
+CaracteristiqueOuvrage to TypeOuvrage {caracteristiqueouvrage}
+}
+relationship OneToMany {
+AnalyseSpecialite to AnalyseParametre {analysespecialite}
+}
+relationship OneToMany {
+GeuSTBV to GeuRealisationSTBV {geustbv}
+}
+relationship OneToMany {
+GeuSTBV to GeuPrevisionSTBV {geustbv}
+}
+relationship OneToMany {
+GeuSTEP to GeuPrevisionSTEP {geustep}
+}
+relationship OneToMany {
+GeoCommune to GeuPSA {geocommune}
+}
+relationship OneToMany {
+GeoRegion to GeoProvince {georegion}
+}
+relationship OneToMany {
+GeoParcelle to GeuAaOuvrage {geoparcelle}
+}
+relationship OneToMany {
+NatureOuvrage to GeuAaOuvrage {natureouvrage}
+}
+relationship OneToMany {
+TypeHabitation to GeuAaOuvrage {typehabitation}
+}
+relationship OneToMany {
+SourceApprovEp to GeuAaOuvrage {sourceapprovep}
+}
+relationship OneToMany {
+ModeEvacuationEauUsee to GeuAaOuvrage {modeevacuationeauusee}
+}
+relationship OneToMany {
+ModeEvacExcreta to GeuAaOuvrage {modeevacexcreta}
+}
+relationship OneToMany {
+Macon to GeuAaOuvrage {macon}
+}
+relationship OneToMany {
+Prefabricant to GeuAaOuvrage {prefabricant}
+}
+relationship OneToMany {
+GeuAaOuvrage to GeuRealisation {geuaaouvrage}
+}
+relationship OneToMany {
+GeoParcelle to GeuRaccordement {geoparcelle}
+}
+relationship OneToMany {
+Agent to GeuRaccordement {agent}
+}
+relationship OneToMany {
+Tacherons to GeuRaccordement {tacherons}
+}
+relationship OneToMany {
+GeuUsage to GeuRaccordement {geuusage}
+}
+service * with serviceClass
+dto * with mapstruct
+paginate * with pagination
