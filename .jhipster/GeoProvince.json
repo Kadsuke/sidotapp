@@ -1,0 +1,35 @@
+{
+  "name": "GeoProvince",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geoCommune",
+      "otherEntityRelationshipName": "geoprovince",
+      "relationshipName": "geoCommune"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geoRegion",
+      "otherEntityRelationshipName": "geoProvince",
+      "relationshipName": "georegion",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126103149",
+  "entityTableName": "geo_province",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

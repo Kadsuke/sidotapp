@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "produitChimique": {
+      "home": {
+        "title": "ProduitChimiques",
+        "createLabel": "Créer un nouveau Produit Chimique",
+        "createOrEditLabel": "Créer ou éditer un Produit Chimique",
+        "notFound": "Aucun Produit Chimique trouvé"
+      },
+      "created": "Un nouveau Produit Chimique a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Produit Chimique avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Produit Chimique avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Produit Chimique {{ id }} ?"
+      },
+      "detail": {
+        "title": "Produit Chimique"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

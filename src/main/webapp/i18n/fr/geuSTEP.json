@@ -1,0 +1,25 @@
+{
+  "sidotApp": {
+    "geuSTEP": {
+      "home": {
+        "title": "GeuSTEPS",
+        "createLabel": "Créer un nouveau Geu STEP",
+        "createOrEditLabel": "Créer ou éditer un Geu STEP",
+        "notFound": "Aucun Geu STEP trouvé"
+      },
+      "created": "Un nouveau Geu STEP a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Geu STEP avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Geu STEP avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Geu STEP {{ id }} ?"
+      },
+      "detail": {
+        "title": "Geu STEP"
+      },
+      "libelSTEP": "Libel STEP",
+      "responsable": "Responsable",
+      "contact": "Contact",
+      "geuPrevisionSTEP": "Geu Prevision STEP"
+    }
+  }
+}

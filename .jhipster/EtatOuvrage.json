@@ -1,0 +1,21 @@
+{
+  "name": "EtatOuvrage",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201126104649",
+  "entityTableName": "etat_ouvrage",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

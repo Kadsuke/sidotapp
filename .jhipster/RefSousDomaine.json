@@ -1,0 +1,21 @@
+{
+  "name": "RefSousDomaine",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201126102749",
+  "entityTableName": "ref_sous_domaine",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

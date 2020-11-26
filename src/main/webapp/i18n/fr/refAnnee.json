@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "refAnnee": {
+      "home": {
+        "title": "RefAnnees",
+        "createLabel": "Créer un nouveau Ref Annee",
+        "createOrEditLabel": "Créer ou éditer un Ref Annee",
+        "notFound": "Aucun Ref Annee trouvé"
+      },
+      "created": "Un nouveau Ref Annee a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Annee avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Annee avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ref Annee {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Annee"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

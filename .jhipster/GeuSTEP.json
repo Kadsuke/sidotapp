@@ -1,0 +1,36 @@
+{
+  "name": "GeuSTEP",
+  "fields": [
+    {
+      "fieldName": "libelSTEP",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "responsable",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuPrevisionSTEP",
+      "otherEntityRelationshipName": "geustep",
+      "relationshipName": "geuPrevisionSTEP"
+    }
+  ],
+  "changelogDate": "20201126111149",
+  "entityTableName": "geu_step",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

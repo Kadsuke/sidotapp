@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="geuSTEP">
+            <h2><span jhiTranslate="sidotApp.geuSTEP.detail.title">Geu STEP</span> {{ geuSTEP.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.geuSTEP.libelSTEP">Libel STEP</span></dt>
+                <dd>
+                    <span>{{ geuSTEP.libelSTEP }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuSTEP.responsable">Responsable</span></dt>
+                <dd>
+                    <span>{{ geuSTEP.responsable }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuSTEP.contact">Contact</span></dt>
+                <dd>
+                    <span>{{ geuSTEP.contact }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/geu-step', geuSTEP.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

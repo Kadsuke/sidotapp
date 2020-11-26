@@ -1,0 +1,21 @@
+{
+  "name": "Laboratoire",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20201126105449",
+  "entityTableName": "laboratoire",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

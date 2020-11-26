@@ -1,0 +1,25 @@
+{
+  "sidotApp": {
+    "geuRealisationSTBV": {
+      "home": {
+        "title": "Geu Realisation STBVS",
+        "createLabel": "Create a new Geu Realisation STBV",
+        "createOrEditLabel": "Create or edit a Geu Realisation STBV",
+        "notFound": "No Geu Realisation STBVS found"
+      },
+      "created": "A new Geu Realisation STBV is created with identifier {{ param }}",
+      "updated": "A Geu Realisation STBV is updated with identifier {{ param }}",
+      "deleted": "A Geu Realisation STBV is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geu Realisation STBV {{ id }}?"
+      },
+      "detail": {
+        "title": "Geu Realisation STBV"
+      },
+      "nbCamions": "Nb Camions",
+      "volume": "Volume",
+      "energie": "Energie",
+      "geustbv": "Geustbv"
+    }
+  }
+}

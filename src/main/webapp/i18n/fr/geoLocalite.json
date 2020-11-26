@@ -1,0 +1,24 @@
+{
+  "sidotApp": {
+    "geoLocalite": {
+      "home": {
+        "title": "GeoLocalites",
+        "createLabel": "Créer un nouveau Geo Localite",
+        "createOrEditLabel": "Créer ou éditer un Geo Localite",
+        "notFound": "Aucun Geo Localite trouvé"
+      },
+      "created": "Un nouveau Geo Localite a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Geo Localite avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Geo Localite avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Geo Localite {{ id }} ?"
+      },
+      "detail": {
+        "title": "Geo Localite"
+      },
+      "libelle": "Libelle",
+      "geoSecteur": "Geo Secteur",
+      "geocommune": "Geocommune"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="refMois">
+            <h2><span jhiTranslate="sidotApp.refMois.detail.title">Ref Mois</span> {{ refMois.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.refMois.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ refMois.libelle }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ref-mois', refMois.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

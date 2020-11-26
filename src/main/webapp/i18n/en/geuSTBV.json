@@ -1,0 +1,26 @@
+{
+  "sidotApp": {
+    "geuSTBV": {
+      "home": {
+        "title": "Geu STBVS",
+        "createLabel": "Create a new Geu STBV",
+        "createOrEditLabel": "Create or edit a Geu STBV",
+        "notFound": "No Geu STBVS found"
+      },
+      "created": "A new Geu STBV is created with identifier {{ param }}",
+      "updated": "A Geu STBV is updated with identifier {{ param }}",
+      "deleted": "A Geu STBV is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geu STBV {{ id }}?"
+      },
+      "detail": {
+        "title": "Geu STBV"
+      },
+      "libelStbv": "Libel Stbv",
+      "responsable": "Responsable",
+      "contact": "Contact",
+      "geuRealisationSTBV": "Geu Realisation STBV",
+      "geuPrevisionSTBV": "Geu Prevision STBV"
+    }
+  }
+}

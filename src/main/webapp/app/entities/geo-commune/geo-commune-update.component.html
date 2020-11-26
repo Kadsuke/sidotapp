@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-geo-commune-heading" jhiTranslate="sidotApp.geoCommune.home.createOrEditLabel">Create or edit a Geo Commune</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geoCommune.libelle" for="field_libelle">Libelle</label>
+                    <input type="text" class="form-control" name="libelle" id="field_libelle"
+                           formControlName="libelle"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geoCommune.geoprovince" for="field_geoprovince">Geoprovince</label>
+                    <select class="form-control" id="field_geoprovince" name="geoprovince" formControlName="geoprovinceId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="geoProvinceOption.id" *ngFor="let geoProvinceOption of geoprovinces; trackBy: trackById">{{ geoProvinceOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geoCommune.geotypecommune" for="field_geotypecommune">Geotypecommune</label>
+                    <select class="form-control" id="field_geotypecommune" name="geotypecommune" formControlName="geotypecommuneId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="geoTypeCommuneOption.id" *ngFor="let geoTypeCommuneOption of geotypecommunes; trackBy: trackById">{{ geoTypeCommuneOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

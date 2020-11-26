@@ -1,0 +1,53 @@
+{
+  "sidotApp": {
+    "geuAaOuvrage": {
+      "home": {
+        "title": "Geu Aa Ouvrages",
+        "createLabel": "Create a new Geu Aa Ouvrage",
+        "createOrEditLabel": "Create or edit a Geu Aa Ouvrage",
+        "notFound": "No Geu Aa Ouvrages found"
+      },
+      "created": "A new Geu Aa Ouvrage is created with identifier {{ param }}",
+      "updated": "A Geu Aa Ouvrage is updated with identifier {{ param }}",
+      "deleted": "A Geu Aa Ouvrage is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geu Aa Ouvrage {{ id }}?"
+      },
+      "detail": {
+        "title": "Geu Aa Ouvrage"
+      },
+      "refOuvrage": "Ref Ouvrage",
+      "prjAppuis": "Prj Appuis",
+      "numCompteur": "Num Compteur",
+      "nomBenef": "Nom Benef",
+      "prenomBenef": "Prenom Benef",
+      "professionBenef": "Profession Benef",
+      "nbUsagers": "Nb Usagers",
+      "codeUn": "Code Un",
+      "dateRemiseDevis": "Date Remise Devis",
+      "dateDebutTravaux": "Date Debut Travaux",
+      "dateFinTravaux": "Date Fin Travaux",
+      "numNomRue": "Num Nom Rue",
+      "numNomPorte": "Num Nom Porte",
+      "menage": "Menage",
+      "subvOnea": "Subv Onea",
+      "subvProjet": "Subv Projet",
+      "autreSubv": "Autre Subv",
+      "refBonFourniture": "Ref Bon Fourniture",
+      "realisPorte": "Realis Porte",
+      "realisToles": "Realis Toles",
+      "animateur": "Animateur",
+      "superviseur": "Superviseur",
+      "controleur": "Controleur",
+      "geuRealisation": "Geu Realisation",
+      "geoparcelle": "Geoparcelle",
+      "natureouvrage": "Natureouvrage",
+      "typehabitation": "Typehabitation",
+      "sourceapprovep": "Sourceapprovep",
+      "modeevacuationeauusee": "Modeevacuationeauusee",
+      "modeevacexcreta": "Modeevacexcreta",
+      "macon": "Macon",
+      "prefabricant": "Prefabricant"
+    }
+  }
+}

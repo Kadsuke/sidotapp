@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "refSousDomaine": {
+      "home": {
+        "title": "RefSousDomaines",
+        "createLabel": "Créer un nouveau Ref Sous Domaine",
+        "createOrEditLabel": "Créer ou éditer un Ref Sous Domaine",
+        "notFound": "Aucun Ref Sous Domaine trouvé"
+      },
+      "created": "Un nouveau Ref Sous Domaine a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Sous Domaine avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Sous Domaine avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ref Sous Domaine {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Sous Domaine"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

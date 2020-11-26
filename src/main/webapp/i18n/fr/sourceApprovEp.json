@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "sourceApprovEp": {
+      "home": {
+        "title": "SourceApprovEps",
+        "createLabel": "Créer un nouveau Source Approv Ep",
+        "createOrEditLabel": "Créer ou éditer un Source Approv Ep",
+        "notFound": "Aucun Source Approv Ep trouvé"
+      },
+      "created": "Un nouveau Source Approv Ep a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Source Approv Ep avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Source Approv Ep avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Source Approv Ep {{ id }} ?"
+      },
+      "detail": {
+        "title": "Source Approv Ep"
+      },
+      "libelle": "Libelle",
+      "geuAaOuvrage": "Geu Aa Ouvrage"
+    }
+  }
+}

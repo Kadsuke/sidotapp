@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="caracteristiqueOuvrage">
+            <h2><span jhiTranslate="sidotApp.caracteristiqueOuvrage.detail.title">Caracteristique Ouvrage</span> {{ caracteristiqueOuvrage.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.caracteristiqueOuvrage.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ caracteristiqueOuvrage.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.caracteristiqueOuvrage.unite">Unite</span></dt>
+                <dd>
+                    <span>{{ caracteristiqueOuvrage.unite }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.caracteristiqueOuvrage.typeouvrage">Typeouvrage</span></dt>
+                <dd>
+                    <div *ngIf="caracteristiqueOuvrage.typeouvrageId">
+                        <a [routerLink]="['/type-ouvrage', caracteristiqueOuvrage.typeouvrageId, 'view']">{{ caracteristiqueOuvrage.typeouvrageId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/caracteristique-ouvrage', caracteristiqueOuvrage.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{
+  "name": "GeoLocalite",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geoSecteur",
+      "otherEntityRelationshipName": "geolocalite",
+      "relationshipName": "geoSecteur"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geoCommune",
+      "otherEntityRelationshipName": "geoLocalite",
+      "relationshipName": "geocommune",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126103349",
+  "entityTableName": "geo_localite",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

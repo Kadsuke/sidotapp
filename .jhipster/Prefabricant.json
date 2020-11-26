@@ -1,0 +1,28 @@
+{
+  "name": "Prefabricant",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuAaOuvrage",
+      "otherEntityRelationshipName": "prefabricant",
+      "relationshipName": "geuAaOuvrage"
+    }
+  ],
+  "changelogDate": "20201126110349",
+  "entityTableName": "prefabricant",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

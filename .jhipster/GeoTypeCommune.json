@@ -1,0 +1,28 @@
+{
+  "name": "GeoTypeCommune",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geoCommune",
+      "otherEntityRelationshipName": "geotypecommune",
+      "relationshipName": "geoCommune"
+    }
+  ],
+  "changelogDate": "20201126102949",
+  "entityTableName": "geo_type_commune",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

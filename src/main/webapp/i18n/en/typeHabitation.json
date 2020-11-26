@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "typeHabitation": {
+      "home": {
+        "title": "Type Habitations",
+        "createLabel": "Create a new Type Habitation",
+        "createOrEditLabel": "Create or edit a Type Habitation",
+        "notFound": "No Type Habitations found"
+      },
+      "created": "A new Type Habitation is created with identifier {{ param }}",
+      "updated": "A Type Habitation is updated with identifier {{ param }}",
+      "deleted": "A Type Habitation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Habitation {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Habitation"
+      },
+      "libelle": "Libelle",
+      "geuAaOuvrage": "Geu Aa Ouvrage"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "geoTypeCommune": {
+      "home": {
+        "title": "GeoTypeCommunes",
+        "createLabel": "Créer un nouveau Geo Type Commune",
+        "createOrEditLabel": "Créer ou éditer un Geo Type Commune",
+        "notFound": "Aucun Geo Type Commune trouvé"
+      },
+      "created": "Un nouveau Geo Type Commune a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Geo Type Commune avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Geo Type Commune avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Geo Type Commune {{ id }} ?"
+      },
+      "detail": {
+        "title": "Geo Type Commune"
+      },
+      "libelle": "Libelle",
+      "geoCommune": "Geo Commune"
+    }
+  }
+}

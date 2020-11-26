@@ -1,0 +1,43 @@
+{
+  "name": "Agent",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "role",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuRaccordement",
+      "otherEntityRelationshipName": "agent",
+      "relationshipName": "geuRaccordement"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "site",
+      "otherEntityRelationshipName": "agent",
+      "relationshipName": "site",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126104249",
+  "entityTableName": "agent",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "macon": {
+      "home": {
+        "title": "Macons",
+        "createLabel": "Créer un nouveau Macon",
+        "createOrEditLabel": "Créer ou éditer un Macon",
+        "notFound": "Aucun Macon trouvé"
+      },
+      "created": "Un nouveau Macon a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Macon avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Macon avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Macon {{ id }} ?"
+      },
+      "detail": {
+        "title": "Macon"
+      },
+      "libelle": "Libelle",
+      "geuAaOuvrage": "Geu Aa Ouvrage"
+    }
+  }
+}

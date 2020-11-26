@@ -1,0 +1,28 @@
+{
+  "name": "CategorieRessources",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "typeOuvrage",
+      "otherEntityRelationshipName": "categorieressources",
+      "relationshipName": "typeOuvrage"
+    }
+  ],
+  "changelogDate": "20201126104349",
+  "entityTableName": "categorie_ressources",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="geoLocalite">
+            <h2><span jhiTranslate="sidotApp.geoLocalite.detail.title">Geo Localite</span> {{ geoLocalite.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.geoLocalite.libelle">Libelle</span></dt>
+                <dd>
+                    <span>{{ geoLocalite.libelle }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geoLocalite.geocommune">Geocommune</span></dt>
+                <dd>
+                    <div *ngIf="geoLocalite.geocommuneId">
+                        <a [routerLink]="['/geo-commune', geoLocalite.geocommuneId, 'view']">{{ geoLocalite.geocommuneId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/geo-localite', geoLocalite.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

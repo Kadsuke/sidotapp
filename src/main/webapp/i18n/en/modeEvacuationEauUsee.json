@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "modeEvacuationEauUsee": {
+      "home": {
+        "title": "Mode Evacuation Eau Usees",
+        "createLabel": "Create a new Mode Evacuation Eau Usee",
+        "createOrEditLabel": "Create or edit a Mode Evacuation Eau Usee",
+        "notFound": "No Mode Evacuation Eau Usees found"
+      },
+      "created": "A new Mode Evacuation Eau Usee is created with identifier {{ param }}",
+      "updated": "A Mode Evacuation Eau Usee is updated with identifier {{ param }}",
+      "deleted": "A Mode Evacuation Eau Usee is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Mode Evacuation Eau Usee {{ id }}?"
+      },
+      "detail": {
+        "title": "Mode Evacuation Eau Usee"
+      },
+      "libelle": "Libelle",
+      "geuAaOuvrage": "Geu Aa Ouvrage"
+    }
+  }
+}

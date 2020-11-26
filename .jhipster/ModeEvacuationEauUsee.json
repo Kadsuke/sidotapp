@@ -1,0 +1,28 @@
+{
+  "name": "ModeEvacuationEauUsee",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuAaOuvrage",
+      "otherEntityRelationshipName": "modeevacuationeauusee",
+      "relationshipName": "geuAaOuvrage"
+    }
+  ],
+  "changelogDate": "20201126110149",
+  "entityTableName": "mode_evacuation_eau_usee",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

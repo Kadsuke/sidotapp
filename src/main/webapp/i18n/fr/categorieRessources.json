@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "categorieRessources": {
+      "home": {
+        "title": "CategorieRessources",
+        "createLabel": "Créer un nouveau Categorie Ressources",
+        "createOrEditLabel": "Créer ou éditer un Categorie Ressources",
+        "notFound": "Aucun Categorie Ressources trouvé"
+      },
+      "created": "Un nouveau Categorie Ressources a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Categorie Ressources avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Categorie Ressources avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Categorie Ressources {{ id }} ?"
+      },
+      "detail": {
+        "title": "Categorie Ressources"
+      },
+      "libelle": "Libelle",
+      "typeOuvrage": "Type Ouvrage"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "sidotApp": {
+    "geoLot": {
+      "home": {
+        "title": "GeoLots",
+        "createLabel": "Créer un nouveau Geo Lot",
+        "createOrEditLabel": "Créer ou éditer un Geo Lot",
+        "notFound": "Aucun Geo Lot trouvé"
+      },
+      "created": "Un nouveau Geo Lot a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Geo Lot avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Geo Lot avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Geo Lot {{ id }} ?"
+      },
+      "detail": {
+        "title": "Geo Lot"
+      },
+      "libelle": "Libelle",
+      "geoParcelle": "Geo Parcelle",
+      "geosection": "Geosection"
+    }
+  }
+}

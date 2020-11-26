@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "typeIntervention": {
+      "home": {
+        "title": "Type Interventions",
+        "createLabel": "Create a new Type Intervention",
+        "createOrEditLabel": "Create or edit a Type Intervention",
+        "notFound": "No Type Interventions found"
+      },
+      "created": "A new Type Intervention is created with identifier {{ param }}",
+      "updated": "A Type Intervention is updated with identifier {{ param }}",
+      "deleted": "A Type Intervention is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Intervention {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Intervention"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

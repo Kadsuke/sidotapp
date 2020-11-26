@@ -1,0 +1,25 @@
+{
+  "sidotApp": {
+    "geoParcelle": {
+      "home": {
+        "title": "GeoParcelles",
+        "createLabel": "Créer un nouveau Geo Parcelle",
+        "createOrEditLabel": "Créer ou éditer un Geo Parcelle",
+        "notFound": "Aucun Geo Parcelle trouvé"
+      },
+      "created": "Un nouveau Geo Parcelle a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Geo Parcelle avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Geo Parcelle avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Geo Parcelle {{ id }} ?"
+      },
+      "detail": {
+        "title": "Geo Parcelle"
+      },
+      "libelle": "Libelle",
+      "geuAaOuvrage": "Geu Aa Ouvrage",
+      "geuRaccordement": "Geu Raccordement",
+      "geolot": "Geolot"
+    }
+  }
+}

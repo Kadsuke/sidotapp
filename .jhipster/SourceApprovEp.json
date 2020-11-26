@@ -1,0 +1,28 @@
+{
+  "name": "SourceApprovEp",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuAaOuvrage",
+      "otherEntityRelationshipName": "sourceapprovep",
+      "relationshipName": "geuAaOuvrage"
+    }
+  ],
+  "changelogDate": "20201126105949",
+  "entityTableName": "source_approv_ep",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

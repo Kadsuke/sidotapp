@@ -1,0 +1,26 @@
+{
+  "sidotApp": {
+    "centreRegroupement": {
+      "home": {
+        "title": "CentreRegroupements",
+        "createLabel": "Créer un nouveau Centre Regroupement",
+        "createOrEditLabel": "Créer ou éditer un Centre Regroupement",
+        "notFound": "Aucun Centre Regroupement trouvé"
+      },
+      "created": "Un nouveau Centre Regroupement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Centre Regroupement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Centre Regroupement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Centre Regroupement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Centre Regroupement"
+      },
+      "libelle": "Libelle",
+      "responsable": "Responsable",
+      "contact": "Contact",
+      "centre": "Centre",
+      "directionregionale": "Directionregionale"
+    }
+  }
+}

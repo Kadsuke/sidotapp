@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "geuUsage": {
+      "home": {
+        "title": "GeuUsages",
+        "createLabel": "Créer un nouveau Geu Usage",
+        "createOrEditLabel": "Créer ou éditer un Geu Usage",
+        "notFound": "Aucun Geu Usage trouvé"
+      },
+      "created": "Un nouveau Geu Usage a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Geu Usage avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Geu Usage avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Geu Usage {{ id }} ?"
+      },
+      "detail": {
+        "title": "Geu Usage"
+      },
+      "libelle": "Libelle",
+      "geuRaccordement": "Geu Raccordement"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "geuRealisation": {
+      "home": {
+        "title": "Geu Realisations",
+        "createLabel": "Create a new Geu Realisation",
+        "createOrEditLabel": "Create or edit a Geu Realisation",
+        "notFound": "No Geu Realisations found"
+      },
+      "created": "A new Geu Realisation is created with identifier {{ param }}",
+      "updated": "A Geu Realisation is updated with identifier {{ param }}",
+      "deleted": "A Geu Realisation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geu Realisation {{ id }}?"
+      },
+      "detail": {
+        "title": "Geu Realisation"
+      },
+      "nbRealisation": "Nb Realisation",
+      "geuaaouvrage": "Geuaaouvrage"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "geoRegion": {
+      "home": {
+        "title": "GeoRegions",
+        "createLabel": "Créer un nouveau Geo Region",
+        "createOrEditLabel": "Créer ou éditer un Geo Region",
+        "notFound": "Aucun Geo Region trouvé"
+      },
+      "created": "Un nouveau Geo Region a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Geo Region avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Geo Region avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Geo Region {{ id }} ?"
+      },
+      "detail": {
+        "title": "Geo Region"
+      },
+      "libelle": "Libelle",
+      "geoProvince": "Geo Province"
+    }
+  }
+}

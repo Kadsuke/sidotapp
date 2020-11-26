@@ -1,0 +1,25 @@
+{
+  "sidotApp": {
+    "geuPrevisionSTBV": {
+      "home": {
+        "title": "Geu Prevision STBVS",
+        "createLabel": "Create a new Geu Prevision STBV",
+        "createOrEditLabel": "Create or edit a Geu Prevision STBV",
+        "notFound": "No Geu Prevision STBVS found"
+      },
+      "created": "A new Geu Prevision STBV is created with identifier {{ param }}",
+      "updated": "A Geu Prevision STBV is updated with identifier {{ param }}",
+      "deleted": "A Geu Prevision STBV is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geu Prevision STBV {{ id }}?"
+      },
+      "detail": {
+        "title": "Geu Prevision STBV"
+      },
+      "nbCamions": "Nb Camions",
+      "volume": "Volume",
+      "energie": "Energie",
+      "geustbv": "Geustbv"
+    }
+  }
+}

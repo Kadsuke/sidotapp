@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="geuRealisationSTBV">
+            <h2><span jhiTranslate="sidotApp.geuRealisationSTBV.detail.title">Geu Realisation STBV</span> {{ geuRealisationSTBV.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.geuRealisationSTBV.nbCamions">Nb Camions</span></dt>
+                <dd>
+                    <span>{{ geuRealisationSTBV.nbCamions }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuRealisationSTBV.volume">Volume</span></dt>
+                <dd>
+                    <span>{{ geuRealisationSTBV.volume }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuRealisationSTBV.energie">Energie</span></dt>
+                <dd>
+                    <span>{{ geuRealisationSTBV.energie }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.geuRealisationSTBV.geustbv">Geustbv</span></dt>
+                <dd>
+                    <div *ngIf="geuRealisationSTBV.geustbvId">
+                        <a [routerLink]="['/geu-stbv', geuRealisationSTBV.geustbvId, 'view']">{{ geuRealisationSTBV.geustbvId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/geu-realisation-stbv', geuRealisationSTBV.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

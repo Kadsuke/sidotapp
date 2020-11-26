@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "analyseParametre": {
+      "home": {
+        "title": "Analyse Parametres",
+        "createLabel": "Create a new Analyse Parametre",
+        "createOrEditLabel": "Create or edit a Analyse Parametre",
+        "notFound": "No Analyse Parametres found"
+      },
+      "created": "A new Analyse Parametre is created with identifier {{ param }}",
+      "updated": "A Analyse Parametre is updated with identifier {{ param }}",
+      "deleted": "A Analyse Parametre is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Analyse Parametre {{ id }}?"
+      },
+      "detail": {
+        "title": "Analyse Parametre"
+      },
+      "libelle": "Libelle",
+      "analysespecialite": "Analysespecialite"
+    }
+  }
+}

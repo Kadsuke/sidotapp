@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "analyseSpecialite": {
+      "home": {
+        "title": "AnalyseSpecialites",
+        "createLabel": "Créer un nouveau Analyse Specialite",
+        "createOrEditLabel": "Créer ou éditer un Analyse Specialite",
+        "notFound": "Aucun Analyse Specialite trouvé"
+      },
+      "created": "Un nouveau Analyse Specialite a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Analyse Specialite avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Analyse Specialite avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Analyse Specialite {{ id }} ?"
+      },
+      "detail": {
+        "title": "Analyse Specialite"
+      },
+      "libelle": "Libelle",
+      "analyseParametre": "Analyse Parametre"
+    }
+  }
+}

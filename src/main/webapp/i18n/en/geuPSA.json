@@ -1,0 +1,24 @@
+{
+  "sidotApp": {
+    "geuPSA": {
+      "home": {
+        "title": "Geu PSAS",
+        "createLabel": "Create a new Geu PSA",
+        "createOrEditLabel": "Create or edit a Geu PSA",
+        "notFound": "No Geu PSAS found"
+      },
+      "created": "A new Geu PSA is created with identifier {{ param }}",
+      "updated": "A Geu PSA is updated with identifier {{ param }}",
+      "deleted": "A Geu PSA is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Geu PSA {{ id }}?"
+      },
+      "detail": {
+        "title": "Geu PSA"
+      },
+      "dateElaboration": "Date Elaboration",
+      "dateMiseEnOeuvre": "Date Mise En Oeuvre",
+      "geocommune": "Geocommune"
+    }
+  }
+}

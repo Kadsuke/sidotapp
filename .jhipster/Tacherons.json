@@ -1,0 +1,36 @@
+{
+  "name": "Tacherons",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuRaccordement",
+      "otherEntityRelationshipName": "tacherons",
+      "relationshipName": "geuRaccordement"
+    }
+  ],
+  "changelogDate": "20201126111749",
+  "entityTableName": "tacherons",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

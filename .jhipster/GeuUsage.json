@@ -1,0 +1,28 @@
+{
+  "name": "GeuUsage",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geuRaccordement",
+      "otherEntityRelationshipName": "geuusage",
+      "relationshipName": "geuRaccordement"
+    }
+  ],
+  "changelogDate": "20201126111849",
+  "entityTableName": "geu_usage",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

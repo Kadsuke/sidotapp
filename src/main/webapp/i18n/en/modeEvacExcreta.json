@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "modeEvacExcreta": {
+      "home": {
+        "title": "Mode Evac Excretas",
+        "createLabel": "Create a new Mode Evac Excreta",
+        "createOrEditLabel": "Create or edit a Mode Evac Excreta",
+        "notFound": "No Mode Evac Excretas found"
+      },
+      "created": "A new Mode Evac Excreta is created with identifier {{ param }}",
+      "updated": "A Mode Evac Excreta is updated with identifier {{ param }}",
+      "deleted": "A Mode Evac Excreta is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Mode Evac Excreta {{ id }}?"
+      },
+      "detail": {
+        "title": "Mode Evac Excreta"
+      },
+      "libelle": "Libelle",
+      "geuAaOuvrage": "Geu Aa Ouvrage"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "etatOuvrage": {
+      "home": {
+        "title": "Etat Ouvrages",
+        "createLabel": "Create a new Etat Ouvrage",
+        "createOrEditLabel": "Create or edit a Etat Ouvrage",
+        "notFound": "No Etat Ouvrages found"
+      },
+      "created": "A new Etat Ouvrage is created with identifier {{ param }}",
+      "updated": "A Etat Ouvrage is updated with identifier {{ param }}",
+      "deleted": "A Etat Ouvrage is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Etat Ouvrage {{ id }}?"
+      },
+      "detail": {
+        "title": "Etat Ouvrage"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

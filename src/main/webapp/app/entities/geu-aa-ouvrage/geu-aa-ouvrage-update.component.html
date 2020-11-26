@@ -1,0 +1,231 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-geu-aa-ouvrage-heading" jhiTranslate="sidotApp.geuAaOuvrage.home.createOrEditLabel">Create or edit a Geu Aa Ouvrage</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.refOuvrage" for="field_refOuvrage">Ref Ouvrage</label>
+                    <input type="text" class="form-control" name="refOuvrage" id="field_refOuvrage"
+                           formControlName="refOuvrage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.prjAppuis" for="field_prjAppuis">Prj Appuis</label>
+                    <input type="text" class="form-control" name="prjAppuis" id="field_prjAppuis"
+                           formControlName="prjAppuis"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.numCompteur" for="field_numCompteur">Num Compteur</label>
+                    <input type="text" class="form-control" name="numCompteur" id="field_numCompteur"
+                           formControlName="numCompteur"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.nomBenef" for="field_nomBenef">Nom Benef</label>
+                    <input type="text" class="form-control" name="nomBenef" id="field_nomBenef"
+                           formControlName="nomBenef"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.prenomBenef" for="field_prenomBenef">Prenom Benef</label>
+                    <input type="text" class="form-control" name="prenomBenef" id="field_prenomBenef"
+                           formControlName="prenomBenef"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.professionBenef" for="field_professionBenef">Profession Benef</label>
+                    <input type="text" class="form-control" name="professionBenef" id="field_professionBenef"
+                           formControlName="professionBenef"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.nbUsagers" for="field_nbUsagers">Nb Usagers</label>
+                    <input type="number" class="form-control" name="nbUsagers" id="field_nbUsagers"
+                           formControlName="nbUsagers"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.codeUn" for="field_codeUn">Code Un</label>
+                    <input type="text" class="form-control" name="codeUn" id="field_codeUn"
+                           formControlName="codeUn"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.dateRemiseDevis" for="field_dateRemiseDevis">Date Remise Devis</label>
+                    <div class="d-flex">
+                        <input id="field_dateRemiseDevis" type="datetime-local" class="form-control" name="dateRemiseDevis" formControlName="dateRemiseDevis" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.dateDebutTravaux" for="field_dateDebutTravaux">Date Debut Travaux</label>
+                    <div class="d-flex">
+                        <input id="field_dateDebutTravaux" type="datetime-local" class="form-control" name="dateDebutTravaux" formControlName="dateDebutTravaux" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.dateFinTravaux" for="field_dateFinTravaux">Date Fin Travaux</label>
+                    <div class="d-flex">
+                        <input id="field_dateFinTravaux" type="datetime-local" class="form-control" name="dateFinTravaux" formControlName="dateFinTravaux" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.numNomRue" for="field_numNomRue">Num Nom Rue</label>
+                    <input type="text" class="form-control" name="numNomRue" id="field_numNomRue"
+                           formControlName="numNomRue"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.numNomPorte" for="field_numNomPorte">Num Nom Porte</label>
+                    <input type="text" class="form-control" name="numNomPorte" id="field_numNomPorte"
+                           formControlName="numNomPorte"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.menage" for="field_menage">Menage</label>
+                    <input type="text" class="form-control" name="menage" id="field_menage"
+                           formControlName="menage"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.subvOnea" for="field_subvOnea">Subv Onea</label>
+                    <input type="number" class="form-control" name="subvOnea" id="field_subvOnea"
+                           formControlName="subvOnea"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.subvProjet" for="field_subvProjet">Subv Projet</label>
+                    <input type="number" class="form-control" name="subvProjet" id="field_subvProjet"
+                           formControlName="subvProjet"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.autreSubv" for="field_autreSubv">Autre Subv</label>
+                    <input type="number" class="form-control" name="autreSubv" id="field_autreSubv"
+                           formControlName="autreSubv"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.refBonFourniture" for="field_refBonFourniture">Ref Bon Fourniture</label>
+                    <input type="text" class="form-control" name="refBonFourniture" id="field_refBonFourniture"
+                           formControlName="refBonFourniture"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.realisPorte" for="field_realisPorte">Realis Porte</label>
+                    <input type="number" class="form-control" name="realisPorte" id="field_realisPorte"
+                           formControlName="realisPorte"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.realisToles" for="field_realisToles">Realis Toles</label>
+                    <input type="number" class="form-control" name="realisToles" id="field_realisToles"
+                           formControlName="realisToles"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.animateur" for="field_animateur">Animateur</label>
+                    <input type="text" class="form-control" name="animateur" id="field_animateur"
+                           formControlName="animateur"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.superviseur" for="field_superviseur">Superviseur</label>
+                    <input type="text" class="form-control" name="superviseur" id="field_superviseur"
+                           formControlName="superviseur"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.controleur" for="field_controleur">Controleur</label>
+                    <input type="text" class="form-control" name="controleur" id="field_controleur"
+                           formControlName="controleur"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.geoparcelle" for="field_geoparcelle">Geoparcelle</label>
+                    <select class="form-control" id="field_geoparcelle" name="geoparcelle" formControlName="geoparcelleId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="geoParcelleOption.id" *ngFor="let geoParcelleOption of geoparcelles; trackBy: trackById">{{ geoParcelleOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.natureouvrage" for="field_natureouvrage">Natureouvrage</label>
+                    <select class="form-control" id="field_natureouvrage" name="natureouvrage" formControlName="natureouvrageId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="natureOuvrageOption.id" *ngFor="let natureOuvrageOption of natureouvrages; trackBy: trackById">{{ natureOuvrageOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.typehabitation" for="field_typehabitation">Typehabitation</label>
+                    <select class="form-control" id="field_typehabitation" name="typehabitation" formControlName="typehabitationId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="typeHabitationOption.id" *ngFor="let typeHabitationOption of typehabitations; trackBy: trackById">{{ typeHabitationOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.sourceapprovep" for="field_sourceapprovep">Sourceapprovep</label>
+                    <select class="form-control" id="field_sourceapprovep" name="sourceapprovep" formControlName="sourceapprovepId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sourceApprovEpOption.id" *ngFor="let sourceApprovEpOption of sourceapproveps; trackBy: trackById">{{ sourceApprovEpOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.modeevacuationeauusee" for="field_modeevacuationeauusee">Modeevacuationeauusee</label>
+                    <select class="form-control" id="field_modeevacuationeauusee" name="modeevacuationeauusee" formControlName="modeevacuationeauuseeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="modeEvacuationEauUseeOption.id" *ngFor="let modeEvacuationEauUseeOption of modeevacuationeauusees; trackBy: trackById">{{ modeEvacuationEauUseeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.modeevacexcreta" for="field_modeevacexcreta">Modeevacexcreta</label>
+                    <select class="form-control" id="field_modeevacexcreta" name="modeevacexcreta" formControlName="modeevacexcretaId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="modeEvacExcretaOption.id" *ngFor="let modeEvacExcretaOption of modeevacexcretas; trackBy: trackById">{{ modeEvacExcretaOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.macon" for="field_macon">Macon</label>
+                    <select class="form-control" id="field_macon" name="macon" formControlName="maconId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="maconOption.id" *ngFor="let maconOption of macons; trackBy: trackById">{{ maconOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuAaOuvrage.prefabricant" for="field_prefabricant">Prefabricant</label>
+                    <select class="form-control" id="field_prefabricant" name="prefabricant" formControlName="prefabricantId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="prefabricantOption.id" *ngFor="let prefabricantOption of prefabricants; trackBy: trackById">{{ prefabricantOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

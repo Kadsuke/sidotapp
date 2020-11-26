@@ -1,0 +1,74 @@
+{
+  "name": "GeuRaccordement",
+  "fields": [
+    {
+      "fieldName": "numAbonnement",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "proprietaireParacelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "entreprise",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "otherUsage",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geoParcelle",
+      "otherEntityRelationshipName": "geuRaccordement",
+      "relationshipName": "geoparcelle",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "agent",
+      "otherEntityRelationshipName": "geuRaccordement",
+      "relationshipName": "agent",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tacherons",
+      "otherEntityRelationshipName": "geuRaccordement",
+      "relationshipName": "tacherons",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geuUsage",
+      "otherEntityRelationshipName": "geuRaccordement",
+      "relationshipName": "geuusage",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126111649",
+  "entityTableName": "geu_raccordement",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

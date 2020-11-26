@@ -1,0 +1,25 @@
+{
+  "sidotApp": {
+    "typeOuvrage": {
+      "home": {
+        "title": "Type Ouvrages",
+        "createLabel": "Create a new Type Ouvrage",
+        "createOrEditLabel": "Create or edit a Type Ouvrage",
+        "notFound": "No Type Ouvrages found"
+      },
+      "created": "A new Type Ouvrage is created with identifier {{ param }}",
+      "updated": "A Type Ouvrage is updated with identifier {{ param }}",
+      "deleted": "A Type Ouvrage is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Ouvrage {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Ouvrage"
+      },
+      "libelle": "Libelle",
+      "caracteristiqueOuvrage": "Caracteristique Ouvrage",
+      "categorieressources": "Categorieressources",
+      "caracteristiqueouvrage": "Caracteristiqueouvrage"
+    }
+  }
+}

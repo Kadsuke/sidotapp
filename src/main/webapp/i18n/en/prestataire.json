@@ -1,0 +1,24 @@
+{
+  "sidotApp": {
+    "prestataire": {
+      "home": {
+        "title": "Prestataires",
+        "createLabel": "Create a new Prestataire",
+        "createOrEditLabel": "Create or edit a Prestataire",
+        "notFound": "No Prestataires found"
+      },
+      "created": "A new Prestataire is created with identifier {{ param }}",
+      "updated": "A Prestataire is updated with identifier {{ param }}",
+      "deleted": "A Prestataire is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Prestataire {{ id }}?"
+      },
+      "detail": {
+        "title": "Prestataire"
+      },
+      "libelle": "Libelle",
+      "responsable": "Responsable",
+      "contact": "Contact"
+    }
+  }
+}

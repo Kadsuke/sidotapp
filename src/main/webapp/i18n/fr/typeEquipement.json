@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "typeEquipement": {
+      "home": {
+        "title": "TypeEquipements",
+        "createLabel": "Créer un nouveau Type Equipement",
+        "createOrEditLabel": "Créer ou éditer un Type Equipement",
+        "notFound": "Aucun Type Equipement trouvé"
+      },
+      "created": "Un nouveau Type Equipement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Equipement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Equipement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Equipement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Equipement"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

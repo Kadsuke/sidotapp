@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "prefabricant": {
+      "home": {
+        "title": "Prefabricants",
+        "createLabel": "Create a new Prefabricant",
+        "createOrEditLabel": "Create or edit a Prefabricant",
+        "notFound": "No Prefabricants found"
+      },
+      "created": "A new Prefabricant is created with identifier {{ param }}",
+      "updated": "A Prefabricant is updated with identifier {{ param }}",
+      "deleted": "A Prefabricant is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Prefabricant {{ id }}?"
+      },
+      "detail": {
+        "title": "Prefabricant"
+      },
+      "libelle": "Libelle",
+      "geuAaOuvrage": "Geu Aa Ouvrage"
+    }
+  }
+}

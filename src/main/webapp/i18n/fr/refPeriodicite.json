@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "refPeriodicite": {
+      "home": {
+        "title": "RefPeriodicites",
+        "createLabel": "Créer un nouveau Ref Periodicite",
+        "createOrEditLabel": "Créer ou éditer un Ref Periodicite",
+        "notFound": "Aucun Ref Periodicite trouvé"
+      },
+      "created": "Un nouveau Ref Periodicite a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ref Periodicite avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ref Periodicite avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ref Periodicite {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ref Periodicite"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

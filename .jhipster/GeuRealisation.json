@@ -1,0 +1,29 @@
+{
+  "name": "GeuRealisation",
+  "fields": [
+    {
+      "fieldName": "nbRealisation",
+      "fieldType": "Float"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "geuAaOuvrage",
+      "otherEntityRelationshipName": "geuRealisation",
+      "relationshipName": "geuaaouvrage",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126111549",
+  "entityTableName": "geu_realisation",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "GeoRegion",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "geoProvince",
+      "otherEntityRelationshipName": "georegion",
+      "relationshipName": "geoProvince"
+    }
+  ],
+  "changelogDate": "20201126103049",
+  "entityTableName": "geo_region",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

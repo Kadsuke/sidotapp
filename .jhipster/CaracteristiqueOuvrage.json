@@ -1,0 +1,39 @@
+{
+  "name": "CaracteristiqueOuvrage",
+  "fields": [
+    {
+      "fieldName": "libelle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "unite",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "typeOuvrage",
+      "otherEntityRelationshipName": "caracteristiqueouvrage",
+      "relationshipName": "typeOuvrage"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeOuvrage",
+      "otherEntityRelationshipName": "caracteristiqueOuvrage",
+      "relationshipName": "typeouvrage",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201126104549",
+  "entityTableName": "caracteristique_ouvrage",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,22 @@
+{
+  "sidotApp": {
+    "typeBeneficiaire": {
+      "home": {
+        "title": "TypeBeneficiaires",
+        "createLabel": "Créer un nouveau Type Beneficiaire",
+        "createOrEditLabel": "Créer ou éditer un Type Beneficiaire",
+        "notFound": "Aucun Type Beneficiaire trouvé"
+      },
+      "created": "Un nouveau Type Beneficiaire a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Type Beneficiaire avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Type Beneficiaire avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Type Beneficiaire {{ id }} ?"
+      },
+      "detail": {
+        "title": "Type Beneficiaire"
+      },
+      "libelle": "Libelle"
+    }
+  }
+}

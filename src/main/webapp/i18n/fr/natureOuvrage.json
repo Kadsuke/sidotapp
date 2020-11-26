@@ -1,0 +1,23 @@
+{
+  "sidotApp": {
+    "natureOuvrage": {
+      "home": {
+        "title": "NatureOuvrages",
+        "createLabel": "Créer un nouveau Nature Ouvrage",
+        "createOrEditLabel": "Créer ou éditer un Nature Ouvrage",
+        "notFound": "Aucun Nature Ouvrage trouvé"
+      },
+      "created": "Un nouveau Nature Ouvrage a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Nature Ouvrage avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Nature Ouvrage avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Nature Ouvrage {{ id }} ?"
+      },
+      "detail": {
+        "title": "Nature Ouvrage"
+      },
+      "libelle": "Libelle",
+      "geuAaOuvrage": "Geu Aa Ouvrage"
+    }
+  }
+}
