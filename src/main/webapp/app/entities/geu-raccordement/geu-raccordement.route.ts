@@ -39,7 +39,7 @@ export const geuRaccordementRoute: Routes = [
     path: '',
     component: GeuRaccordementComponent,
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.SEAC],
       defaultSort: 'id,asc',
       pageTitle: 'sidotApp.geuRaccordement.home.title',
     },
@@ -52,7 +52,7 @@ export const geuRaccordementRoute: Routes = [
       geuRaccordement: GeuRaccordementResolve,
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.SEAC],
       pageTitle: 'sidotApp.geuRaccordement.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -64,7 +64,7 @@ export const geuRaccordementRoute: Routes = [
       geuRaccordement: GeuRaccordementResolve,
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.SEAC],
       pageTitle: 'sidotApp.geuRaccordement.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -76,7 +76,7 @@ export const geuRaccordementRoute: Routes = [
       geuRaccordement: GeuRaccordementResolve,
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.SEAC],
       pageTitle: 'sidotApp.geuRaccordement.home.title',
     },
     canActivate: [UserRouteAccessService],

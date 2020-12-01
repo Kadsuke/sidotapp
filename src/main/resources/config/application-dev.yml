@@ -37,9 +37,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:sqlserver://localhost:1433;database=sidot
-    username: SA
-    password: yourStrong(!)Password
+    url: jdbc:sqlserver://localhost:1433;database=sidotBd
+    username: Kadsuke
+    password: Latifatou12
     hikari:
       poolName: Hikari
       auto-commit: false

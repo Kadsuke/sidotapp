@@ -3,22 +3,22 @@
     "geuPSA": {
       "home": {
         "title": "GeuPSAS",
-        "createLabel": "Créer un nouveau Geu PSA",
-        "createOrEditLabel": "Créer ou éditer un Geu PSA",
-        "notFound": "Aucun Geu PSA trouvé"
+        "createLabel": "Créer un nouveau PSA",
+        "createOrEditLabel": "Créer ou éditer un PSA",
+        "notFound": "Aucun PSA trouvé"
       },
-      "created": "Un nouveau Geu PSA a été créé avec l'identifiant {{ param }}",
-      "updated": "Le Geu PSA avec l'identifiant {{ param }} a été mis à jour",
-      "deleted": "Le Geu PSA avec l'identifiant {{ param }} a été supprimé",
+      "created": "Un nouveau PSA a été créé avec l'identifiant {{ param }}",
+      "updated": "Le PSA avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le PSA avec l'identifiant {{ param }} a été supprimé",
       "delete": {
-        "question": "Etes-vous certain de vouloir supprimer le Geu PSA {{ id }} ?"
+        "question": "Etes-vous certain de vouloir supprimer le PSA {{ id }} ?"
       },
       "detail": {
-        "title": "Geu PSA"
+        "title": "PSA"
       },
       "dateElaboration": "Date Elaboration",
       "dateMiseEnOeuvre": "Date Mise En Oeuvre",
-      "geocommune": "Geocommune"
+      "geocommune": "Commune"
     }
   }
 }

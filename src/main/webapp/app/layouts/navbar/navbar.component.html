@@ -1,11 +1,8 @@
-<nav class="navbar navbar-dark navbar-expand-md bg-dark">
+<nav class="navbar navbar-dark navbar-expand-md bg-primary">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
         <span class="logo-img"></span>
-        <span jhiTranslate="global.title" class="navbar-title">Sidot</span> <span class="navbar-version">{{ version }}</span>
     </a>
-    <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
-        <fa-icon icon="bars"></fa-icon>
-    </a>
+
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
@@ -17,12 +14,12 @@
                 </a>
             </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
                         <fa-icon icon="th-list"></fa-icon>
                         <span jhiTranslate="global.menu.entities.main">
-                            Entities
+                            Referentiels
                         </span>
                     </span>
                 </a>
@@ -30,187 +27,187 @@
                     <li>
                         <a class="dropdown-item" routerLink="ref-annee" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.refAnnee">Ref Annee</span>
+                            <span>Année</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="ref-mois" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.refMois">Ref Mois</span>
+                            <span>Mois</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="ref-domaine" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.refDomaine">Ref Domaine</span>
+                            <span>Domaine</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="ref-sous-domaine" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.refSousDomaine">Ref Sous Domaine</span>
+                            <span>Sous Domaine</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="ref-periodicite" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.refPeriodicite">Ref Periodicite</span>
+                            <span>Periodicite</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="geo-type-commune" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geoTypeCommune">Geo Type Commune</span>
+                            <span>Type Commune</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="geo-region" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geoRegion">Geo Region</span>
+                            <span>Région</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="geo-province" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geoProvince">Geo Province</span>
+                            <span>Province</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="geo-commune" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geoCommune">Geo Commune</span>
+                            <span>Commune</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="geo-localite" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geoLocalite">Geo Localite</span>
+                            <span>Localite</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="geo-secteur" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geoSecteur">Geo Secteur</span>
+                            <span>Secteur</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="geo-section" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geoSection">Geo Section</span>
+                            <span>Section</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="geo-lot" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geoLot">Geo Lot</span>
+                            <span>Lot</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="geo-parcelle" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geoParcelle">Geo Parcelle</span>
+                            <span>Parcelle</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="direction-regionale" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.directionRegionale">Direction Regionale</span>
+                            <span>Direction Régionale</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="centre-regroupement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.centreRegroupement">Centre Regroupement</span>
+                            <span>Centre de Régroupement</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="centre" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.centre">Centre</span>
+                            <span>Centre</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="site" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.site">Site</span>
+                            <span>Site</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="agent" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.agent">Agent</span>
+                            <span>Agent</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="categorie-ressources" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.categorieRessources">Categorie Ressources</span>
+                            <span>Categorie Ressources</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="type-ouvrage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.typeOuvrage">Type Ouvrage</span>
+                            <span>Type Ouvrage</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="caracteristique-ouvrage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.caracteristiqueOuvrage">Caracteristique Ouvrage</span>
+                            <span>Caracteristique Ouvrage</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="etat-ouvrage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.etatOuvrage">Etat Ouvrage</span>
+                            <span>Etat Ouvrage</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="etat-equipement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.etatEquipement">Etat Equipement</span>
+                            <span>Etat Equipement</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="type-equipement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.typeEquipement">Type Equipement</span>
+                            <span>Type Equipement</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="produit-chimique" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.produitChimique">Produit Chimique</span>
+                            <span>Produit Chimique</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="analyse-specialite" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.analyseSpecialite">Analyse Specialite</span>
+                            <span>Analyse Specialite</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="type-analyse" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.typeAnalyse">Type Analyse</span>
+                            <span>Type Analyse</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="analyse-parametre" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.analyseParametre">Analyse Parametre</span>
+                            <span>Analyse Parametre</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="type-beneficiaire" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.typeBeneficiaire">Type Beneficiaire</span>
+                            <span>Type Béneficiaire</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="laboratoire" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.laboratoire">Laboratoire</span>
+                            <span>Laboratoire</span>
                         </a>
                     </li>
                     <li>
@@ -292,42 +289,6 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="geu-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuStbv">Geu Stbv</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="geu-prevision-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuPrevisionStbv">Geu Prevision Stbv</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="geu-realisation-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuRealisationStbv">Geu Realisation Stbv</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="geu-step" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuStep">Geu Step</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="geu-psa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuPsa">Geu Psa</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="geu-prevision-step" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuPrevisionStep">Geu Prevision Step</span>
-                        </a>
-                    </li>
-                    <li>
                         <a class="dropdown-item" routerLink="geu-aa-ouvrage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.geuAaOuvrage">Geu Aa Ouvrage</span>
@@ -339,12 +300,7 @@
                             <span jhiTranslate="global.menu.entities.geuRealisation">Geu Realisation</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="geu-raccordement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuRaccordement">Geu Raccordement</span>
-                        </a>
-                    </li>
+
                     <li>
                         <a class="dropdown-item" routerLink="tacherons" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
@@ -360,6 +316,9 @@
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
+         <!--
+          Admin Navbar Start
+          -->
             <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
                     <span>
@@ -413,19 +372,84 @@
                     <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
                 </ul>
             </li>
-            <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" *ngIf="languages && languages.length > 1">
-                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
+           <!--
+           Admin Navbar End
+           -->
+
+           <!--
+           SEDA Navbar Start
+           -->
+            <li *jhiHasAnyAuthority="'ROLE_SEDA'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="geu-psa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                     <span>
-                        <fa-icon icon="flag"></fa-icon>
-                        <span jhiTranslate="global.menu.language">Language</span>
+                        <fa-icon icon="th-list" [fixedWidth]="true"></fa-icon>
+                        <span >Psa</span>
                     </span>
                 </a>
-                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
-                    <li *ngFor="let language of languages">
-                        <a class="dropdown-item" [jhiActiveMenu]="language" href="javascript:void(0);" (click)="changeLanguage(language);collapseNavbar();">{{ language | findLanguageFromKey }}</a>
-                    </li>
-                </ul>
             </li>
+
+
+
+            <!--
+            SEDA Navbar End
+            -->
+
+            <!--
+         SEAC Navbar Start
+         -->
+
+            <li *jhiHasAnyAuthority="'ROLE_SEAC'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="geu-raccordement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon icon="th-list" [fixedWidth]="true"></fa-icon>
+                        <span >Fiche de Raccordement</span>
+                    </span>
+                </a>
+            </li>
+            <li *jhiHasAnyAuthority="'ROLE_SEAC'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="geu-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon icon="th-list" [fixedWidth]="true"></fa-icon>
+                        <span>Données Stbv</span>
+                    </span>
+                </a>
+            </li>
+            <li *jhiHasAnyAuthority="'ROLE_SEAC'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="geu-prevision-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon icon="th-list" [fixedWidth]="true"></fa-icon>
+                        <span>Prévision Stbv</span>
+                    </span>
+                </a>
+            </li>
+            <li *jhiHasAnyAuthority="'ROLE_SEAC'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="geu-realisation-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon icon="th-list" [fixedWidth]="true"></fa-icon>
+                        <span>Donnée Stbv</span>
+                    </span>
+                </a>
+            </li>
+            <li *jhiHasAnyAuthority="'ROLE_SEAC'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="geu-step" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon icon="th-list" [fixedWidth]="true"></fa-icon>
+                        <span>Données Step</span>
+                    </span>
+                </a>
+            </li>
+
+            <li *jhiHasAnyAuthority="'ROLE_SEAC'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="geu-prevision-step" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon icon="th-list" [fixedWidth]="true"></fa-icon>
+                        <span>Prévision Step</span>
+                    </span>
+                </a>
+            </li>
+            <!--
+         SEAC Navbar End
+         -->
             <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu">
                     <span *ngIf="!getImageUrl()">

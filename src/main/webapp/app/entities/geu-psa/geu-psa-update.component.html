@@ -29,7 +29,7 @@
                     <label class="form-control-label" jhiTranslate="sidotApp.geuPSA.geocommune" for="field_geocommune">Geocommune</label>
                     <select class="form-control" id="field_geocommune" name="geocommune" formControlName="geocommuneId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="geoCommuneOption.id" *ngFor="let geoCommuneOption of geocommunes; trackBy: trackById">{{ geoCommuneOption.id }}</option>
+                        <option [ngValue]="geoCommuneOption.id" *ngFor="let geoCommuneOption of geocommunes; trackBy: trackById">{{ geoCommuneOption.libelle }}</option>
                     </select>
                 </div>
             </div>
