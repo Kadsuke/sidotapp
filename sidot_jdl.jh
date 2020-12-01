@@ -224,9 +224,45 @@ entity Tacherons{
 entity GeuUsage{
 	libelle String
 }
+entity PrevisionAssainissementAu{
+	nbLatrine Integer,
+    nbPuisard Integer,
+    nbPublic Integer,
+    nbScolaire Integer,
+    centreDeSante Integer,
+    population Integer
+}
+entity PrevisionAssainissementCol{
+	nbStep Integer,
+    nbStbv Integer,
+    reseaux Float,
+    nbRaccordement Integer
+}
+entity PrevisionPsa{
+	elabore Integer,
+    miseEnOeuvre Integer
+}
 /***
 *Les relations
 */
+relationship OneToOne {
+PrevisionAssainissementAu{refannee} to RefAnnee
+}
+relationship OneToOne {
+PrevisionAssainissementCol{refannee} to RefAnnee
+}
+relationship OneToOne {
+PrevisionAssainissementAu{centre} to Centre
+}
+relationship OneToOne {
+PrevisionAssainissementCol{centre} to Centre
+}
+relationship OneToOne {
+PrevisionPsa{centre} to Centre
+}
+relationship OneToOne {
+PrevisionPsa{refAnnee} to RefAnnee 
+}
 relationship OneToMany {
 GeoRegion to GeoProvince {georegion}
 }
