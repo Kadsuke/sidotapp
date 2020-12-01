@@ -17,12 +17,12 @@
                 </a>
             </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
                         <fa-icon icon="th-list"></fa-icon>
                         <span>
-                            Referentiel Geo
+                            Réferentiel Geo
                         </span>
                     </span>
                 </a>
@@ -84,7 +84,7 @@
                 </ul>
             </li>
 
-            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="organigramme-menu">
                     <span>
                         <fa-icon icon="th-list"></fa-icon>
@@ -127,7 +127,7 @@
                 </ul>
             </li>
 
-            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                     <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="other-menu">
                         <span>
                             <fa-icon icon="th-list"></fa-icon>
@@ -319,41 +319,12 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="geu-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuStbv">Geu Stbv</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="geu-prevision-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuPrevisionStbv">Geu Prevision Stbv</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="geu-realisation-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuRealisationStbv">Geu Realisation Stbv</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="geu-step" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuStep">Geu Step</span>
-                        </a>
-                    </li>
-                    <li>
                         <a class="dropdown-item" routerLink="geu-psa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.geuPsa">Geu Psa</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="geu-prevision-step" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuPrevisionStep">Geu Prevision Step</span>
-                        </a>
-                    </li>
+
                     <li>
                         <a class="dropdown-item" routerLink="geu-aa-ouvrage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
@@ -366,12 +337,7 @@
                             <span jhiTranslate="global.menu.entities.geuRealisation">Geu Realisation</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="geu-raccordement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.geuRaccordement">Geu Raccordement</span>
-                        </a>
-                    </li>
+
                     <li>
                         <a class="dropdown-item" routerLink="tacherons" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
@@ -384,12 +350,7 @@
                             <span jhiTranslate="global.menu.entities.geuUsage">Geu Usage</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="prevision-assainissement-col" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.previsionAssainissementCol">Prevision Assainissement Col</span>
-                        </a>
-                    </li>
+
 
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
@@ -399,7 +360,39 @@
         Authoriythy Navabar SEDA Start
         -->
             <li *jhiHasAnyAuthority="'ROLE_SEDA'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="prevision-menu">
+            <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="prevision-menu">
+                    <span>
+                        <fa-icon icon="th-list"></fa-icon>
+                        <span>
+                            Les Prévisions
+                        </span>
+                    </span>
+            </a>
+            <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="prevision-menu">
+                <li>
+                    <a class="dropdown-item" routerLink="prevision-assainissement-au" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                        <span>Assainissement Autonome</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" routerLink="prevision-psa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                        <span>Psa</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!--
+        Authoriythy Navabar SEDA End
+        -->
+
+        <!--
+      Authoriythy Navabar SEAC Start
+      -->
+            <li *jhiHasAnyAuthority="'ROLE_SEAC'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="previsionS-menu">
                     <span>
                         <fa-icon icon="th-list"></fa-icon>
                         <span>
@@ -407,27 +400,81 @@
                         </span>
                     </span>
                 </a>
-                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="previsionS-menu">
                     <li>
-                        <a class="dropdown-item" routerLink="prevision-assainissement-au" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="prevision-assainissement-col" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span>Assainissement Autonome</span>
+                            <span>Assainissement Collectif</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="prevision-psa" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="geu-prevision-step" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span>Psa</span>
+                            <span>Prévision Step</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="geu-prevision-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span>Prévision Stbv</span>
                         </a>
                     </li>
                 </ul>
             </li>
-        <!--
-        Authoriythy Navabar SEDA End
-        -->
             <li *jhiHasAnyAuthority="'ROLE_SEAC'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="real-menu">
+                    <span>
+                        <fa-icon icon="th-list"></fa-icon>
+                        <span>
+                            Les Réalisations
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="real-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="geu-realisation-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.geuRealisationStbv">Geu Realisation Stbv</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
+            <li *jhiHasAnyAuthority="'ROLE_SEAC'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" routerLink="geu-raccordement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon icon="th-list" [fixedWidth]="true"></fa-icon>
+                        <span>Fiche de Raccordement</span>
+                    </span>
+                </a>
+            </li>
+            <li *jhiHasAnyAuthority="'ROLE_SEAC'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="ref-menu">
+                    <span>
+                        <fa-icon icon="th-list"></fa-icon>
+                        <span>
+                            Réferentiels
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="ref-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="geu-stbv" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span>Stbv</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="geu-step" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span>Step</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!--
+       Authoriythy Navabar SEAC End
+       -->
 
             <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" display="dynamic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">

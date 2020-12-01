@@ -39,7 +39,7 @@ export const previsionPsaRoute: Routes = [
     path: '',
     component: PrevisionPsaComponent,
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.SEDA],
       defaultSort: 'id,asc',
       pageTitle: 'sidotApp.previsionPsa.home.title',
     },
@@ -52,7 +52,7 @@ export const previsionPsaRoute: Routes = [
       previsionPsa: PrevisionPsaResolve,
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.SEDA],
       pageTitle: 'sidotApp.previsionPsa.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -64,7 +64,7 @@ export const previsionPsaRoute: Routes = [
       previsionPsa: PrevisionPsaResolve,
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.SEDA],
       pageTitle: 'sidotApp.previsionPsa.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -76,7 +76,7 @@ export const previsionPsaRoute: Routes = [
       previsionPsa: PrevisionPsaResolve,
     },
     data: {
-      authorities: [Authority.USER],
+      authorities: [Authority.SEDA],
       pageTitle: 'sidotApp.previsionPsa.home.title',
     },
     canActivate: [UserRouteAccessService],
