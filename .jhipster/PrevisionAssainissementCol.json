@@ -1,0 +1,50 @@
+{
+  "name": "PrevisionAssainissementCol",
+  "fields": [
+    {
+      "fieldName": "nbStep",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nbStbv",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "reseaux",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "nbRaccordement",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "refAnnee",
+      "otherEntityRelationshipName": "previsionAssainissementCol",
+      "relationshipName": "refannee",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "centre",
+      "otherEntityRelationshipName": "previsionAssainissementCol",
+      "relationshipName": "centre",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201201103412",
+  "entityTableName": "prevision_assainissement_col",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

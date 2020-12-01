@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="previsionAssainissementCol">
+            <h2><span jhiTranslate="sidotApp.previsionAssainissementCol.detail.title">Prevision Assainissement Col</span> {{ previsionAssainissementCol.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementCol.nbStep">Nb Step</span></dt>
+                <dd>
+                    <span>{{ previsionAssainissementCol.nbStep }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementCol.nbStbv">Nb Stbv</span></dt>
+                <dd>
+                    <span>{{ previsionAssainissementCol.nbStbv }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementCol.reseaux">Reseaux</span></dt>
+                <dd>
+                    <span>{{ previsionAssainissementCol.reseaux }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementCol.nbRaccordement">Nb Raccordement</span></dt>
+                <dd>
+                    <span>{{ previsionAssainissementCol.nbRaccordement }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementCol.refannee">Refannee</span></dt>
+                <dd>
+                    <div *ngIf="previsionAssainissementCol.refanneeId">
+                        <a [routerLink]="['/ref-annee', previsionAssainissementCol.refanneeId, 'view']">{{ previsionAssainissementCol.refanneeId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementCol.centre">Centre</span></dt>
+                <dd>
+                    <div *ngIf="previsionAssainissementCol.centreId">
+                        <a [routerLink]="['/centre', previsionAssainissementCol.centreId, 'view']">{{ previsionAssainissementCol.centreId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/prevision-assainissement-col', previsionAssainissementCol.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

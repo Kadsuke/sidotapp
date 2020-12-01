@@ -1,0 +1,25 @@
+{
+  "sidotApp": {
+    "previsionPsa": {
+      "home": {
+        "title": "PrevisionPsas",
+        "createLabel": "Créer un nouveau Prevision Psa",
+        "createOrEditLabel": "Créer ou éditer un Prevision Psa",
+        "notFound": "Aucun Prevision Psa trouvé"
+      },
+      "created": "Un nouveau Prevision Psa a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Prevision Psa avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Prevision Psa avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Prevision Psa {{ id }} ?"
+      },
+      "detail": {
+        "title": "Prevision Psa"
+      },
+      "elabore": "Elabore",
+      "miseEnOeuvre": "Mise En Oeuvre",
+      "centre": "Centre",
+      "refAnnee": "Ref Annee"
+    }
+  }
+}

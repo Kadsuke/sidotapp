@@ -62,6 +62,9 @@
         "geuRaccordement": "Geu Raccordement",
         "tacherons": "Tacherons",
         "geuUsage": "Geu Usage",
+        "previsionAssainissementAu": "Prevision Assainissement Au",
+        "previsionAssainissementCol": "Prevision Assainissement Col",
+        "previsionPsa": "Prevision Psa",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

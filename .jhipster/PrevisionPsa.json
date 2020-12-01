@@ -1,0 +1,42 @@
+{
+  "name": "PrevisionPsa",
+  "fields": [
+    {
+      "fieldName": "elabore",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "miseEnOeuvre",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "centre",
+      "otherEntityRelationshipName": "previsionPsa",
+      "relationshipName": "centre",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "refAnnee",
+      "otherEntityRelationshipName": "previsionPsa",
+      "relationshipName": "refAnnee",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201201103512",
+  "entityTableName": "prevision_psa",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

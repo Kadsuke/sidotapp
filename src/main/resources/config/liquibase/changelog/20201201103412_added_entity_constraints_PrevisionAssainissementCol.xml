@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity PrevisionAssainissementCol.
+    -->
+    <changeSet id="20201201103412-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="refannee_id"
+                                 baseTableName="prevision_assainissement_col"
+                                 constraintName="fk_prevision_assainissement_col_refannee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ref_annee"/>
+
+        <addForeignKeyConstraint baseColumnNames="centre_id"
+                                 baseTableName="prevision_assainissement_col"
+                                 constraintName="fk_prevision_assainissement_col_centre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="centre"/>
+
+    </changeSet>
+</databaseChangeLog>

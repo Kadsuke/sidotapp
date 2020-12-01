@@ -69,6 +69,9 @@
     <include file="config/liquibase/changelog/20201126111649_added_entity_GeuRaccordement.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201126111749_added_entity_Tacherons.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201126111849_added_entity_GeuUsage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201201103312_added_entity_PrevisionAssainissementAu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201201103412_added_entity_PrevisionAssainissementCol.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201201103512_added_entity_PrevisionPsa.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20201126103149_added_entity_constraints_GeoProvince.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201126103249_added_entity_constraints_GeoCommune.xml" relativeToChangelogFile="false"/>
@@ -91,6 +94,9 @@
     <include file="config/liquibase/changelog/20201126111449_added_entity_constraints_GeuAaOuvrage.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201126111549_added_entity_constraints_GeuRealisation.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201126111649_added_entity_constraints_GeuRaccordement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201201103312_added_entity_constraints_PrevisionAssainissementAu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201201103412_added_entity_constraints_PrevisionAssainissementCol.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20201201103512_added_entity_constraints_PrevisionPsa.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

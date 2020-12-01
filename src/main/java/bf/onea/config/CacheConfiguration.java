@@ -135,6 +135,9 @@ public class CacheConfiguration {
             createCache(cm, bf.onea.domain.Tacherons.class.getName() + ".geuRaccordements");
             createCache(cm, bf.onea.domain.GeuUsage.class.getName());
             createCache(cm, bf.onea.domain.GeuUsage.class.getName() + ".geuRaccordements");
+            createCache(cm, bf.onea.domain.PrevisionAssainissementAu.class.getName());
+            createCache(cm, bf.onea.domain.PrevisionAssainissementCol.class.getName());
+            createCache(cm, bf.onea.domain.PrevisionPsa.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

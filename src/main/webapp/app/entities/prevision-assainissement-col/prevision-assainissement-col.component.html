@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sidotApp.previsionAssainissementCol.home.title">Prevision Assainissement Cols</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-prevision-assainissement-col" [routerLink]="['/prevision-assainissement-col/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sidotApp.previsionAssainissementCol.home.createLabel">
+            Create a new Prevision Assainissement Col
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="previsionAssainissementCols?.length === 0">
+        <span jhiTranslate="sidotApp.previsionAssainissementCol.home.notFound">No previsionAssainissementCols found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="previsionAssainissementCols && previsionAssainissementCols.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbStep"><span jhiTranslate="sidotApp.previsionAssainissementCol.nbStep">Nb Step</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbStbv"><span jhiTranslate="sidotApp.previsionAssainissementCol.nbStbv">Nb Stbv</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reseaux"><span jhiTranslate="sidotApp.previsionAssainissementCol.reseaux">Reseaux</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nbRaccordement"><span jhiTranslate="sidotApp.previsionAssainissementCol.nbRaccordement">Nb Raccordement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refanneeId"><span jhiTranslate="sidotApp.previsionAssainissementCol.refannee">Refannee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="centreId"><span jhiTranslate="sidotApp.previsionAssainissementCol.centre">Centre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let previsionAssainissementCol of previsionAssainissementCols ;trackBy: trackId">
+                    <td><a [routerLink]="['/prevision-assainissement-col', previsionAssainissementCol.id, 'view']">{{ previsionAssainissementCol.id }}</a></td>
+                    <td>{{ previsionAssainissementCol.nbStep }}</td>
+                    <td>{{ previsionAssainissementCol.nbStbv }}</td>
+                    <td>{{ previsionAssainissementCol.reseaux }}</td>
+                    <td>{{ previsionAssainissementCol.nbRaccordement }}</td>
+                    <td>
+                        <div *ngIf="previsionAssainissementCol.refanneeId">
+                            <a [routerLink]="['/ref-annee', previsionAssainissementCol.refanneeId , 'view']" >{{ previsionAssainissementCol.refanneeId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="previsionAssainissementCol.centreId">
+                            <a [routerLink]="['/centre', previsionAssainissementCol.centreId , 'view']" >{{ previsionAssainissementCol.centreId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/prevision-assainissement-col', previsionAssainissementCol.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/prevision-assainissement-col', previsionAssainissementCol.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(previsionAssainissementCol)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="previsionAssainissementCols && previsionAssainissementCols.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

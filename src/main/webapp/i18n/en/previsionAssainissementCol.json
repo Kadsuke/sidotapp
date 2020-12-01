@@ -1,0 +1,27 @@
+{
+  "sidotApp": {
+    "previsionAssainissementCol": {
+      "home": {
+        "title": "Prevision Assainissement Cols",
+        "createLabel": "Create a new Prevision Assainissement Col",
+        "createOrEditLabel": "Create or edit a Prevision Assainissement Col",
+        "notFound": "No Prevision Assainissement Cols found"
+      },
+      "created": "A new Prevision Assainissement Col is created with identifier {{ param }}",
+      "updated": "A Prevision Assainissement Col is updated with identifier {{ param }}",
+      "deleted": "A Prevision Assainissement Col is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Prevision Assainissement Col {{ id }}?"
+      },
+      "detail": {
+        "title": "Prevision Assainissement Col"
+      },
+      "nbStep": "Nb Step",
+      "nbStbv": "Nb Stbv",
+      "reseaux": "Reseaux",
+      "nbRaccordement": "Nb Raccordement",
+      "refannee": "Refannee",
+      "centre": "Centre"
+    }
+  }
+}
