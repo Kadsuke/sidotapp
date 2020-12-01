@@ -226,6 +226,20 @@ import { RouterModule } from '@angular/router';
         path: 'geu-usage',
         loadChildren: () => import('./geu-usage/geu-usage.module').then(m => m.SidotGeuUsageModule),
       },
+      {
+        path: 'prevision-assainissement-au',
+        loadChildren: () =>
+          import('./prevision-assainissement-au/prevision-assainissement-au.module').then(m => m.SidotPrevisionAssainissementAuModule),
+      },
+      {
+        path: 'prevision-assainissement-col',
+        loadChildren: () =>
+          import('./prevision-assainissement-col/prevision-assainissement-col.module').then(m => m.SidotPrevisionAssainissementColModule),
+      },
+      {
+        path: 'prevision-psa',
+        loadChildren: () => import('./prevision-psa/prevision-psa.module').then(m => m.SidotPrevisionPsaModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

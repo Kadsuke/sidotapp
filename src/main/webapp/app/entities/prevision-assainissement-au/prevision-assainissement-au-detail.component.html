@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="previsionAssainissementAu">
+            <h2><span jhiTranslate="sidotApp.previsionAssainissementAu.detail.title">Prevision Assainissement Au</span> {{ previsionAssainissementAu.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementAu.nbLatrine">Nb Latrine</span></dt>
+                <dd>
+                    <span>{{ previsionAssainissementAu.nbLatrine }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementAu.nbPuisard">Nb Puisard</span></dt>
+                <dd>
+                    <span>{{ previsionAssainissementAu.nbPuisard }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementAu.nbPublic">Nb Public</span></dt>
+                <dd>
+                    <span>{{ previsionAssainissementAu.nbPublic }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementAu.nbScolaire">Nb Scolaire</span></dt>
+                <dd>
+                    <span>{{ previsionAssainissementAu.nbScolaire }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementAu.centreDeSante">Centre De Sante</span></dt>
+                <dd>
+                    <span>{{ previsionAssainissementAu.centreDeSante }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementAu.population">Population</span></dt>
+                <dd>
+                    <span>{{ previsionAssainissementAu.population }}</span>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementAu.refannee">Refannee</span></dt>
+                <dd>
+                    <div *ngIf="previsionAssainissementAu.refanneeId">
+                        <a [routerLink]="['/ref-annee', previsionAssainissementAu.refanneeId, 'view']">{{ previsionAssainissementAu.refanneeId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sidotApp.previsionAssainissementAu.centre">Centre</span></dt>
+                <dd>
+                    <div *ngIf="previsionAssainissementAu.centreId">
+                        <a [routerLink]="['/centre', previsionAssainissementAu.centreId, 'view']">{{ previsionAssainissementAu.centreId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/prevision-assainissement-au', previsionAssainissementAu.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

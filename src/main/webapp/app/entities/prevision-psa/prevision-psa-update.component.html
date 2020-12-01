@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-prevision-psa-heading" jhiTranslate="sidotApp.previsionPsa.home.createOrEditLabel">Create or edit a Prevision Psa</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.previsionPsa.elabore" for="field_elabore">Elabore</label>
+                    <input type="number" class="form-control" name="elabore" id="field_elabore"
+                           formControlName="elabore"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.previsionPsa.miseEnOeuvre" for="field_miseEnOeuvre">Mise En Oeuvre</label>
+                    <input type="number" class="form-control" name="miseEnOeuvre" id="field_miseEnOeuvre"
+                           formControlName="miseEnOeuvre"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.previsionPsa.centre" for="field_centre">Centre</label>
+                    <select class="form-control" id="field_centre" name="centre" formControlName="centreId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="centreOption.id" *ngFor="let centreOption of centres; trackBy: trackById">{{ centreOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.previsionPsa.refAnnee" for="field_refAnnee">Ref Annee</label>
+                    <select class="form-control" id="field_refAnnee" name="refAnnee" formControlName="refAnneeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="refAnneeOption.id" *ngFor="let refAnneeOption of refannees; trackBy: trackById">{{ refAnneeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
