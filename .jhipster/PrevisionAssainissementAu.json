@@ -1,0 +1,58 @@
+{
+  "name": "PrevisionAssainissementAu",
+  "fields": [
+    {
+      "fieldName": "nbLatrine",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nbPuisard",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nbPublic",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nbScolaire",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "centreDeSante",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "population",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "refAnnee",
+      "otherEntityRelationshipName": "previsionAssainissementAu",
+      "relationshipName": "refannee",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "centre",
+      "otherEntityRelationshipName": "previsionAssainissementAu",
+      "relationshipName": "centre",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20201201103312",
+  "entityTableName": "prevision_assainissement_au",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

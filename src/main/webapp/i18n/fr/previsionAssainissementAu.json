@@ -1,0 +1,29 @@
+{
+  "sidotApp": {
+    "previsionAssainissementAu": {
+      "home": {
+        "title": "PrevisionAssainissementAus",
+        "createLabel": "Créer un nouveau Prevision Assainissement Au",
+        "createOrEditLabel": "Créer ou éditer un Prevision Assainissement Au",
+        "notFound": "Aucun Prevision Assainissement Au trouvé"
+      },
+      "created": "Un nouveau Prevision Assainissement Au a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Prevision Assainissement Au avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Prevision Assainissement Au avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Prevision Assainissement Au {{ id }} ?"
+      },
+      "detail": {
+        "title": "Prevision Assainissement Au"
+      },
+      "nbLatrine": "Nb Latrine",
+      "nbPuisard": "Nb Puisard",
+      "nbPublic": "Nb Public",
+      "nbScolaire": "Nb Scolaire",
+      "centreDeSante": "Centre De Sante",
+      "population": "Population",
+      "refannee": "Refannee",
+      "centre": "Centre"
+    }
+  }
+}

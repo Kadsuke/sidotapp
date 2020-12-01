@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sidotApp.previsionPsa.home.title">Prevision Psas</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-prevision-psa" [routerLink]="['/prevision-psa/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="sidotApp.previsionPsa.home.createLabel">
+            Create a new Prevision Psa
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="previsionPsas?.length === 0">
+        <span jhiTranslate="sidotApp.previsionPsa.home.notFound">No previsionPsas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="previsionPsas && previsionPsas.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="elabore"><span jhiTranslate="sidotApp.previsionPsa.elabore">Elabore</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="miseEnOeuvre"><span jhiTranslate="sidotApp.previsionPsa.miseEnOeuvre">Mise En Oeuvre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="centreId"><span jhiTranslate="sidotApp.previsionPsa.centre">Centre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="refAnneeId"><span jhiTranslate="sidotApp.previsionPsa.refAnnee">Ref Annee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let previsionPsa of previsionPsas ;trackBy: trackId">
+                    <td><a [routerLink]="['/prevision-psa', previsionPsa.id, 'view']">{{ previsionPsa.id }}</a></td>
+                    <td>{{ previsionPsa.elabore }}</td>
+                    <td>{{ previsionPsa.miseEnOeuvre }}</td>
+                    <td>
+                        <div *ngIf="previsionPsa.centreId">
+                            <a [routerLink]="['/centre', previsionPsa.centreId , 'view']" >{{ previsionPsa.centreId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="previsionPsa.refAnneeId">
+                            <a [routerLink]="['/ref-annee', previsionPsa.refAnneeId , 'view']" >{{ previsionPsa.refAnneeId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/prevision-psa', previsionPsa.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/prevision-psa', previsionPsa.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(previsionPsa)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="previsionPsas && previsionPsas.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-prevision-assainissement-col-heading" jhiTranslate="sidotApp.previsionAssainissementCol.home.createOrEditLabel">Create or edit a Prevision Assainissement Col</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementCol.nbStep" for="field_nbStep">Nb Step</label>
+                    <input type="number" class="form-control" name="nbStep" id="field_nbStep"
+                           formControlName="nbStep"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementCol.nbStbv" for="field_nbStbv">Nb Stbv</label>
+                    <input type="number" class="form-control" name="nbStbv" id="field_nbStbv"
+                           formControlName="nbStbv"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementCol.reseaux" for="field_reseaux">Reseaux</label>
+                    <input type="number" class="form-control" name="reseaux" id="field_reseaux"
+                           formControlName="reseaux"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementCol.nbRaccordement" for="field_nbRaccordement">Nb Raccordement</label>
+                    <input type="number" class="form-control" name="nbRaccordement" id="field_nbRaccordement"
+                           formControlName="nbRaccordement"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementCol.refannee" for="field_refannee">Refannee</label>
+                    <select class="form-control" id="field_refannee" name="refannee" formControlName="refanneeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="refAnneeOption.id" *ngFor="let refAnneeOption of refannees; trackBy: trackById">{{ refAnneeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementCol.centre" for="field_centre">Centre</label>
+                    <select class="form-control" id="field_centre" name="centre" formControlName="centreId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="centreOption.id" *ngFor="let centreOption of centres; trackBy: trackById">{{ centreOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

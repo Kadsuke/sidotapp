@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity PrevisionPsa.
+    -->
+    <changeSet id="20201201103512-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="centre_id"
+                                 baseTableName="prevision_psa"
+                                 constraintName="fk_prevision_psa_centre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="centre"/>
+
+        <addForeignKeyConstraint baseColumnNames="ref_annee_id"
+                                 baseTableName="prevision_psa"
+                                 constraintName="fk_prevision_psa_ref_annee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ref_annee"/>
+
+    </changeSet>
+</databaseChangeLog>

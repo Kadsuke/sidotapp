@@ -1,0 +1,25 @@
+{
+  "sidotApp": {
+    "previsionPsa": {
+      "home": {
+        "title": "Prevision Psas",
+        "createLabel": "Create a new Prevision Psa",
+        "createOrEditLabel": "Create or edit a Prevision Psa",
+        "notFound": "No Prevision Psas found"
+      },
+      "created": "A new Prevision Psa is created with identifier {{ param }}",
+      "updated": "A Prevision Psa is updated with identifier {{ param }}",
+      "deleted": "A Prevision Psa is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Prevision Psa {{ id }}?"
+      },
+      "detail": {
+        "title": "Prevision Psa"
+      },
+      "elabore": "Elabore",
+      "miseEnOeuvre": "Mise En Oeuvre",
+      "centre": "Centre",
+      "refAnnee": "Ref Annee"
+    }
+  }
+}
