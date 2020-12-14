@@ -17,7 +17,7 @@ export class EtatEquipementUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
   });
 
   constructor(protected etatEquipementService: EtatEquipementService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

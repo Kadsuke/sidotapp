@@ -22,8 +22,8 @@ export class GeuPrevisionSTEPUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    datePrevStep: [],
-    volumePrevStep: [],
+    datePrevStep: [null, [Validators.required]],
+    volumePrevStep: [null, [Validators.required]],
     geustepId: [],
   });
 

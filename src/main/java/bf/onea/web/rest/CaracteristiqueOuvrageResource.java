@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class CaracteristiqueOuvrageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/caracteristique-ouvrages")
-    public ResponseEntity<CaracteristiqueOuvrageDTO> createCaracteristiqueOuvrage(@RequestBody CaracteristiqueOuvrageDTO caracteristiqueOuvrageDTO) throws URISyntaxException {
+    public ResponseEntity<CaracteristiqueOuvrageDTO> createCaracteristiqueOuvrage(@Valid @RequestBody CaracteristiqueOuvrageDTO caracteristiqueOuvrageDTO) throws URISyntaxException {
         log.debug("REST request to save CaracteristiqueOuvrage : {}", caracteristiqueOuvrageDTO);
         if (caracteristiqueOuvrageDTO.getId() != null) {
             throw new BadRequestAlertException("A new caracteristiqueOuvrage cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class CaracteristiqueOuvrageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/caracteristique-ouvrages")
-    public ResponseEntity<CaracteristiqueOuvrageDTO> updateCaracteristiqueOuvrage(@RequestBody CaracteristiqueOuvrageDTO caracteristiqueOuvrageDTO) throws URISyntaxException {
+    public ResponseEntity<CaracteristiqueOuvrageDTO> updateCaracteristiqueOuvrage(@Valid @RequestBody CaracteristiqueOuvrageDTO caracteristiqueOuvrageDTO) throws URISyntaxException {
         log.debug("REST request to update CaracteristiqueOuvrage : {}", caracteristiqueOuvrageDTO);
         if (caracteristiqueOuvrageDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

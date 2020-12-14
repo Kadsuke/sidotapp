@@ -121,6 +121,26 @@ public class GeuRealisationResourceIT {
 
     @Test
     @Transactional
+    public void checkNbRealisationIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuRealisationRepository.findAll().size();
+        // set the field null
+        geuRealisation.setNbRealisation(null);
+
+        // Create the GeuRealisation, which fails.
+        GeuRealisationDTO geuRealisationDTO = geuRealisationMapper.toDto(geuRealisation);
+
+
+        restGeuRealisationMockMvc.perform(post("/api/geu-realisations")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuRealisationDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuRealisation> geuRealisationList = geuRealisationRepository.findAll();
+        assertThat(geuRealisationList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeuRealisations() throws Exception {
         // Initialize the database
         geuRealisationRepository.saveAndFlush(geuRealisation);

@@ -17,6 +17,9 @@ public interface CentreMapper extends EntityMapper<CentreDTO, Centre> {
 
     @Mapping(target = "sites", ignore = true)
     @Mapping(target = "removeSite", ignore = true)
+    @Mapping(target = "previsionAssainissementAu", ignore = true)
+    @Mapping(target = "previsionAssainissementCol", ignore = true)
+    @Mapping(target = "previsionPsa", ignore = true)
     @Mapping(source = "centreregroupementId", target = "centreregroupement")
     Centre toEntity(CentreDTO centreDTO);
 

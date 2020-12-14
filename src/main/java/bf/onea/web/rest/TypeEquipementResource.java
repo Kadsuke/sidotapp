@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class TypeEquipementResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/type-equipements")
-    public ResponseEntity<TypeEquipementDTO> createTypeEquipement(@RequestBody TypeEquipementDTO typeEquipementDTO) throws URISyntaxException {
+    public ResponseEntity<TypeEquipementDTO> createTypeEquipement(@Valid @RequestBody TypeEquipementDTO typeEquipementDTO) throws URISyntaxException {
         log.debug("REST request to save TypeEquipement : {}", typeEquipementDTO);
         if (typeEquipementDTO.getId() != null) {
             throw new BadRequestAlertException("A new typeEquipement cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class TypeEquipementResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/type-equipements")
-    public ResponseEntity<TypeEquipementDTO> updateTypeEquipement(@RequestBody TypeEquipementDTO typeEquipementDTO) throws URISyntaxException {
+    public ResponseEntity<TypeEquipementDTO> updateTypeEquipement(@Valid @RequestBody TypeEquipementDTO typeEquipementDTO) throws URISyntaxException {
         log.debug("REST request to update TypeEquipement : {}", typeEquipementDTO);
         if (typeEquipementDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

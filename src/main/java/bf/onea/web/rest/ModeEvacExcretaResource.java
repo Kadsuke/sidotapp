@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class ModeEvacExcretaResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/mode-evac-excretas")
-    public ResponseEntity<ModeEvacExcretaDTO> createModeEvacExcreta(@RequestBody ModeEvacExcretaDTO modeEvacExcretaDTO) throws URISyntaxException {
+    public ResponseEntity<ModeEvacExcretaDTO> createModeEvacExcreta(@Valid @RequestBody ModeEvacExcretaDTO modeEvacExcretaDTO) throws URISyntaxException {
         log.debug("REST request to save ModeEvacExcreta : {}", modeEvacExcretaDTO);
         if (modeEvacExcretaDTO.getId() != null) {
             throw new BadRequestAlertException("A new modeEvacExcreta cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class ModeEvacExcretaResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/mode-evac-excretas")
-    public ResponseEntity<ModeEvacExcretaDTO> updateModeEvacExcreta(@RequestBody ModeEvacExcretaDTO modeEvacExcretaDTO) throws URISyntaxException {
+    public ResponseEntity<ModeEvacExcretaDTO> updateModeEvacExcreta(@Valid @RequestBody ModeEvacExcretaDTO modeEvacExcretaDTO) throws URISyntaxException {
         log.debug("REST request to update ModeEvacExcreta : {}", modeEvacExcretaDTO);
         if (modeEvacExcretaDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

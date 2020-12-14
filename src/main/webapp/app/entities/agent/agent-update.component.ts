@@ -20,9 +20,9 @@ export class AgentUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    nom: [],
-    numero: [],
-    role: [],
+    nom: [null, [Validators.required]],
+    numero: [null, [Validators.required]],
+    role: [null, [Validators.required]],
     siteId: [],
   });
 

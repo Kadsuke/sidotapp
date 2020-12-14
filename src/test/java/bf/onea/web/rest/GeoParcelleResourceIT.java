@@ -121,6 +121,26 @@ public class GeoParcelleResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geoParcelleRepository.findAll().size();
+        // set the field null
+        geoParcelle.setLibelle(null);
+
+        // Create the GeoParcelle, which fails.
+        GeoParcelleDTO geoParcelleDTO = geoParcelleMapper.toDto(geoParcelle);
+
+
+        restGeoParcelleMockMvc.perform(post("/api/geo-parcelles")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geoParcelleDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeoParcelle> geoParcelleList = geoParcelleRepository.findAll();
+        assertThat(geoParcelleList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeoParcelles() throws Exception {
         // Initialize the database
         geoParcelleRepository.saveAndFlush(geoParcelle);

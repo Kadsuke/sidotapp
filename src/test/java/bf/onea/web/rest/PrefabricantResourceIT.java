@@ -121,6 +121,26 @@ public class PrefabricantResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = prefabricantRepository.findAll().size();
+        // set the field null
+        prefabricant.setLibelle(null);
+
+        // Create the Prefabricant, which fails.
+        PrefabricantDTO prefabricantDTO = prefabricantMapper.toDto(prefabricant);
+
+
+        restPrefabricantMockMvc.perform(post("/api/prefabricants")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(prefabricantDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Prefabricant> prefabricantList = prefabricantRepository.findAll();
+        assertThat(prefabricantList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllPrefabricants() throws Exception {
         // Initialize the database
         prefabricantRepository.saveAndFlush(prefabricant);

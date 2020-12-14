@@ -39,7 +39,7 @@ export const geuSTEPRoute: Routes = [
     path: '',
     component: GeuSTEPComponent,
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       defaultSort: 'id,asc',
       pageTitle: 'sidotApp.geuSTEP.home.title',
     },
@@ -52,7 +52,7 @@ export const geuSTEPRoute: Routes = [
       geuSTEP: GeuSTEPResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuSTEP.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -64,7 +64,7 @@ export const geuSTEPRoute: Routes = [
       geuSTEP: GeuSTEPResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuSTEP.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -76,7 +76,7 @@ export const geuSTEPRoute: Routes = [
       geuSTEP: GeuSTEPResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuSTEP.home.title',
     },
     canActivate: [UserRouteAccessService],

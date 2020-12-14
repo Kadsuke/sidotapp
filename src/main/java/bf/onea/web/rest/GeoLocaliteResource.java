@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class GeoLocaliteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/geo-localites")
-    public ResponseEntity<GeoLocaliteDTO> createGeoLocalite(@RequestBody GeoLocaliteDTO geoLocaliteDTO) throws URISyntaxException {
+    public ResponseEntity<GeoLocaliteDTO> createGeoLocalite(@Valid @RequestBody GeoLocaliteDTO geoLocaliteDTO) throws URISyntaxException {
         log.debug("REST request to save GeoLocalite : {}", geoLocaliteDTO);
         if (geoLocaliteDTO.getId() != null) {
             throw new BadRequestAlertException("A new geoLocalite cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class GeoLocaliteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/geo-localites")
-    public ResponseEntity<GeoLocaliteDTO> updateGeoLocalite(@RequestBody GeoLocaliteDTO geoLocaliteDTO) throws URISyntaxException {
+    public ResponseEntity<GeoLocaliteDTO> updateGeoLocalite(@Valid @RequestBody GeoLocaliteDTO geoLocaliteDTO) throws URISyntaxException {
         log.debug("REST request to update GeoLocalite : {}", geoLocaliteDTO);
         if (geoLocaliteDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

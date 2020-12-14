@@ -39,7 +39,7 @@ export const geuRealisationRoute: Routes = [
     path: '',
     component: GeuRealisationComponent,
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       defaultSort: 'id,asc',
       pageTitle: 'sidotApp.geuRealisation.home.title',
     },
@@ -52,7 +52,7 @@ export const geuRealisationRoute: Routes = [
       geuRealisation: GeuRealisationResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuRealisation.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -64,7 +64,7 @@ export const geuRealisationRoute: Routes = [
       geuRealisation: GeuRealisationResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuRealisation.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -76,7 +76,7 @@ export const geuRealisationRoute: Routes = [
       geuRealisation: GeuRealisationResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuRealisation.home.title',
     },
     canActivate: [UserRouteAccessService],

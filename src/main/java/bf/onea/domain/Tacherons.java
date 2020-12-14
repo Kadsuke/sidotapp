@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -24,13 +25,16 @@ public class Tacherons implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "nom")
+    @NotNull
+    @Column(name = "nom", nullable = false)
     private String nom;
 
-    @Column(name = "tel")
+    @NotNull
+    @Column(name = "tel", nullable = false)
     private String tel;
 
-    @Column(name = "adresse")
+    @NotNull
+    @Column(name = "adresse", nullable = false)
     private String adresse;
 
     @OneToMany(mappedBy = "tacherons")

@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class AnalyseSpecialiteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/analyse-specialites")
-    public ResponseEntity<AnalyseSpecialiteDTO> createAnalyseSpecialite(@RequestBody AnalyseSpecialiteDTO analyseSpecialiteDTO) throws URISyntaxException {
+    public ResponseEntity<AnalyseSpecialiteDTO> createAnalyseSpecialite(@Valid @RequestBody AnalyseSpecialiteDTO analyseSpecialiteDTO) throws URISyntaxException {
         log.debug("REST request to save AnalyseSpecialite : {}", analyseSpecialiteDTO);
         if (analyseSpecialiteDTO.getId() != null) {
             throw new BadRequestAlertException("A new analyseSpecialite cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class AnalyseSpecialiteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/analyse-specialites")
-    public ResponseEntity<AnalyseSpecialiteDTO> updateAnalyseSpecialite(@RequestBody AnalyseSpecialiteDTO analyseSpecialiteDTO) throws URISyntaxException {
+    public ResponseEntity<AnalyseSpecialiteDTO> updateAnalyseSpecialite(@Valid @RequestBody AnalyseSpecialiteDTO analyseSpecialiteDTO) throws URISyntaxException {
         log.debug("REST request to update AnalyseSpecialite : {}", analyseSpecialiteDTO);
         if (analyseSpecialiteDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

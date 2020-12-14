@@ -15,18 +15,36 @@
                     <label class="form-control-label" jhiTranslate="sidotApp.prestataire.libelle" for="field_libelle">Libelle</label>
                     <input type="text" class="form-control" name="libelle" id="field_libelle"
                            formControlName="libelle"/>
+                    <div *ngIf="editForm.get('libelle')!.invalid && (editForm.get('libelle')!.dirty || editForm.get('libelle')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('libelle')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.prestataire.responsable" for="field_responsable">Responsable</label>
                     <input type="text" class="form-control" name="responsable" id="field_responsable"
                            formControlName="responsable"/>
+                    <div *ngIf="editForm.get('responsable')!.invalid && (editForm.get('responsable')!.dirty || editForm.get('responsable')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('responsable')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.prestataire.contact" for="field_contact">Contact</label>
                     <input type="text" class="form-control" name="contact" id="field_contact"
                            formControlName="contact"/>
+                    <div *ngIf="editForm.get('contact')!.invalid && (editForm.get('contact')!.dirty || editForm.get('contact')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contact')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
             </div>
 

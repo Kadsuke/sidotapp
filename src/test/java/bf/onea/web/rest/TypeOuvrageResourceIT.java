@@ -121,6 +121,26 @@ public class TypeOuvrageResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = typeOuvrageRepository.findAll().size();
+        // set the field null
+        typeOuvrage.setLibelle(null);
+
+        // Create the TypeOuvrage, which fails.
+        TypeOuvrageDTO typeOuvrageDTO = typeOuvrageMapper.toDto(typeOuvrage);
+
+
+        restTypeOuvrageMockMvc.perform(post("/api/type-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(typeOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<TypeOuvrage> typeOuvrageList = typeOuvrageRepository.findAll();
+        assertThat(typeOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllTypeOuvrages() throws Exception {
         // Initialize the database
         typeOuvrageRepository.saveAndFlush(typeOuvrage);

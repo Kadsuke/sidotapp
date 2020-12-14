@@ -20,9 +20,9 @@ export class GeuPrevisionSTBVUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    nbCamions: [],
-    volume: [],
-    energie: [],
+    nbCamions: [null, [Validators.required]],
+    volume: [null, [Validators.required]],
+    energie: [null, [Validators.required]],
     geustbvId: [],
   });
 

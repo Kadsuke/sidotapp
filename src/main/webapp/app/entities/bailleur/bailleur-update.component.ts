@@ -17,9 +17,9 @@ export class BailleurUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
-    responsbale: [],
-    contact: [],
+    libelle: [null, [Validators.required]],
+    responsbale: [null, [Validators.required]],
+    contact: [null, [Validators.required]],
   });
 
   constructor(protected bailleurService: BailleurService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

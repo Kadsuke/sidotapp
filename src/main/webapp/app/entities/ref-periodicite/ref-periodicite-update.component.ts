@@ -17,7 +17,7 @@ export class RefPeriodiciteUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
   });
 
   constructor(protected refPeriodiciteService: RefPeriodiciteService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

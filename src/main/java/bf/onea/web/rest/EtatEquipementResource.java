@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class EtatEquipementResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/etat-equipements")
-    public ResponseEntity<EtatEquipementDTO> createEtatEquipement(@RequestBody EtatEquipementDTO etatEquipementDTO) throws URISyntaxException {
+    public ResponseEntity<EtatEquipementDTO> createEtatEquipement(@Valid @RequestBody EtatEquipementDTO etatEquipementDTO) throws URISyntaxException {
         log.debug("REST request to save EtatEquipement : {}", etatEquipementDTO);
         if (etatEquipementDTO.getId() != null) {
             throw new BadRequestAlertException("A new etatEquipement cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class EtatEquipementResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/etat-equipements")
-    public ResponseEntity<EtatEquipementDTO> updateEtatEquipement(@RequestBody EtatEquipementDTO etatEquipementDTO) throws URISyntaxException {
+    public ResponseEntity<EtatEquipementDTO> updateEtatEquipement(@Valid @RequestBody EtatEquipementDTO etatEquipementDTO) throws URISyntaxException {
         log.debug("REST request to update EtatEquipement : {}", etatEquipementDTO);
         if (etatEquipementDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

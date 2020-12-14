@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class RefMoisResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/ref-mois")
-    public ResponseEntity<RefMoisDTO> createRefMois(@RequestBody RefMoisDTO refMoisDTO) throws URISyntaxException {
+    public ResponseEntity<RefMoisDTO> createRefMois(@Valid @RequestBody RefMoisDTO refMoisDTO) throws URISyntaxException {
         log.debug("REST request to save RefMois : {}", refMoisDTO);
         if (refMoisDTO.getId() != null) {
             throw new BadRequestAlertException("A new refMois cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class RefMoisResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/ref-mois")
-    public ResponseEntity<RefMoisDTO> updateRefMois(@RequestBody RefMoisDTO refMoisDTO) throws URISyntaxException {
+    public ResponseEntity<RefMoisDTO> updateRefMois(@Valid @RequestBody RefMoisDTO refMoisDTO) throws URISyntaxException {
         log.debug("REST request to update RefMois : {}", refMoisDTO);
         if (refMoisDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

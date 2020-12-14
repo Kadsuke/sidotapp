@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class GeuUsageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/geu-usages")
-    public ResponseEntity<GeuUsageDTO> createGeuUsage(@RequestBody GeuUsageDTO geuUsageDTO) throws URISyntaxException {
+    public ResponseEntity<GeuUsageDTO> createGeuUsage(@Valid @RequestBody GeuUsageDTO geuUsageDTO) throws URISyntaxException {
         log.debug("REST request to save GeuUsage : {}", geuUsageDTO);
         if (geuUsageDTO.getId() != null) {
             throw new BadRequestAlertException("A new geuUsage cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class GeuUsageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/geu-usages")
-    public ResponseEntity<GeuUsageDTO> updateGeuUsage(@RequestBody GeuUsageDTO geuUsageDTO) throws URISyntaxException {
+    public ResponseEntity<GeuUsageDTO> updateGeuUsage(@Valid @RequestBody GeuUsageDTO geuUsageDTO) throws URISyntaxException {
         log.debug("REST request to update GeuUsage : {}", geuUsageDTO);
         if (geuUsageDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

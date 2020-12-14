@@ -1,5 +1,6 @@
 package bf.onea.service.dto;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -9,19 +10,26 @@ public class GeuRaccordementDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
     private Long numAbonnement;
 
+    @NotNull
     private String nom;
 
+    @NotNull
     private String prenom;
 
+    @NotNull
     private String adresse;
 
+    @NotNull
     private String proprietaireParacelle;
 
+    @NotNull
     private String entreprise;
 
-    private String otherUsage;
+    @NotNull
+    private String autreUsage;
 
 
     private Long geoparcelleId;
@@ -88,12 +96,12 @@ public class GeuRaccordementDTO implements Serializable {
         this.entreprise = entreprise;
     }
 
-    public String getOtherUsage() {
-        return otherUsage;
+    public String getAutreUsage() {
+        return autreUsage;
     }
 
-    public void setOtherUsage(String otherUsage) {
-        this.otherUsage = otherUsage;
+    public void setAutreUsage(String autreUsage) {
+        this.autreUsage = autreUsage;
     }
 
     public Long getGeoparcelleId() {
@@ -156,7 +164,7 @@ public class GeuRaccordementDTO implements Serializable {
             ", adresse='" + getAdresse() + "'" +
             ", proprietaireParacelle='" + getProprietaireParacelle() + "'" +
             ", entreprise='" + getEntreprise() + "'" +
-            ", otherUsage='" + getOtherUsage() + "'" +
+            ", autreUsage='" + getAutreUsage() + "'" +
             ", geoparcelleId=" + getGeoparcelleId() +
             ", agentId=" + getAgentId() +
             ", tacheronsId=" + getTacheronsId() +

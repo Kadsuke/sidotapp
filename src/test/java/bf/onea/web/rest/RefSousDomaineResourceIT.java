@@ -121,6 +121,26 @@ public class RefSousDomaineResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = refSousDomaineRepository.findAll().size();
+        // set the field null
+        refSousDomaine.setLibelle(null);
+
+        // Create the RefSousDomaine, which fails.
+        RefSousDomaineDTO refSousDomaineDTO = refSousDomaineMapper.toDto(refSousDomaine);
+
+
+        restRefSousDomaineMockMvc.perform(post("/api/ref-sous-domaines")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(refSousDomaineDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<RefSousDomaine> refSousDomaineList = refSousDomaineRepository.findAll();
+        assertThat(refSousDomaineList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllRefSousDomaines() throws Exception {
         // Initialize the database
         refSousDomaineRepository.saveAndFlush(refSousDomaine);

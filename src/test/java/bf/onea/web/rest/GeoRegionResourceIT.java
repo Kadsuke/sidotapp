@@ -121,6 +121,26 @@ public class GeoRegionResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geoRegionRepository.findAll().size();
+        // set the field null
+        geoRegion.setLibelle(null);
+
+        // Create the GeoRegion, which fails.
+        GeoRegionDTO geoRegionDTO = geoRegionMapper.toDto(geoRegion);
+
+
+        restGeoRegionMockMvc.perform(post("/api/geo-regions")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geoRegionDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeoRegion> geoRegionList = geoRegionRepository.findAll();
+        assertThat(geoRegionList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeoRegions() throws Exception {
         // Initialize the database
         geoRegionRepository.saveAndFlush(geoRegion);

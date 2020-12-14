@@ -121,6 +121,26 @@ public class RefAnneeResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = refAnneeRepository.findAll().size();
+        // set the field null
+        refAnnee.setLibelle(null);
+
+        // Create the RefAnnee, which fails.
+        RefAnneeDTO refAnneeDTO = refAnneeMapper.toDto(refAnnee);
+
+
+        restRefAnneeMockMvc.perform(post("/api/ref-annees")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(refAnneeDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<RefAnnee> refAnneeList = refAnneeRepository.findAll();
+        assertThat(refAnneeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllRefAnnees() throws Exception {
         // Initialize the database
         refAnneeRepository.saveAndFlush(refAnnee);

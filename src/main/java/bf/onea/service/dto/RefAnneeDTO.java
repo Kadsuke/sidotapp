@@ -1,6 +1,7 @@
 package bf.onea.service.dto;
 
 import io.swagger.annotations.ApiModel;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -11,6 +12,7 @@ public class RefAnneeDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
     private String libelle;
 
     

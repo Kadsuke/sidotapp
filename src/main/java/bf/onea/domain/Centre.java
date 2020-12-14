@@ -1,10 +1,12 @@
 package bf.onea.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -25,18 +27,33 @@ public class Centre implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "libelle")
+    @NotNull
+    @Column(name = "libelle", nullable = false)
     private String libelle;
 
-    @Column(name = "responsable")
+    @NotNull
+    @Column(name = "responsable", nullable = false)
     private String responsable;
 
-    @Column(name = "contact")
+    @NotNull
+    @Column(name = "contact", nullable = false)
     private String contact;
 
     @OneToMany(mappedBy = "centre")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Site> sites = new HashSet<>();
+
+    @OneToOne(mappedBy = "centre")
+    @JsonIgnore
+    private PrevisionAssainissementAu previsionAssainissementAu;
+
+    @OneToOne(mappedBy = "centre")
+    @JsonIgnore
+    private PrevisionAssainissementCol previsionAssainissementCol;
+
+    @OneToOne(mappedBy = "centre")
+    @JsonIgnore
+    private PrevisionPsa previsionPsa;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "centres", allowSetters = true)
@@ -113,6 +130,45 @@ public class Centre implements Serializable {
 
     public void setSites(Set<Site> sites) {
         this.sites = sites;
+    }
+
+    public PrevisionAssainissementAu getPrevisionAssainissementAu() {
+        return previsionAssainissementAu;
+    }
+
+    public Centre previsionAssainissementAu(PrevisionAssainissementAu previsionAssainissementAu) {
+        this.previsionAssainissementAu = previsionAssainissementAu;
+        return this;
+    }
+
+    public void setPrevisionAssainissementAu(PrevisionAssainissementAu previsionAssainissementAu) {
+        this.previsionAssainissementAu = previsionAssainissementAu;
+    }
+
+    public PrevisionAssainissementCol getPrevisionAssainissementCol() {
+        return previsionAssainissementCol;
+    }
+
+    public Centre previsionAssainissementCol(PrevisionAssainissementCol previsionAssainissementCol) {
+        this.previsionAssainissementCol = previsionAssainissementCol;
+        return this;
+    }
+
+    public void setPrevisionAssainissementCol(PrevisionAssainissementCol previsionAssainissementCol) {
+        this.previsionAssainissementCol = previsionAssainissementCol;
+    }
+
+    public PrevisionPsa getPrevisionPsa() {
+        return previsionPsa;
+    }
+
+    public Centre previsionPsa(PrevisionPsa previsionPsa) {
+        this.previsionPsa = previsionPsa;
+        return this;
+    }
+
+    public void setPrevisionPsa(PrevisionPsa previsionPsa) {
+        this.previsionPsa = previsionPsa;
     }
 
     public CentreRegroupement getCentreregroupement() {

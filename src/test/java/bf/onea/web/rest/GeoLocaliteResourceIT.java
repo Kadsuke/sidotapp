@@ -121,6 +121,26 @@ public class GeoLocaliteResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geoLocaliteRepository.findAll().size();
+        // set the field null
+        geoLocalite.setLibelle(null);
+
+        // Create the GeoLocalite, which fails.
+        GeoLocaliteDTO geoLocaliteDTO = geoLocaliteMapper.toDto(geoLocalite);
+
+
+        restGeoLocaliteMockMvc.perform(post("/api/geo-localites")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geoLocaliteDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeoLocalite> geoLocaliteList = geoLocaliteRepository.findAll();
+        assertThat(geoLocaliteList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeoLocalites() throws Exception {
         // Initialize the database
         geoLocaliteRepository.saveAndFlush(geoLocalite);

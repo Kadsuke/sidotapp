@@ -121,6 +121,26 @@ public class GeoTypeCommuneResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geoTypeCommuneRepository.findAll().size();
+        // set the field null
+        geoTypeCommune.setLibelle(null);
+
+        // Create the GeoTypeCommune, which fails.
+        GeoTypeCommuneDTO geoTypeCommuneDTO = geoTypeCommuneMapper.toDto(geoTypeCommune);
+
+
+        restGeoTypeCommuneMockMvc.perform(post("/api/geo-type-communes")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geoTypeCommuneDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeoTypeCommune> geoTypeCommuneList = geoTypeCommuneRepository.findAll();
+        assertThat(geoTypeCommuneList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeoTypeCommunes() throws Exception {
         // Initialize the database
         geoTypeCommuneRepository.saveAndFlush(geoTypeCommune);

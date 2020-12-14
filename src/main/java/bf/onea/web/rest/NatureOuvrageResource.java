@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class NatureOuvrageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/nature-ouvrages")
-    public ResponseEntity<NatureOuvrageDTO> createNatureOuvrage(@RequestBody NatureOuvrageDTO natureOuvrageDTO) throws URISyntaxException {
+    public ResponseEntity<NatureOuvrageDTO> createNatureOuvrage(@Valid @RequestBody NatureOuvrageDTO natureOuvrageDTO) throws URISyntaxException {
         log.debug("REST request to save NatureOuvrage : {}", natureOuvrageDTO);
         if (natureOuvrageDTO.getId() != null) {
             throw new BadRequestAlertException("A new natureOuvrage cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class NatureOuvrageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/nature-ouvrages")
-    public ResponseEntity<NatureOuvrageDTO> updateNatureOuvrage(@RequestBody NatureOuvrageDTO natureOuvrageDTO) throws URISyntaxException {
+    public ResponseEntity<NatureOuvrageDTO> updateNatureOuvrage(@Valid @RequestBody NatureOuvrageDTO natureOuvrageDTO) throws URISyntaxException {
         log.debug("REST request to update NatureOuvrage : {}", natureOuvrageDTO);
         if (natureOuvrageDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

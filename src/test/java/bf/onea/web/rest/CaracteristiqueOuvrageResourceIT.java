@@ -127,6 +127,46 @@ public class CaracteristiqueOuvrageResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = caracteristiqueOuvrageRepository.findAll().size();
+        // set the field null
+        caracteristiqueOuvrage.setLibelle(null);
+
+        // Create the CaracteristiqueOuvrage, which fails.
+        CaracteristiqueOuvrageDTO caracteristiqueOuvrageDTO = caracteristiqueOuvrageMapper.toDto(caracteristiqueOuvrage);
+
+
+        restCaracteristiqueOuvrageMockMvc.perform(post("/api/caracteristique-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(caracteristiqueOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<CaracteristiqueOuvrage> caracteristiqueOuvrageList = caracteristiqueOuvrageRepository.findAll();
+        assertThat(caracteristiqueOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkUniteIsRequired() throws Exception {
+        int databaseSizeBeforeTest = caracteristiqueOuvrageRepository.findAll().size();
+        // set the field null
+        caracteristiqueOuvrage.setUnite(null);
+
+        // Create the CaracteristiqueOuvrage, which fails.
+        CaracteristiqueOuvrageDTO caracteristiqueOuvrageDTO = caracteristiqueOuvrageMapper.toDto(caracteristiqueOuvrage);
+
+
+        restCaracteristiqueOuvrageMockMvc.perform(post("/api/caracteristique-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(caracteristiqueOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<CaracteristiqueOuvrage> caracteristiqueOuvrageList = caracteristiqueOuvrageRepository.findAll();
+        assertThat(caracteristiqueOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllCaracteristiqueOuvrages() throws Exception {
         // Initialize the database
         caracteristiqueOuvrageRepository.saveAndFlush(caracteristiqueOuvrage);

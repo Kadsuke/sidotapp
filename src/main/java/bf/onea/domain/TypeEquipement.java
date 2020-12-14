@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 
@@ -22,7 +23,8 @@ public class TypeEquipement implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "libelle")
+    @NotNull
+    @Column(name = "libelle", nullable = false)
     private String libelle;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

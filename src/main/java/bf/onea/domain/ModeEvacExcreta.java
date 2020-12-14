@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -24,7 +25,8 @@ public class ModeEvacExcreta implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "libelle")
+    @NotNull
+    @Column(name = "libelle", nullable = false)
     private String libelle;
 
     @OneToMany(mappedBy = "modeevacexcreta")

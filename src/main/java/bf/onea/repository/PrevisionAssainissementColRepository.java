@@ -1,6 +1,7 @@
 package bf.onea.repository;
 
 import bf.onea.domain.PrevisionAssainissementCol;
+
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
@@ -9,4 +10,5 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface PrevisionAssainissementColRepository extends JpaRepository<PrevisionAssainissementCol, Long> {}
+public interface PrevisionAssainissementColRepository extends JpaRepository<PrevisionAssainissementCol, Long> {
+}

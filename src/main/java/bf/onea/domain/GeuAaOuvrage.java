@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -29,70 +30,92 @@ public class GeuAaOuvrage implements Serializable {
     @Column(name = "ref_ouvrage")
     private String refOuvrage;
 
-    @Column(name = "prj_appuis")
+    @NotNull
+    @Column(name = "prj_appuis", nullable = false)
     private String prjAppuis;
 
-    @Column(name = "num_compteur")
+    @NotNull
+    @Column(name = "num_compteur", nullable = false)
     private String numCompteur;
 
-    @Column(name = "nom_benef")
+    @NotNull
+    @Column(name = "nom_benef", nullable = false)
     private String nomBenef;
 
-    @Column(name = "prenom_benef")
+    @NotNull
+    @Column(name = "prenom_benef", nullable = false)
     private String prenomBenef;
 
-    @Column(name = "profession_benef")
+    @NotNull
+    @Column(name = "profession_benef", nullable = false)
     private String professionBenef;
 
-    @Column(name = "nb_usagers")
+    @NotNull
+    @Column(name = "nb_usagers", nullable = false)
     private Long nbUsagers;
 
-    @Column(name = "code_un")
+    @NotNull
+    @Column(name = "code_un", nullable = false)
     private String codeUn;
 
-    @Column(name = "date_remise_devis")
+    @NotNull
+    @Column(name = "date_remise_devis", nullable = false)
     private Instant dateRemiseDevis;
 
-    @Column(name = "date_debut_travaux")
+    @NotNull
+    @Column(name = "date_debut_travaux", nullable = false)
     private Instant dateDebutTravaux;
 
-    @Column(name = "date_fin_travaux")
+    @NotNull
+    @Column(name = "date_fin_travaux", nullable = false)
     private Instant dateFinTravaux;
 
-    @Column(name = "num_nom_rue")
+    @NotNull
+    @Column(name = "num_nom_rue", nullable = false)
     private String numNomRue;
 
-    @Column(name = "num_nom_porte")
+    @NotNull
+    @Column(name = "num_nom_porte", nullable = false)
     private String numNomPorte;
 
-    @Column(name = "menage")
+    @NotNull
+    @Column(name = "menage", nullable = false)
     private String menage;
 
-    @Column(name = "subv_onea")
+    @NotNull
+    @Column(name = "subv_onea", nullable = false)
     private Integer subvOnea;
 
-    @Column(name = "subv_projet")
+    @NotNull
+    @Column(name = "subv_projet", nullable = false)
     private Integer subvProjet;
 
-    @Column(name = "autre_subv")
+    @NotNull
+    @Column(name = "autre_subv", nullable = false)
     private Integer autreSubv;
 
-    @Column(name = "ref_bon_fourniture")
+    @NotNull
+    @Column(name = "ref_bon_fourniture", nullable = false)
     private String refBonFourniture;
 
-    @Column(name = "realis_porte")
+    @NotNull
+    @Column(name = "realis_porte", nullable = false)
     private Integer realisPorte;
 
-    @Column(name = "realis_toles")
+    @NotNull
+    @Column(name = "realis_toles", nullable = false)
     private Integer realisToles;
 
-    @Column(name = "animateur")
+    @NotNull
+    @Column(name = "animateur", nullable = false)
     private String animateur;
 
-    @Column(name = "superviseur")
+    @NotNull
+    @Column(name = "superviseur", nullable = false)
     private String superviseur;
 
-    @Column(name = "controleur")
+    @NotNull
+    @Column(name = "controleur", nullable = false)
     private String controleur;
 
     @OneToMany(mappedBy = "geuaaouvrage")

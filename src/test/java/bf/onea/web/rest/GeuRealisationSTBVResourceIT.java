@@ -133,6 +133,66 @@ public class GeuRealisationSTBVResourceIT {
 
     @Test
     @Transactional
+    public void checkNbCamionsIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuRealisationSTBVRepository.findAll().size();
+        // set the field null
+        geuRealisationSTBV.setNbCamions(null);
+
+        // Create the GeuRealisationSTBV, which fails.
+        GeuRealisationSTBVDTO geuRealisationSTBVDTO = geuRealisationSTBVMapper.toDto(geuRealisationSTBV);
+
+
+        restGeuRealisationSTBVMockMvc.perform(post("/api/geu-realisation-stbvs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuRealisationSTBVDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuRealisationSTBV> geuRealisationSTBVList = geuRealisationSTBVRepository.findAll();
+        assertThat(geuRealisationSTBVList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkVolumeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuRealisationSTBVRepository.findAll().size();
+        // set the field null
+        geuRealisationSTBV.setVolume(null);
+
+        // Create the GeuRealisationSTBV, which fails.
+        GeuRealisationSTBVDTO geuRealisationSTBVDTO = geuRealisationSTBVMapper.toDto(geuRealisationSTBV);
+
+
+        restGeuRealisationSTBVMockMvc.perform(post("/api/geu-realisation-stbvs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuRealisationSTBVDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuRealisationSTBV> geuRealisationSTBVList = geuRealisationSTBVRepository.findAll();
+        assertThat(geuRealisationSTBVList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkEnergieIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuRealisationSTBVRepository.findAll().size();
+        // set the field null
+        geuRealisationSTBV.setEnergie(null);
+
+        // Create the GeuRealisationSTBV, which fails.
+        GeuRealisationSTBVDTO geuRealisationSTBVDTO = geuRealisationSTBVMapper.toDto(geuRealisationSTBV);
+
+
+        restGeuRealisationSTBVMockMvc.perform(post("/api/geu-realisation-stbvs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuRealisationSTBVDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuRealisationSTBV> geuRealisationSTBVList = geuRealisationSTBVRepository.findAll();
+        assertThat(geuRealisationSTBVList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeuRealisationSTBVS() throws Exception {
         // Initialize the database
         geuRealisationSTBVRepository.saveAndFlush(geuRealisationSTBV);

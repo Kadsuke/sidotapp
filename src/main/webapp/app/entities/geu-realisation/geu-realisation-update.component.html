@@ -15,6 +15,16 @@
                     <label class="form-control-label" jhiTranslate="sidotApp.geuRealisation.nbRealisation" for="field_nbRealisation">Nb Realisation</label>
                     <input type="number" class="form-control" name="nbRealisation" id="field_nbRealisation"
                            formControlName="nbRealisation"/>
+                    <div *ngIf="editForm.get('nbRealisation')!.invalid && (editForm.get('nbRealisation')!.dirty || editForm.get('nbRealisation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbRealisation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('nbRealisation')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">

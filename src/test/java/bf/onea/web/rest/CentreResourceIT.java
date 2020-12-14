@@ -133,6 +133,66 @@ public class CentreResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = centreRepository.findAll().size();
+        // set the field null
+        centre.setLibelle(null);
+
+        // Create the Centre, which fails.
+        CentreDTO centreDTO = centreMapper.toDto(centre);
+
+
+        restCentreMockMvc.perform(post("/api/centres")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(centreDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Centre> centreList = centreRepository.findAll();
+        assertThat(centreList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkResponsableIsRequired() throws Exception {
+        int databaseSizeBeforeTest = centreRepository.findAll().size();
+        // set the field null
+        centre.setResponsable(null);
+
+        // Create the Centre, which fails.
+        CentreDTO centreDTO = centreMapper.toDto(centre);
+
+
+        restCentreMockMvc.perform(post("/api/centres")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(centreDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Centre> centreList = centreRepository.findAll();
+        assertThat(centreList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkContactIsRequired() throws Exception {
+        int databaseSizeBeforeTest = centreRepository.findAll().size();
+        // set the field null
+        centre.setContact(null);
+
+        // Create the Centre, which fails.
+        CentreDTO centreDTO = centreMapper.toDto(centre);
+
+
+        restCentreMockMvc.perform(post("/api/centres")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(centreDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Centre> centreList = centreRepository.findAll();
+        assertThat(centreList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllCentres() throws Exception {
         // Initialize the database
         centreRepository.saveAndFlush(centre);

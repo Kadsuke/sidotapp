@@ -16,10 +16,10 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="elabore" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="mise_en_oeuvre" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="centre_id" type="bigint">
                 <constraints unique="true" nullable="true" uniqueConstraintName="ux_prevision_psa_centre_id" />

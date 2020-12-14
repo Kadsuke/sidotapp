@@ -121,6 +121,26 @@ public class ModeEvacuationEauUseeResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = modeEvacuationEauUseeRepository.findAll().size();
+        // set the field null
+        modeEvacuationEauUsee.setLibelle(null);
+
+        // Create the ModeEvacuationEauUsee, which fails.
+        ModeEvacuationEauUseeDTO modeEvacuationEauUseeDTO = modeEvacuationEauUseeMapper.toDto(modeEvacuationEauUsee);
+
+
+        restModeEvacuationEauUseeMockMvc.perform(post("/api/mode-evacuation-eau-usees")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(modeEvacuationEauUseeDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<ModeEvacuationEauUsee> modeEvacuationEauUseeList = modeEvacuationEauUseeRepository.findAll();
+        assertThat(modeEvacuationEauUseeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllModeEvacuationEauUsees() throws Exception {
         // Initialize the database
         modeEvacuationEauUseeRepository.saveAndFlush(modeEvacuationEauUsee);

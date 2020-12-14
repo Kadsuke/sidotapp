@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -25,10 +26,12 @@ public class CaracteristiqueOuvrage implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "libelle")
+    @NotNull
+    @Column(name = "libelle", nullable = false)
     private String libelle;
 
-    @Column(name = "unite")
+    @NotNull
+    @Column(name = "unite", nullable = false)
     private String unite;
 
     @OneToMany(mappedBy = "caracteristiqueouvrage")

@@ -121,6 +121,26 @@ public class RefPeriodiciteResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = refPeriodiciteRepository.findAll().size();
+        // set the field null
+        refPeriodicite.setLibelle(null);
+
+        // Create the RefPeriodicite, which fails.
+        RefPeriodiciteDTO refPeriodiciteDTO = refPeriodiciteMapper.toDto(refPeriodicite);
+
+
+        restRefPeriodiciteMockMvc.perform(post("/api/ref-periodicites")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(refPeriodiciteDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<RefPeriodicite> refPeriodiciteList = refPeriodiciteRepository.findAll();
+        assertThat(refPeriodiciteList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllRefPeriodicites() throws Exception {
         // Initialize the database
         refPeriodiciteRepository.saveAndFlush(refPeriodicite);

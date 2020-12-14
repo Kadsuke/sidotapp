@@ -4,13 +4,15 @@ import bf.onea.domain.PrevisionPsa;
 import bf.onea.repository.PrevisionPsaRepository;
 import bf.onea.service.dto.PrevisionPsaDTO;
 import bf.onea.service.mapper.PrevisionPsaMapper;
-import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 /**
  * Service Implementation for managing {@link PrevisionPsa}.
@@ -18,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class PrevisionPsaService {
+
     private final Logger log = LoggerFactory.getLogger(PrevisionPsaService.class);
 
     private final PrevisionPsaRepository previsionPsaRepository;
@@ -51,8 +54,10 @@ public class PrevisionPsaService {
     @Transactional(readOnly = true)
     public Page<PrevisionPsaDTO> findAll(Pageable pageable) {
         log.debug("Request to get all PrevisionPsas");
-        return previsionPsaRepository.findAll(pageable).map(previsionPsaMapper::toDto);
+        return previsionPsaRepository.findAll(pageable)
+            .map(previsionPsaMapper::toDto);
     }
+
 
     /**
      * Get one previsionPsa by id.
@@ -63,7 +68,8 @@ public class PrevisionPsaService {
     @Transactional(readOnly = true)
     public Optional<PrevisionPsaDTO> findOne(Long id) {
         log.debug("Request to get PrevisionPsa : {}", id);
-        return previsionPsaRepository.findById(id).map(previsionPsaMapper::toDto);
+        return previsionPsaRepository.findById(id)
+            .map(previsionPsaMapper::toDto);
     }
 
     /**

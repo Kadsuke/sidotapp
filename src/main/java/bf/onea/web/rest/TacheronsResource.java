@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class TacheronsResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/tacherons")
-    public ResponseEntity<TacheronsDTO> createTacherons(@RequestBody TacheronsDTO tacheronsDTO) throws URISyntaxException {
+    public ResponseEntity<TacheronsDTO> createTacherons(@Valid @RequestBody TacheronsDTO tacheronsDTO) throws URISyntaxException {
         log.debug("REST request to save Tacherons : {}", tacheronsDTO);
         if (tacheronsDTO.getId() != null) {
             throw new BadRequestAlertException("A new tacherons cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class TacheronsResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/tacherons")
-    public ResponseEntity<TacheronsDTO> updateTacherons(@RequestBody TacheronsDTO tacheronsDTO) throws URISyntaxException {
+    public ResponseEntity<TacheronsDTO> updateTacherons(@Valid @RequestBody TacheronsDTO tacheronsDTO) throws URISyntaxException {
         log.debug("REST request to update Tacherons : {}", tacheronsDTO);
         if (tacheronsDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

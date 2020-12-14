@@ -121,6 +121,26 @@ public class GeoLotResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geoLotRepository.findAll().size();
+        // set the field null
+        geoLot.setLibelle(null);
+
+        // Create the GeoLot, which fails.
+        GeoLotDTO geoLotDTO = geoLotMapper.toDto(geoLot);
+
+
+        restGeoLotMockMvc.perform(post("/api/geo-lots")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geoLotDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeoLot> geoLotList = geoLotRepository.findAll();
+        assertThat(geoLotList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeoLots() throws Exception {
         // Initialize the database
         geoLotRepository.saveAndFlush(geoLot);

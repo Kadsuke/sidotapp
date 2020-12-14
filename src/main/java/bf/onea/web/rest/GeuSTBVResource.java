@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class GeuSTBVResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/geu-stbvs")
-    public ResponseEntity<GeuSTBVDTO> createGeuSTBV(@RequestBody GeuSTBVDTO geuSTBVDTO) throws URISyntaxException {
+    public ResponseEntity<GeuSTBVDTO> createGeuSTBV(@Valid @RequestBody GeuSTBVDTO geuSTBVDTO) throws URISyntaxException {
         log.debug("REST request to save GeuSTBV : {}", geuSTBVDTO);
         if (geuSTBVDTO.getId() != null) {
             throw new BadRequestAlertException("A new geuSTBV cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class GeuSTBVResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/geu-stbvs")
-    public ResponseEntity<GeuSTBVDTO> updateGeuSTBV(@RequestBody GeuSTBVDTO geuSTBVDTO) throws URISyntaxException {
+    public ResponseEntity<GeuSTBVDTO> updateGeuSTBV(@Valid @RequestBody GeuSTBVDTO geuSTBVDTO) throws URISyntaxException {
         log.debug("REST request to update GeuSTBV : {}", geuSTBVDTO);
         if (geuSTBVDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

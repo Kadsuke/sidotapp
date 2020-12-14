@@ -60,7 +60,7 @@ describe('Service Tests', () => {
             adresse: 'BBBBBB',
             proprietaireParacelle: 'BBBBBB',
             entreprise: 'BBBBBB',
-            otherUsage: 'BBBBBB',
+            autreUsage: 'BBBBBB',
           },
           elemDefault
         );
@@ -83,7 +83,7 @@ describe('Service Tests', () => {
             adresse: 'BBBBBB',
             proprietaireParacelle: 'BBBBBB',
             entreprise: 'BBBBBB',
-            otherUsage: 'BBBBBB',
+            autreUsage: 'BBBBBB',
           },
           elemDefault
         );

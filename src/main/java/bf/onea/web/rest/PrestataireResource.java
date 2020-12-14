@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class PrestataireResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/prestataires")
-    public ResponseEntity<PrestataireDTO> createPrestataire(@RequestBody PrestataireDTO prestataireDTO) throws URISyntaxException {
+    public ResponseEntity<PrestataireDTO> createPrestataire(@Valid @RequestBody PrestataireDTO prestataireDTO) throws URISyntaxException {
         log.debug("REST request to save Prestataire : {}", prestataireDTO);
         if (prestataireDTO.getId() != null) {
             throw new BadRequestAlertException("A new prestataire cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class PrestataireResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/prestataires")
-    public ResponseEntity<PrestataireDTO> updatePrestataire(@RequestBody PrestataireDTO prestataireDTO) throws URISyntaxException {
+    public ResponseEntity<PrestataireDTO> updatePrestataire(@Valid @RequestBody PrestataireDTO prestataireDTO) throws URISyntaxException {
         log.debug("REST request to update Prestataire : {}", prestataireDTO);
         if (prestataireDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class ProduitChimiqueResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/produit-chimiques")
-    public ResponseEntity<ProduitChimiqueDTO> createProduitChimique(@RequestBody ProduitChimiqueDTO produitChimiqueDTO) throws URISyntaxException {
+    public ResponseEntity<ProduitChimiqueDTO> createProduitChimique(@Valid @RequestBody ProduitChimiqueDTO produitChimiqueDTO) throws URISyntaxException {
         log.debug("REST request to save ProduitChimique : {}", produitChimiqueDTO);
         if (produitChimiqueDTO.getId() != null) {
             throw new BadRequestAlertException("A new produitChimique cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class ProduitChimiqueResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/produit-chimiques")
-    public ResponseEntity<ProduitChimiqueDTO> updateProduitChimique(@RequestBody ProduitChimiqueDTO produitChimiqueDTO) throws URISyntaxException {
+    public ResponseEntity<ProduitChimiqueDTO> updateProduitChimique(@Valid @RequestBody ProduitChimiqueDTO produitChimiqueDTO) throws URISyntaxException {
         log.debug("REST request to update ProduitChimique : {}", produitChimiqueDTO);
         if (produitChimiqueDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 
@@ -23,7 +24,8 @@ public class GeuRealisation implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "nb_realisation")
+    @NotNull
+    @Column(name = "nb_realisation", nullable = false)
     private Float nbRealisation;
 
     @ManyToOne

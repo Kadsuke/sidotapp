@@ -16,6 +16,16 @@
                     <div class="d-flex">
                         <input id="field_dateElaboration" type="datetime-local" class="form-control" name="dateElaboration" formControlName="dateElaboration" placeholder="YYYY-MM-DD HH:mm"/>
                     </div>
+                    <div *ngIf="editForm.get('dateElaboration')!.invalid && (editForm.get('dateElaboration')!.dirty || editForm.get('dateElaboration')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateElaboration')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateElaboration')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -23,13 +33,23 @@
                     <div class="d-flex">
                         <input id="field_dateMiseEnOeuvre" type="datetime-local" class="form-control" name="dateMiseEnOeuvre" formControlName="dateMiseEnOeuvre" placeholder="YYYY-MM-DD HH:mm"/>
                     </div>
+                    <div *ngIf="editForm.get('dateMiseEnOeuvre')!.invalid && (editForm.get('dateMiseEnOeuvre')!.dirty || editForm.get('dateMiseEnOeuvre')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateMiseEnOeuvre')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dateMiseEnOeuvre')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.geuPSA.geocommune" for="field_geocommune">Geocommune</label>
                     <select class="form-control" id="field_geocommune" name="geocommune" formControlName="geocommuneId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="geoCommuneOption.id" *ngFor="let geoCommuneOption of geocommunes; trackBy: trackById">{{ geoCommuneOption.libelle }}</option>
+                        <option [ngValue]="geoCommuneOption.id" *ngFor="let geoCommuneOption of geocommunes; trackBy: trackById">{{ geoCommuneOption.id }}</option>
                     </select>
                 </div>
             </div>

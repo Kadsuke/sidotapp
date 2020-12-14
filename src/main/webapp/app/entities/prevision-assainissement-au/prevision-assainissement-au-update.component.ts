@@ -26,12 +26,12 @@ export class PrevisionAssainissementAuUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    nbLatrine: [],
-    nbPuisard: [],
-    nbPublic: [],
-    nbScolaire: [],
-    centreDeSante: [],
-    population: [],
+    nbLatrine: [null, [Validators.required]],
+    nbPuisard: [null, [Validators.required]],
+    nbPublic: [null, [Validators.required]],
+    nbScolaire: [null, [Validators.required]],
+    centreDeSante: [null, [Validators.required]],
+    population: [null, [Validators.required]],
     refanneeId: [],
     centreId: [],
   });

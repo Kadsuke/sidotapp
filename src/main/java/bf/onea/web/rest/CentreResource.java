@@ -18,10 +18,12 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing {@link bf.onea.domain.Centre}.
@@ -51,7 +53,7 @@ public class CentreResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/centres")
-    public ResponseEntity<CentreDTO> createCentre(@RequestBody CentreDTO centreDTO) throws URISyntaxException {
+    public ResponseEntity<CentreDTO> createCentre(@Valid @RequestBody CentreDTO centreDTO) throws URISyntaxException {
         log.debug("REST request to save Centre : {}", centreDTO);
         if (centreDTO.getId() != null) {
             throw new BadRequestAlertException("A new centre cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +74,7 @@ public class CentreResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/centres")
-    public ResponseEntity<CentreDTO> updateCentre(@RequestBody CentreDTO centreDTO) throws URISyntaxException {
+    public ResponseEntity<CentreDTO> updateCentre(@Valid @RequestBody CentreDTO centreDTO) throws URISyntaxException {
         log.debug("REST request to update Centre : {}", centreDTO);
         if (centreDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -87,10 +89,26 @@ public class CentreResource {
      * {@code GET  /centres} : get all the centres.
      *
      * @param pageable the pagination information.
+     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of centres in body.
      */
     @GetMapping("/centres")
-    public ResponseEntity<List<CentreDTO>> getAllCentres(Pageable pageable) {
+    public ResponseEntity<List<CentreDTO>> getAllCentres(Pageable pageable, @RequestParam(required = false) String filter) {
+        if ("previsionassainissementau-is-null".equals(filter)) {
+            log.debug("REST request to get all Centres where previsionAssainissementAu is null");
+            return new ResponseEntity<>(centreService.findAllWherePrevisionAssainissementAuIsNull(),
+                    HttpStatus.OK);
+        }
+        if ("previsionassainissementcol-is-null".equals(filter)) {
+            log.debug("REST request to get all Centres where previsionAssainissementCol is null");
+            return new ResponseEntity<>(centreService.findAllWherePrevisionAssainissementColIsNull(),
+                    HttpStatus.OK);
+        }
+        if ("previsionpsa-is-null".equals(filter)) {
+            log.debug("REST request to get all Centres where previsionPsa is null");
+            return new ResponseEntity<>(centreService.findAllWherePrevisionPsaIsNull(),
+                    HttpStatus.OK);
+        }
         log.debug("REST request to get a page of Centres");
         Page<CentreDTO> page = centreService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);

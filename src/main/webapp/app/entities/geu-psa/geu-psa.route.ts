@@ -39,7 +39,7 @@ export const geuPSARoute: Routes = [
     path: '',
     component: GeuPSAComponent,
     data: {
-      authorities: [Authority.SEDA],
+      authorities: [Authority.USER],
       defaultSort: 'id,asc',
       pageTitle: 'sidotApp.geuPSA.home.title',
     },
@@ -52,7 +52,7 @@ export const geuPSARoute: Routes = [
       geuPSA: GeuPSAResolve,
     },
     data: {
-      authorities: [Authority.SEDA],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuPSA.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -64,7 +64,7 @@ export const geuPSARoute: Routes = [
       geuPSA: GeuPSAResolve,
     },
     data: {
-      authorities: [Authority.SEDA],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuPSA.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -76,7 +76,7 @@ export const geuPSARoute: Routes = [
       geuPSA: GeuPSAResolve,
     },
     data: {
-      authorities: [Authority.SEDA],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuPSA.home.title',
     },
     canActivate: [UserRouteAccessService],

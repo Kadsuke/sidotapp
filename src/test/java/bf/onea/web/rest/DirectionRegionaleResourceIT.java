@@ -133,6 +133,66 @@ public class DirectionRegionaleResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = directionRegionaleRepository.findAll().size();
+        // set the field null
+        directionRegionale.setLibelle(null);
+
+        // Create the DirectionRegionale, which fails.
+        DirectionRegionaleDTO directionRegionaleDTO = directionRegionaleMapper.toDto(directionRegionale);
+
+
+        restDirectionRegionaleMockMvc.perform(post("/api/direction-regionales")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(directionRegionaleDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<DirectionRegionale> directionRegionaleList = directionRegionaleRepository.findAll();
+        assertThat(directionRegionaleList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkResponsableIsRequired() throws Exception {
+        int databaseSizeBeforeTest = directionRegionaleRepository.findAll().size();
+        // set the field null
+        directionRegionale.setResponsable(null);
+
+        // Create the DirectionRegionale, which fails.
+        DirectionRegionaleDTO directionRegionaleDTO = directionRegionaleMapper.toDto(directionRegionale);
+
+
+        restDirectionRegionaleMockMvc.perform(post("/api/direction-regionales")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(directionRegionaleDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<DirectionRegionale> directionRegionaleList = directionRegionaleRepository.findAll();
+        assertThat(directionRegionaleList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkContactIsRequired() throws Exception {
+        int databaseSizeBeforeTest = directionRegionaleRepository.findAll().size();
+        // set the field null
+        directionRegionale.setContact(null);
+
+        // Create the DirectionRegionale, which fails.
+        DirectionRegionaleDTO directionRegionaleDTO = directionRegionaleMapper.toDto(directionRegionale);
+
+
+        restDirectionRegionaleMockMvc.perform(post("/api/direction-regionales")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(directionRegionaleDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<DirectionRegionale> directionRegionaleList = directionRegionaleRepository.findAll();
+        assertThat(directionRegionaleList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllDirectionRegionales() throws Exception {
         // Initialize the database
         directionRegionaleRepository.saveAndFlush(directionRegionale);

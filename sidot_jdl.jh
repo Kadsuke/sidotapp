@@ -2,266 +2,266 @@
 *Les entites
 */
 entity RefAnnee{
-	libelle String
+	libelle String required
 }
 entity RefMois{
-	libelle String
+	libelle String required
 }
 entity RefDomaine{
-	libelle String
+	libelle String required
 }
 entity RefSousDomaine{
-	libelle String
+	libelle String required
 }
 entity RefPeriodicite{
-	libelle String
+	libelle String required
 }
 entity GeoTypeCommune{
-	libelle String
+	libelle String required
 }
 entity GeoRegion{
-	libelle String
+	libelle String required
 }
 entity GeoProvince{
-	libelle String
+	libelle String required
 }
 entity GeoCommune{
-	libelle String
+	libelle String required
 }
 entity GeoLocalite{
-	libelle String
+	libelle String required
 }
 entity GeoSecteur{
-	libelle String
+	libelle String required
 }
 entity GeoSection{
-	libelle String
+	libelle String required
 }
 entity GeoLot{
-	libelle String
+	libelle String required
 }
 entity GeoParcelle{
-	libelle String
+	libelle String required
 }
 entity DirectionRegionale{
-	libelle String,
-    responsable String,
-    contact String
+	libelle String required,
+    responsable String required,
+    contact String required
 }
 entity CentreRegroupement{
-	libelle String,
-    responsable String,
-    contact String
+	libelle String required,
+    responsable String required,
+    contact String required
 }
 entity Centre{
-	libelle String,
-    responsable String,
-    contact String
+	libelle String required,
+    responsable String required,
+    contact String required
 }
 entity Site{
-	libelle String,
-    responsable String,
-    contact String
+	libelle String required,
+    responsable String required,
+    contact String required
 }
 entity Agent{
-	nom String,
-    numero String,
-    role String
+	nom String required,
+    numero String required,
+    role String required
 }
 entity CategorieRessources{
-	libelle String
+	libelle String required
 }
 entity TypeOuvrage{
-	libelle String
+	libelle String required
 }
 entity CaracteristiqueOuvrage{
-	libelle String,
-    unite String
+	libelle String required,
+    unite String required
 }
 entity EtatOuvrage{
-	libelle String
+	libelle String required
 }
 entity EtatEquipement{
-	libelle String
+	libelle String required
 }
 entity TypeEquipement{
-	libelle String
+	libelle String required
 }
 entity ProduitChimique{
-	libelle String
+	libelle String required
 }
 entity AnalyseSpecialite{
-	libelle String
+	libelle String required
 }
 entity TypeAnalyse{
-	libelle String
+	libelle String required
 }
 entity AnalyseParametre{
-	libelle String
+	libelle String required
 }
 entity TypeBeneficiaire{
-	libelle String
+	libelle String required
 }
 entity Laboratoire{
-	libelle String
+	libelle String required
 }
 entity EtatProgram{
-	libelle String
+	libelle String required
 }
 entity EtatProjet{
-	libelle String
+	libelle String required
 }
 entity Prestataire{
-	libelle String
-    responsable String,
-    contact String
+	libelle String required
+    responsable String required,
+    contact String required
 }
 entity Bailleur{
-	libelle String,
-    responsbale String,
-    contact String
+	libelle String required,
+    responsbale String required,
+    contact String required
 }
 entity SourceApprovEp{
-	libelle String
+	libelle String required
 }
 entity TypeHabitation{
-	libelle String
+	libelle String required
 }
 entity ModeEvacuationEauUsee{
-	libelle String
+	libelle String required
 }
 entity ModeEvacExcreta{
-	libelle String
+	libelle String required
 }
 entity Prefabricant{
-	libelle String
+	libelle String required
 }
 entity Macon{
-	libelle String
+	libelle String required
 }
 entity NatureOuvrage{
-	libelle String
+	libelle String required
 }
 entity TypeIntervention{
-	libelle String
+	libelle String required
 }
 entity TypePlainte{
-	libelle String
+	libelle String required
 }
 entity GeuSTBV {
-	libelStbv String,
-    responsable String,
-    contact String
+	libelStbv String required,
+    responsable String required,
+    contact String required
 }
 entity GeuPrevisionSTBV{
-	nbCamions String,
-    volume String,
-    energie String
+	nbCamions String required,
+    volume String required,
+    energie String required
 }
 entity GeuRealisationSTBV{
-	nbCamions String,
-    volume String,
-    energie String
+	nbCamions String required,
+    volume String required,
+    energie String required
 }
 
 entity GeuSTEP{
-	libelSTEP String,
-    responsable String,
-    contact String
+	libelSTEP String required,
+    responsable String required,
+    contact String required
 }
 
 entity GeuPSA{
-	dateElaboration Instant,
-    dateMiseEnOeuvre Instant
+	dateElaboration Instant required,
+    dateMiseEnOeuvre Instant required
 }
 entity GeuPrevisionSTEP{
-	datePrevStep Instant,
-    volumePrevStep String
+	datePrevStep Instant required,
+    volumePrevStep String required
 }
 entity GeuAaOuvrage{
 	refOuvrage String,
-    prjAppuis String,
-    numCompteur String,
-    nomBenef String,
-    prenomBenef String,
-    professionBenef String,
-    nbUsagers Long,
-    codeUn String,
-    dateRemiseDevis Instant,
-    dateDebutTravaux Instant,
-    dateFinTravaux Instant,
-    numNomRue String,
-    numNomPorte String,
-    menage String,
-    subvOnea Integer,
-    subvProjet Integer,
-    autreSubv Integer,
-    refBonFourniture String,
-    realisPorte Integer,
-    realisToles Integer,
-    animateur String,
-    superviseur String,
-    controleur String,
-    menage String,
+    prjAppuis String required,
+    numCompteur String required,
+    nomBenef String required,
+    prenomBenef String required,
+    professionBenef String required,
+    nbUsagers Long required,
+    codeUn String required,
+    dateRemiseDevis Instant required,
+    dateDebutTravaux Instant required,
+    dateFinTravaux Instant required,
+    numNomRue String required,
+    numNomPorte String required,
+    menage String required,
+    subvOnea Integer required,
+    subvProjet Integer required,
+    autreSubv Integer required,
+    refBonFourniture String required,
+    realisPorte Integer required,
+    realisToles Integer required,
+    animateur String required,
+    superviseur String required,
+    controleur String required,
+    menage String required,
 }
 entity GeuRealisation{
-	nbRealisation Float
+	nbRealisation Float required
 }
 entity GeuRaccordement{
-	  numAbonnement Long,
-      nom	String,
-      prenom String,
-      adresse String,
-      proprietaireParacelle String,
-      entreprise String,
-      otherUsage String
+	  numAbonnement Long required,
+      nom	String required,
+      prenom String required,
+      adresse String required,
+      proprietaireParacelle String required,
+      entreprise String required,
+      autreUsage String required
 }
 entity Tacherons{
-	  nom String,
-      tel String,
-      adresse String
+	  nom String required,
+      tel String required,
+      adresse String required
 }
 entity GeuUsage{
-	libelle String
+	libelle String required
 }
 entity PrevisionAssainissementAu{
-	nbLatrine Integer,
-    nbPuisard Integer,
-    nbPublic Integer,
-    nbScolaire Integer,
-    centreDeSante Integer,
-    population Integer
+	nbLatrine Integer required,
+    nbPuisard Integer required,
+    nbPublic Integer required,
+    nbScolaire Integer required,
+    centreDeSante Integer required,
+    population Integer required
 }
 entity PrevisionAssainissementCol{
-	nbStep Integer,
-    nbStbv Integer,
-    reseaux Float,
-    nbRaccordement Integer
+	nbStep Integer required,
+    nbStbv Integer required,
+    reseaux Float required,
+    nbRaccordement Integer required
 }
 entity PrevisionPsa{
-	elabore Integer,
-    miseEnOeuvre Integer
+	elabore Integer required,
+    miseEnOeuvre Integer required
 }
 /***
 *Les relations
 */
 relationship OneToOne {
-PrevisionAssainissementAu{refannee} to RefAnnee
+PrevisionAssainissementAu{refannee} to RefAnnee{previsionAssainissementAu}
 }
 relationship OneToOne {
-PrevisionAssainissementCol{refannee} to RefAnnee
+PrevisionAssainissementCol{refannee} to RefAnnee{previsionAssainissementCol}
 }
 relationship OneToOne {
-PrevisionAssainissementAu{centre} to Centre
+PrevisionAssainissementAu{centre} to Centre{previsionAssainissementAu}
 }
 relationship OneToOne {
-PrevisionAssainissementCol{centre} to Centre
+PrevisionAssainissementCol{centre} to Centre{previsionAssainissementCol}
 }
 relationship OneToOne {
-PrevisionPsa{centre} to Centre
+PrevisionPsa{centre} to Centre{previsionPsa}
 }
 relationship OneToOne {
-PrevisionPsa{refAnnee} to RefAnnee 
+PrevisionPsa{refAnnee} to RefAnnee{previsionPsa}
 }
 relationship OneToMany {
 GeoRegion to GeoProvince {georegion}

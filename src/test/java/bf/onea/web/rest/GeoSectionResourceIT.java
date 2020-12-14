@@ -121,6 +121,26 @@ public class GeoSectionResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geoSectionRepository.findAll().size();
+        // set the field null
+        geoSection.setLibelle(null);
+
+        // Create the GeoSection, which fails.
+        GeoSectionDTO geoSectionDTO = geoSectionMapper.toDto(geoSection);
+
+
+        restGeoSectionMockMvc.perform(post("/api/geo-sections")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geoSectionDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeoSection> geoSectionList = geoSectionRepository.findAll();
+        assertThat(geoSectionList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeoSections() throws Exception {
         // Initialize the database
         geoSectionRepository.saveAndFlush(geoSection);

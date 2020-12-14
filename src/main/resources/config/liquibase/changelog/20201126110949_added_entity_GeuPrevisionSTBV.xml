@@ -16,13 +16,13 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="nb_camions" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="volume" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="energie" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="geustbv_id" type="bigint">
                 <constraints nullable="true" />

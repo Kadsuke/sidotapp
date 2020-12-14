@@ -39,7 +39,7 @@ export const previsionAssainissementColRoute: Routes = [
     path: '',
     component: PrevisionAssainissementColComponent,
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       defaultSort: 'id,asc',
       pageTitle: 'sidotApp.previsionAssainissementCol.home.title',
     },
@@ -52,7 +52,7 @@ export const previsionAssainissementColRoute: Routes = [
       previsionAssainissementCol: PrevisionAssainissementColResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.previsionAssainissementCol.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -64,7 +64,7 @@ export const previsionAssainissementColRoute: Routes = [
       previsionAssainissementCol: PrevisionAssainissementColResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.previsionAssainissementCol.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -76,7 +76,7 @@ export const previsionAssainissementColRoute: Routes = [
       previsionAssainissementCol: PrevisionAssainissementColResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.previsionAssainissementCol.home.title',
     },
     canActivate: [UserRouteAccessService],

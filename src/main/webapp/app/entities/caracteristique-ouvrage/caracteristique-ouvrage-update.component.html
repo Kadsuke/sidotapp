@@ -15,12 +15,24 @@
                     <label class="form-control-label" jhiTranslate="sidotApp.caracteristiqueOuvrage.libelle" for="field_libelle">Libelle</label>
                     <input type="text" class="form-control" name="libelle" id="field_libelle"
                            formControlName="libelle"/>
+                    <div *ngIf="editForm.get('libelle')!.invalid && (editForm.get('libelle')!.dirty || editForm.get('libelle')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('libelle')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.caracteristiqueOuvrage.unite" for="field_unite">Unite</label>
                     <input type="text" class="form-control" name="unite" id="field_unite"
                            formControlName="unite"/>
+                    <div *ngIf="editForm.get('unite')!.invalid && (editForm.get('unite')!.dirty || editForm.get('unite')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('unite')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">

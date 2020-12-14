@@ -1,14 +1,17 @@
 package bf.onea.service.mapper;
 
+
 import bf.onea.domain.*;
 import bf.onea.service.dto.PrevisionAssainissementColDTO;
+
 import org.mapstruct.*;
 
 /**
  * Mapper for the entity {@link PrevisionAssainissementCol} and its DTO {@link PrevisionAssainissementColDTO}.
  */
-@Mapper(componentModel = "spring", uses = { RefAnneeMapper.class, CentreMapper.class })
+@Mapper(componentModel = "spring", uses = {RefAnneeMapper.class, CentreMapper.class})
 public interface PrevisionAssainissementColMapper extends EntityMapper<PrevisionAssainissementColDTO, PrevisionAssainissementCol> {
+
     @Mapping(source = "refannee.id", target = "refanneeId")
     @Mapping(source = "centre.id", target = "centreId")
     PrevisionAssainissementColDTO toDto(PrevisionAssainissementCol previsionAssainissementCol);

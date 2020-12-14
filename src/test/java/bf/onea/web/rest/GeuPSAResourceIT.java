@@ -129,6 +129,46 @@ public class GeuPSAResourceIT {
 
     @Test
     @Transactional
+    public void checkDateElaborationIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuPSARepository.findAll().size();
+        // set the field null
+        geuPSA.setDateElaboration(null);
+
+        // Create the GeuPSA, which fails.
+        GeuPSADTO geuPSADTO = geuPSAMapper.toDto(geuPSA);
+
+
+        restGeuPSAMockMvc.perform(post("/api/geu-psas")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuPSADTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuPSA> geuPSAList = geuPSARepository.findAll();
+        assertThat(geuPSAList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkDateMiseEnOeuvreIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuPSARepository.findAll().size();
+        // set the field null
+        geuPSA.setDateMiseEnOeuvre(null);
+
+        // Create the GeuPSA, which fails.
+        GeuPSADTO geuPSADTO = geuPSAMapper.toDto(geuPSA);
+
+
+        restGeuPSAMockMvc.perform(post("/api/geu-psas")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuPSADTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuPSA> geuPSAList = geuPSARepository.findAll();
+        assertThat(geuPSAList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeuPSAS() throws Exception {
         // Initialize the database
         geuPSARepository.saveAndFlush(geuPSA);

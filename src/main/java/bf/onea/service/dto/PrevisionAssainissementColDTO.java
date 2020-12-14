@@ -1,25 +1,32 @@
 package bf.onea.service.dto;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
  * A DTO for the {@link bf.onea.domain.PrevisionAssainissementCol} entity.
  */
 public class PrevisionAssainissementColDTO implements Serializable {
+    
     private Long id;
 
+    @NotNull
     private Integer nbStep;
 
+    @NotNull
     private Integer nbStbv;
 
+    @NotNull
     private Float reseaux;
 
+    @NotNull
     private Integer nbRaccordement;
+
 
     private Long refanneeId;
 
     private Long centreId;
-
+    
     public Long getId() {
         return id;
     }

@@ -3,7 +3,8 @@
   "fields": [
     {
       "fieldName": "nbRealisation",
-      "fieldType": "Float"
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
     }
   ],
   "relationships": [

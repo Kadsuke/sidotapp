@@ -121,6 +121,26 @@ public class TypeAnalyseResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = typeAnalyseRepository.findAll().size();
+        // set the field null
+        typeAnalyse.setLibelle(null);
+
+        // Create the TypeAnalyse, which fails.
+        TypeAnalyseDTO typeAnalyseDTO = typeAnalyseMapper.toDto(typeAnalyse);
+
+
+        restTypeAnalyseMockMvc.perform(post("/api/type-analyses")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(typeAnalyseDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<TypeAnalyse> typeAnalyseList = typeAnalyseRepository.findAll();
+        assertThat(typeAnalyseList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllTypeAnalyses() throws Exception {
         // Initialize the database
         typeAnalyseRepository.saveAndFlush(typeAnalyse);

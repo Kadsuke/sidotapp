@@ -133,6 +133,66 @@ public class BailleurResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = bailleurRepository.findAll().size();
+        // set the field null
+        bailleur.setLibelle(null);
+
+        // Create the Bailleur, which fails.
+        BailleurDTO bailleurDTO = bailleurMapper.toDto(bailleur);
+
+
+        restBailleurMockMvc.perform(post("/api/bailleurs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(bailleurDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Bailleur> bailleurList = bailleurRepository.findAll();
+        assertThat(bailleurList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkResponsbaleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = bailleurRepository.findAll().size();
+        // set the field null
+        bailleur.setResponsbale(null);
+
+        // Create the Bailleur, which fails.
+        BailleurDTO bailleurDTO = bailleurMapper.toDto(bailleur);
+
+
+        restBailleurMockMvc.perform(post("/api/bailleurs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(bailleurDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Bailleur> bailleurList = bailleurRepository.findAll();
+        assertThat(bailleurList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkContactIsRequired() throws Exception {
+        int databaseSizeBeforeTest = bailleurRepository.findAll().size();
+        // set the field null
+        bailleur.setContact(null);
+
+        // Create the Bailleur, which fails.
+        BailleurDTO bailleurDTO = bailleurMapper.toDto(bailleur);
+
+
+        restBailleurMockMvc.perform(post("/api/bailleurs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(bailleurDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Bailleur> bailleurList = bailleurRepository.findAll();
+        assertThat(bailleurList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllBailleurs() throws Exception {
         // Initialize the database
         bailleurRepository.saveAndFlush(bailleur);

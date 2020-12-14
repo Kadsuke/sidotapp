@@ -50,8 +50,8 @@ public class GeuRaccordementResourceIT {
     private static final String DEFAULT_ENTREPRISE = "AAAAAAAAAA";
     private static final String UPDATED_ENTREPRISE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_OTHER_USAGE = "AAAAAAAAAA";
-    private static final String UPDATED_OTHER_USAGE = "BBBBBBBBBB";
+    private static final String DEFAULT_AUTRE_USAGE = "AAAAAAAAAA";
+    private static final String UPDATED_AUTRE_USAGE = "BBBBBBBBBB";
 
     @Autowired
     private GeuRaccordementRepository geuRaccordementRepository;
@@ -84,7 +84,7 @@ public class GeuRaccordementResourceIT {
             .adresse(DEFAULT_ADRESSE)
             .proprietaireParacelle(DEFAULT_PROPRIETAIRE_PARACELLE)
             .entreprise(DEFAULT_ENTREPRISE)
-            .otherUsage(DEFAULT_OTHER_USAGE);
+            .autreUsage(DEFAULT_AUTRE_USAGE);
         return geuRaccordement;
     }
     /**
@@ -101,7 +101,7 @@ public class GeuRaccordementResourceIT {
             .adresse(UPDATED_ADRESSE)
             .proprietaireParacelle(UPDATED_PROPRIETAIRE_PARACELLE)
             .entreprise(UPDATED_ENTREPRISE)
-            .otherUsage(UPDATED_OTHER_USAGE);
+            .autreUsage(UPDATED_AUTRE_USAGE);
         return geuRaccordement;
     }
 
@@ -131,7 +131,7 @@ public class GeuRaccordementResourceIT {
         assertThat(testGeuRaccordement.getAdresse()).isEqualTo(DEFAULT_ADRESSE);
         assertThat(testGeuRaccordement.getProprietaireParacelle()).isEqualTo(DEFAULT_PROPRIETAIRE_PARACELLE);
         assertThat(testGeuRaccordement.getEntreprise()).isEqualTo(DEFAULT_ENTREPRISE);
-        assertThat(testGeuRaccordement.getOtherUsage()).isEqualTo(DEFAULT_OTHER_USAGE);
+        assertThat(testGeuRaccordement.getAutreUsage()).isEqualTo(DEFAULT_AUTRE_USAGE);
     }
 
     @Test
@@ -157,6 +157,146 @@ public class GeuRaccordementResourceIT {
 
     @Test
     @Transactional
+    public void checkNumAbonnementIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuRaccordementRepository.findAll().size();
+        // set the field null
+        geuRaccordement.setNumAbonnement(null);
+
+        // Create the GeuRaccordement, which fails.
+        GeuRaccordementDTO geuRaccordementDTO = geuRaccordementMapper.toDto(geuRaccordement);
+
+
+        restGeuRaccordementMockMvc.perform(post("/api/geu-raccordements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuRaccordementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuRaccordement> geuRaccordementList = geuRaccordementRepository.findAll();
+        assertThat(geuRaccordementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkNomIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuRaccordementRepository.findAll().size();
+        // set the field null
+        geuRaccordement.setNom(null);
+
+        // Create the GeuRaccordement, which fails.
+        GeuRaccordementDTO geuRaccordementDTO = geuRaccordementMapper.toDto(geuRaccordement);
+
+
+        restGeuRaccordementMockMvc.perform(post("/api/geu-raccordements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuRaccordementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuRaccordement> geuRaccordementList = geuRaccordementRepository.findAll();
+        assertThat(geuRaccordementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkPrenomIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuRaccordementRepository.findAll().size();
+        // set the field null
+        geuRaccordement.setPrenom(null);
+
+        // Create the GeuRaccordement, which fails.
+        GeuRaccordementDTO geuRaccordementDTO = geuRaccordementMapper.toDto(geuRaccordement);
+
+
+        restGeuRaccordementMockMvc.perform(post("/api/geu-raccordements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuRaccordementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuRaccordement> geuRaccordementList = geuRaccordementRepository.findAll();
+        assertThat(geuRaccordementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkAdresseIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuRaccordementRepository.findAll().size();
+        // set the field null
+        geuRaccordement.setAdresse(null);
+
+        // Create the GeuRaccordement, which fails.
+        GeuRaccordementDTO geuRaccordementDTO = geuRaccordementMapper.toDto(geuRaccordement);
+
+
+        restGeuRaccordementMockMvc.perform(post("/api/geu-raccordements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuRaccordementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuRaccordement> geuRaccordementList = geuRaccordementRepository.findAll();
+        assertThat(geuRaccordementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkProprietaireParacelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuRaccordementRepository.findAll().size();
+        // set the field null
+        geuRaccordement.setProprietaireParacelle(null);
+
+        // Create the GeuRaccordement, which fails.
+        GeuRaccordementDTO geuRaccordementDTO = geuRaccordementMapper.toDto(geuRaccordement);
+
+
+        restGeuRaccordementMockMvc.perform(post("/api/geu-raccordements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuRaccordementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuRaccordement> geuRaccordementList = geuRaccordementRepository.findAll();
+        assertThat(geuRaccordementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkEntrepriseIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuRaccordementRepository.findAll().size();
+        // set the field null
+        geuRaccordement.setEntreprise(null);
+
+        // Create the GeuRaccordement, which fails.
+        GeuRaccordementDTO geuRaccordementDTO = geuRaccordementMapper.toDto(geuRaccordement);
+
+
+        restGeuRaccordementMockMvc.perform(post("/api/geu-raccordements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuRaccordementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuRaccordement> geuRaccordementList = geuRaccordementRepository.findAll();
+        assertThat(geuRaccordementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkAutreUsageIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuRaccordementRepository.findAll().size();
+        // set the field null
+        geuRaccordement.setAutreUsage(null);
+
+        // Create the GeuRaccordement, which fails.
+        GeuRaccordementDTO geuRaccordementDTO = geuRaccordementMapper.toDto(geuRaccordement);
+
+
+        restGeuRaccordementMockMvc.perform(post("/api/geu-raccordements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuRaccordementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuRaccordement> geuRaccordementList = geuRaccordementRepository.findAll();
+        assertThat(geuRaccordementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeuRaccordements() throws Exception {
         // Initialize the database
         geuRaccordementRepository.saveAndFlush(geuRaccordement);
@@ -172,7 +312,7 @@ public class GeuRaccordementResourceIT {
             .andExpect(jsonPath("$.[*].adresse").value(hasItem(DEFAULT_ADRESSE)))
             .andExpect(jsonPath("$.[*].proprietaireParacelle").value(hasItem(DEFAULT_PROPRIETAIRE_PARACELLE)))
             .andExpect(jsonPath("$.[*].entreprise").value(hasItem(DEFAULT_ENTREPRISE)))
-            .andExpect(jsonPath("$.[*].otherUsage").value(hasItem(DEFAULT_OTHER_USAGE)));
+            .andExpect(jsonPath("$.[*].autreUsage").value(hasItem(DEFAULT_AUTRE_USAGE)));
     }
     
     @Test
@@ -192,7 +332,7 @@ public class GeuRaccordementResourceIT {
             .andExpect(jsonPath("$.adresse").value(DEFAULT_ADRESSE))
             .andExpect(jsonPath("$.proprietaireParacelle").value(DEFAULT_PROPRIETAIRE_PARACELLE))
             .andExpect(jsonPath("$.entreprise").value(DEFAULT_ENTREPRISE))
-            .andExpect(jsonPath("$.otherUsage").value(DEFAULT_OTHER_USAGE));
+            .andExpect(jsonPath("$.autreUsage").value(DEFAULT_AUTRE_USAGE));
     }
     @Test
     @Transactional
@@ -221,7 +361,7 @@ public class GeuRaccordementResourceIT {
             .adresse(UPDATED_ADRESSE)
             .proprietaireParacelle(UPDATED_PROPRIETAIRE_PARACELLE)
             .entreprise(UPDATED_ENTREPRISE)
-            .otherUsage(UPDATED_OTHER_USAGE);
+            .autreUsage(UPDATED_AUTRE_USAGE);
         GeuRaccordementDTO geuRaccordementDTO = geuRaccordementMapper.toDto(updatedGeuRaccordement);
 
         restGeuRaccordementMockMvc.perform(put("/api/geu-raccordements")
@@ -239,7 +379,7 @@ public class GeuRaccordementResourceIT {
         assertThat(testGeuRaccordement.getAdresse()).isEqualTo(UPDATED_ADRESSE);
         assertThat(testGeuRaccordement.getProprietaireParacelle()).isEqualTo(UPDATED_PROPRIETAIRE_PARACELLE);
         assertThat(testGeuRaccordement.getEntreprise()).isEqualTo(UPDATED_ENTREPRISE);
-        assertThat(testGeuRaccordement.getOtherUsage()).isEqualTo(UPDATED_OTHER_USAGE);
+        assertThat(testGeuRaccordement.getAutreUsage()).isEqualTo(UPDATED_AUTRE_USAGE);
     }
 
     @Test

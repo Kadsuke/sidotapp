@@ -121,6 +121,26 @@ public class TypePlainteResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = typePlainteRepository.findAll().size();
+        // set the field null
+        typePlainte.setLibelle(null);
+
+        // Create the TypePlainte, which fails.
+        TypePlainteDTO typePlainteDTO = typePlainteMapper.toDto(typePlainte);
+
+
+        restTypePlainteMockMvc.perform(post("/api/type-plaintes")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(typePlainteDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<TypePlainte> typePlainteList = typePlainteRepository.findAll();
+        assertThat(typePlainteList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllTypePlaintes() throws Exception {
         // Initialize the database
         typePlainteRepository.saveAndFlush(typePlainte);

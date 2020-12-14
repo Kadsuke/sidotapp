@@ -29,7 +29,7 @@
                     <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="sidotApp.geuRaccordement.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="proprietaireParacelle"><span jhiTranslate="sidotApp.geuRaccordement.proprietaireParacelle">Proprietaire Paracelle</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="entreprise"><span jhiTranslate="sidotApp.geuRaccordement.entreprise">Entreprise</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="otherUsage"><span jhiTranslate="sidotApp.geuRaccordement.otherUsage">Other Usage</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="autreUsage"><span jhiTranslate="sidotApp.geuRaccordement.autreUsage">Autre Usage</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="geoparcelleId"><span jhiTranslate="sidotApp.geuRaccordement.geoparcelle">Geoparcelle</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="agentId"><span jhiTranslate="sidotApp.geuRaccordement.agent">Agent</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="tacheronsId"><span jhiTranslate="sidotApp.geuRaccordement.tacherons">Tacherons</span> <fa-icon icon="sort"></fa-icon></th>
@@ -46,7 +46,7 @@
                     <td>{{ geuRaccordement.adresse }}</td>
                     <td>{{ geuRaccordement.proprietaireParacelle }}</td>
                     <td>{{ geuRaccordement.entreprise }}</td>
-                    <td>{{ geuRaccordement.otherUsage }}</td>
+                    <td>{{ geuRaccordement.autreUsage }}</td>
                     <td>
                         <div *ngIf="geuRaccordement.geoparcelleId">
                             <a [routerLink]="['/geo-parcelle', geuRaccordement.geoparcelleId , 'view']" >{{ geuRaccordement.geoparcelleId }}</a>

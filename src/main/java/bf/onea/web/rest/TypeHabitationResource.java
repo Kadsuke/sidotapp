@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class TypeHabitationResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/type-habitations")
-    public ResponseEntity<TypeHabitationDTO> createTypeHabitation(@RequestBody TypeHabitationDTO typeHabitationDTO) throws URISyntaxException {
+    public ResponseEntity<TypeHabitationDTO> createTypeHabitation(@Valid @RequestBody TypeHabitationDTO typeHabitationDTO) throws URISyntaxException {
         log.debug("REST request to save TypeHabitation : {}", typeHabitationDTO);
         if (typeHabitationDTO.getId() != null) {
             throw new BadRequestAlertException("A new typeHabitation cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class TypeHabitationResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/type-habitations")
-    public ResponseEntity<TypeHabitationDTO> updateTypeHabitation(@RequestBody TypeHabitationDTO typeHabitationDTO) throws URISyntaxException {
+    public ResponseEntity<TypeHabitationDTO> updateTypeHabitation(@Valid @RequestBody TypeHabitationDTO typeHabitationDTO) throws URISyntaxException {
         log.debug("REST request to update TypeHabitation : {}", typeHabitationDTO);
         if (typeHabitationDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

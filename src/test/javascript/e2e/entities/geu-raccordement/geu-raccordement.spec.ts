@@ -50,7 +50,7 @@ describe('GeuRaccordement e2e test', () => {
       geuRaccordementUpdatePage.setAdresseInput('adresse'),
       geuRaccordementUpdatePage.setProprietaireParacelleInput('proprietaireParacelle'),
       geuRaccordementUpdatePage.setEntrepriseInput('entreprise'),
-      geuRaccordementUpdatePage.setOtherUsageInput('otherUsage'),
+      geuRaccordementUpdatePage.setAutreUsageInput('autreUsage'),
       geuRaccordementUpdatePage.geoparcelleSelectLastOption(),
       geuRaccordementUpdatePage.agentSelectLastOption(),
       geuRaccordementUpdatePage.tacheronsSelectLastOption(),
@@ -69,9 +69,9 @@ describe('GeuRaccordement e2e test', () => {
       'entreprise',
       'Expected Entreprise value to be equals to entreprise'
     );
-    expect(await geuRaccordementUpdatePage.getOtherUsageInput()).to.eq(
-      'otherUsage',
-      'Expected OtherUsage value to be equals to otherUsage'
+    expect(await geuRaccordementUpdatePage.getAutreUsageInput()).to.eq(
+      'autreUsage',
+      'Expected AutreUsage value to be equals to autreUsage'
     );
 
     await geuRaccordementUpdatePage.save();

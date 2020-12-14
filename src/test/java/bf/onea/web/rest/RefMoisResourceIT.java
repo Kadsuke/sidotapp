@@ -121,6 +121,26 @@ public class RefMoisResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = refMoisRepository.findAll().size();
+        // set the field null
+        refMois.setLibelle(null);
+
+        // Create the RefMois, which fails.
+        RefMoisDTO refMoisDTO = refMoisMapper.toDto(refMois);
+
+
+        restRefMoisMockMvc.perform(post("/api/ref-mois")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(refMoisDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<RefMois> refMoisList = refMoisRepository.findAll();
+        assertThat(refMoisList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllRefMois() throws Exception {
         // Initialize the database
         refMoisRepository.saveAndFlush(refMois);

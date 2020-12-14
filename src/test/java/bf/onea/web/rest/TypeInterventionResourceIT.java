@@ -121,6 +121,26 @@ public class TypeInterventionResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = typeInterventionRepository.findAll().size();
+        // set the field null
+        typeIntervention.setLibelle(null);
+
+        // Create the TypeIntervention, which fails.
+        TypeInterventionDTO typeInterventionDTO = typeInterventionMapper.toDto(typeIntervention);
+
+
+        restTypeInterventionMockMvc.perform(post("/api/type-interventions")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(typeInterventionDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<TypeIntervention> typeInterventionList = typeInterventionRepository.findAll();
+        assertThat(typeInterventionList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllTypeInterventions() throws Exception {
         // Initialize the database
         typeInterventionRepository.saveAndFlush(typeIntervention);

@@ -1,21 +1,26 @@
 package bf.onea.service.dto;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
  * A DTO for the {@link bf.onea.domain.PrevisionPsa} entity.
  */
 public class PrevisionPsaDTO implements Serializable {
+    
     private Long id;
 
+    @NotNull
     private Integer elabore;
 
+    @NotNull
     private Integer miseEnOeuvre;
+
 
     private Long centreId;
 
     private Long refAnneeId;
-
+    
     public Long getId() {
         return id;
     }

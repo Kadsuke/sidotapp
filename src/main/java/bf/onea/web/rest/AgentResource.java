@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class AgentResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/agents")
-    public ResponseEntity<AgentDTO> createAgent(@RequestBody AgentDTO agentDTO) throws URISyntaxException {
+    public ResponseEntity<AgentDTO> createAgent(@Valid @RequestBody AgentDTO agentDTO) throws URISyntaxException {
         log.debug("REST request to save Agent : {}", agentDTO);
         if (agentDTO.getId() != null) {
             throw new BadRequestAlertException("A new agent cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class AgentResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/agents")
-    public ResponseEntity<AgentDTO> updateAgent(@RequestBody AgentDTO agentDTO) throws URISyntaxException {
+    public ResponseEntity<AgentDTO> updateAgent(@Valid @RequestBody AgentDTO agentDTO) throws URISyntaxException {
         log.debug("REST request to update Agent : {}", agentDTO);
         if (agentDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

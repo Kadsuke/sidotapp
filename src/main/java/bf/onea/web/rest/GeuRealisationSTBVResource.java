@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class GeuRealisationSTBVResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/geu-realisation-stbvs")
-    public ResponseEntity<GeuRealisationSTBVDTO> createGeuRealisationSTBV(@RequestBody GeuRealisationSTBVDTO geuRealisationSTBVDTO) throws URISyntaxException {
+    public ResponseEntity<GeuRealisationSTBVDTO> createGeuRealisationSTBV(@Valid @RequestBody GeuRealisationSTBVDTO geuRealisationSTBVDTO) throws URISyntaxException {
         log.debug("REST request to save GeuRealisationSTBV : {}", geuRealisationSTBVDTO);
         if (geuRealisationSTBVDTO.getId() != null) {
             throw new BadRequestAlertException("A new geuRealisationSTBV cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class GeuRealisationSTBVResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/geu-realisation-stbvs")
-    public ResponseEntity<GeuRealisationSTBVDTO> updateGeuRealisationSTBV(@RequestBody GeuRealisationSTBVDTO geuRealisationSTBVDTO) throws URISyntaxException {
+    public ResponseEntity<GeuRealisationSTBVDTO> updateGeuRealisationSTBV(@Valid @RequestBody GeuRealisationSTBVDTO geuRealisationSTBVDTO) throws URISyntaxException {
         log.debug("REST request to update GeuRealisationSTBV : {}", geuRealisationSTBVDTO);
         if (geuRealisationSTBVDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

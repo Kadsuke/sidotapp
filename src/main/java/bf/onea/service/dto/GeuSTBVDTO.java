@@ -1,5 +1,6 @@
 package bf.onea.service.dto;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -9,10 +10,13 @@ public class GeuSTBVDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
     private String libelStbv;
 
+    @NotNull
     private String responsable;
 
+    @NotNull
     private String contact;
 
     

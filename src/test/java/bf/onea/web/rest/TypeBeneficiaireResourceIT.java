@@ -121,6 +121,26 @@ public class TypeBeneficiaireResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = typeBeneficiaireRepository.findAll().size();
+        // set the field null
+        typeBeneficiaire.setLibelle(null);
+
+        // Create the TypeBeneficiaire, which fails.
+        TypeBeneficiaireDTO typeBeneficiaireDTO = typeBeneficiaireMapper.toDto(typeBeneficiaire);
+
+
+        restTypeBeneficiaireMockMvc.perform(post("/api/type-beneficiaires")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(typeBeneficiaireDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<TypeBeneficiaire> typeBeneficiaireList = typeBeneficiaireRepository.findAll();
+        assertThat(typeBeneficiaireList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllTypeBeneficiaires() throws Exception {
         // Initialize the database
         typeBeneficiaireRepository.saveAndFlush(typeBeneficiaire);

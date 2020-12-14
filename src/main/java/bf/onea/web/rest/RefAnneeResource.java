@@ -18,10 +18,12 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing {@link bf.onea.domain.RefAnnee}.
@@ -51,7 +53,7 @@ public class RefAnneeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/ref-annees")
-    public ResponseEntity<RefAnneeDTO> createRefAnnee(@RequestBody RefAnneeDTO refAnneeDTO) throws URISyntaxException {
+    public ResponseEntity<RefAnneeDTO> createRefAnnee(@Valid @RequestBody RefAnneeDTO refAnneeDTO) throws URISyntaxException {
         log.debug("REST request to save RefAnnee : {}", refAnneeDTO);
         if (refAnneeDTO.getId() != null) {
             throw new BadRequestAlertException("A new refAnnee cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +74,7 @@ public class RefAnneeResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/ref-annees")
-    public ResponseEntity<RefAnneeDTO> updateRefAnnee(@RequestBody RefAnneeDTO refAnneeDTO) throws URISyntaxException {
+    public ResponseEntity<RefAnneeDTO> updateRefAnnee(@Valid @RequestBody RefAnneeDTO refAnneeDTO) throws URISyntaxException {
         log.debug("REST request to update RefAnnee : {}", refAnneeDTO);
         if (refAnneeDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -87,10 +89,26 @@ public class RefAnneeResource {
      * {@code GET  /ref-annees} : get all the refAnnees.
      *
      * @param pageable the pagination information.
+     * @param filter the filter of the request.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of refAnnees in body.
      */
     @GetMapping("/ref-annees")
-    public ResponseEntity<List<RefAnneeDTO>> getAllRefAnnees(Pageable pageable) {
+    public ResponseEntity<List<RefAnneeDTO>> getAllRefAnnees(Pageable pageable, @RequestParam(required = false) String filter) {
+        if ("previsionassainissementau-is-null".equals(filter)) {
+            log.debug("REST request to get all RefAnnees where previsionAssainissementAu is null");
+            return new ResponseEntity<>(refAnneeService.findAllWherePrevisionAssainissementAuIsNull(),
+                    HttpStatus.OK);
+        }
+        if ("previsionassainissementcol-is-null".equals(filter)) {
+            log.debug("REST request to get all RefAnnees where previsionAssainissementCol is null");
+            return new ResponseEntity<>(refAnneeService.findAllWherePrevisionAssainissementColIsNull(),
+                    HttpStatus.OK);
+        }
+        if ("previsionpsa-is-null".equals(filter)) {
+            log.debug("REST request to get all RefAnnees where previsionPsa is null");
+            return new ResponseEntity<>(refAnneeService.findAllWherePrevisionPsaIsNull(),
+                    HttpStatus.OK);
+        }
         log.debug("REST request to get a page of RefAnnees");
         Page<RefAnneeDTO> page = refAnneeService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);

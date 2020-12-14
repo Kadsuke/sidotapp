@@ -133,6 +133,66 @@ public class AgentResourceIT {
 
     @Test
     @Transactional
+    public void checkNomIsRequired() throws Exception {
+        int databaseSizeBeforeTest = agentRepository.findAll().size();
+        // set the field null
+        agent.setNom(null);
+
+        // Create the Agent, which fails.
+        AgentDTO agentDTO = agentMapper.toDto(agent);
+
+
+        restAgentMockMvc.perform(post("/api/agents")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(agentDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Agent> agentList = agentRepository.findAll();
+        assertThat(agentList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkNumeroIsRequired() throws Exception {
+        int databaseSizeBeforeTest = agentRepository.findAll().size();
+        // set the field null
+        agent.setNumero(null);
+
+        // Create the Agent, which fails.
+        AgentDTO agentDTO = agentMapper.toDto(agent);
+
+
+        restAgentMockMvc.perform(post("/api/agents")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(agentDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Agent> agentList = agentRepository.findAll();
+        assertThat(agentList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkRoleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = agentRepository.findAll().size();
+        // set the field null
+        agent.setRole(null);
+
+        // Create the Agent, which fails.
+        AgentDTO agentDTO = agentMapper.toDto(agent);
+
+
+        restAgentMockMvc.perform(post("/api/agents")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(agentDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Agent> agentList = agentRepository.findAll();
+        assertThat(agentList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllAgents() throws Exception {
         // Initialize the database
         agentRepository.saveAndFlush(agent);

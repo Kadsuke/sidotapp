@@ -121,6 +121,26 @@ public class SourceApprovEpResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = sourceApprovEpRepository.findAll().size();
+        // set the field null
+        sourceApprovEp.setLibelle(null);
+
+        // Create the SourceApprovEp, which fails.
+        SourceApprovEpDTO sourceApprovEpDTO = sourceApprovEpMapper.toDto(sourceApprovEp);
+
+
+        restSourceApprovEpMockMvc.perform(post("/api/source-approv-eps")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(sourceApprovEpDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<SourceApprovEp> sourceApprovEpList = sourceApprovEpRepository.findAll();
+        assertThat(sourceApprovEpList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllSourceApprovEps() throws Exception {
         // Initialize the database
         sourceApprovEpRepository.saveAndFlush(sourceApprovEp);

@@ -16,22 +16,22 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="nb_latrine" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="nb_puisard" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="nb_public" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="nb_scolaire" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="centre_de_sante" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="population" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="refannee_id" type="bigint">
                 <constraints unique="true" nullable="true" uniqueConstraintName="ux_prevision_assainissement_au_refannee_id" />

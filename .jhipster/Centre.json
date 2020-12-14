@@ -3,15 +3,18 @@
   "fields": [
     {
       "fieldName": "libelle",
-      "fieldType": "String"
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "responsable",
-      "fieldType": "String"
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "contact",
-      "fieldType": "String"
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
     }
   ],
   "relationships": [
@@ -20,6 +23,27 @@
       "otherEntityName": "site",
       "otherEntityRelationshipName": "centre",
       "relationshipName": "site"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "previsionAssainissementAu",
+      "otherEntityRelationshipName": "centre",
+      "relationshipName": "previsionAssainissementAu",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "previsionAssainissementCol",
+      "otherEntityRelationshipName": "centre",
+      "relationshipName": "previsionAssainissementCol",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "previsionPsa",
+      "otherEntityRelationshipName": "centre",
+      "relationshipName": "previsionPsa",
+      "ownerSide": false
     },
     {
       "relationshipType": "many-to-one",

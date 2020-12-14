@@ -16,16 +16,16 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="nb_step" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="nb_stbv" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="reseaux" type="${floatType}">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="nb_raccordement" type="integer">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="refannee_id" type="bigint">
                 <constraints unique="true" nullable="true" uniqueConstraintName="ux_prevision_assainissement_col_refannee_id" />

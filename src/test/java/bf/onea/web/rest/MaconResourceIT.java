@@ -121,6 +121,26 @@ public class MaconResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = maconRepository.findAll().size();
+        // set the field null
+        macon.setLibelle(null);
+
+        // Create the Macon, which fails.
+        MaconDTO maconDTO = maconMapper.toDto(macon);
+
+
+        restMaconMockMvc.perform(post("/api/macons")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(maconDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Macon> maconList = maconRepository.findAll();
+        assertThat(maconList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllMacons() throws Exception {
         // Initialize the database
         maconRepository.saveAndFlush(macon);

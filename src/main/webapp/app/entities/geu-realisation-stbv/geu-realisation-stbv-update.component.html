@@ -15,18 +15,36 @@
                     <label class="form-control-label" jhiTranslate="sidotApp.geuRealisationSTBV.nbCamions" for="field_nbCamions">Nb Camions</label>
                     <input type="text" class="form-control" name="nbCamions" id="field_nbCamions"
                            formControlName="nbCamions"/>
+                    <div *ngIf="editForm.get('nbCamions')!.invalid && (editForm.get('nbCamions')!.dirty || editForm.get('nbCamions')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbCamions')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.geuRealisationSTBV.volume" for="field_volume">Volume</label>
                     <input type="text" class="form-control" name="volume" id="field_volume"
                            formControlName="volume"/>
+                    <div *ngIf="editForm.get('volume')!.invalid && (editForm.get('volume')!.dirty || editForm.get('volume')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('volume')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.geuRealisationSTBV.energie" for="field_energie">Energie</label>
                     <input type="text" class="form-control" name="energie" id="field_energie"
                            formControlName="energie"/>
+                    <div *ngIf="editForm.get('energie')!.invalid && (editForm.get('energie')!.dirty || editForm.get('energie')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('energie')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">

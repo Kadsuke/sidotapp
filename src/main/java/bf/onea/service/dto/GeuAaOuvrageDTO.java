@@ -1,6 +1,7 @@
 package bf.onea.service.dto;
 
 import java.time.Instant;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -12,48 +13,70 @@ public class GeuAaOuvrageDTO implements Serializable {
 
     private String refOuvrage;
 
+    @NotNull
     private String prjAppuis;
 
+    @NotNull
     private String numCompteur;
 
+    @NotNull
     private String nomBenef;
 
+    @NotNull
     private String prenomBenef;
 
+    @NotNull
     private String professionBenef;
 
+    @NotNull
     private Long nbUsagers;
 
+    @NotNull
     private String codeUn;
 
+    @NotNull
     private Instant dateRemiseDevis;
 
+    @NotNull
     private Instant dateDebutTravaux;
 
+    @NotNull
     private Instant dateFinTravaux;
 
+    @NotNull
     private String numNomRue;
 
+    @NotNull
     private String numNomPorte;
 
+    @NotNull
     private String menage;
 
+    @NotNull
     private Integer subvOnea;
 
+    @NotNull
     private Integer subvProjet;
 
+    @NotNull
     private Integer autreSubv;
 
+    @NotNull
     private String refBonFourniture;
 
+    @NotNull
     private Integer realisPorte;
 
+    @NotNull
     private Integer realisToles;
 
+    @NotNull
     private String animateur;
 
+    @NotNull
     private String superviseur;
 
+    @NotNull
     private String controleur;
 
 
