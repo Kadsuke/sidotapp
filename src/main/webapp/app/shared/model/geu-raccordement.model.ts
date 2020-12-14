@@ -6,7 +6,7 @@ export interface IGeuRaccordement {
   adresse?: string;
   proprietaireParacelle?: string;
   entreprise?: string;
-  otherUsage?: string;
+  autreUsage?: string;
   geoparcelleId?: number;
   agentId?: number;
   tacheronsId?: number;
@@ -22,7 +22,7 @@ export class GeuRaccordement implements IGeuRaccordement {
     public adresse?: string,
     public proprietaireParacelle?: string,
     public entreprise?: string,
-    public otherUsage?: string,
+    public autreUsage?: string,
     public geoparcelleId?: number,
     public agentId?: number,
     public tacheronsId?: number,

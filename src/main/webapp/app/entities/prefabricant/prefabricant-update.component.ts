@@ -17,7 +17,7 @@ export class PrefabricantUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
   });
 
   constructor(protected prefabricantService: PrefabricantService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

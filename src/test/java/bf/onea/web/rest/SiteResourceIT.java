@@ -133,6 +133,66 @@ public class SiteResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = siteRepository.findAll().size();
+        // set the field null
+        site.setLibelle(null);
+
+        // Create the Site, which fails.
+        SiteDTO siteDTO = siteMapper.toDto(site);
+
+
+        restSiteMockMvc.perform(post("/api/sites")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(siteDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Site> siteList = siteRepository.findAll();
+        assertThat(siteList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkResponsableIsRequired() throws Exception {
+        int databaseSizeBeforeTest = siteRepository.findAll().size();
+        // set the field null
+        site.setResponsable(null);
+
+        // Create the Site, which fails.
+        SiteDTO siteDTO = siteMapper.toDto(site);
+
+
+        restSiteMockMvc.perform(post("/api/sites")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(siteDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Site> siteList = siteRepository.findAll();
+        assertThat(siteList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkContactIsRequired() throws Exception {
+        int databaseSizeBeforeTest = siteRepository.findAll().size();
+        // set the field null
+        site.setContact(null);
+
+        // Create the Site, which fails.
+        SiteDTO siteDTO = siteMapper.toDto(site);
+
+
+        restSiteMockMvc.perform(post("/api/sites")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(siteDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Site> siteList = siteRepository.findAll();
+        assertThat(siteList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllSites() throws Exception {
         // Initialize the database
         siteRepository.saveAndFlush(site);

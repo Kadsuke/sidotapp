@@ -121,6 +121,26 @@ public class CategorieRessourcesResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = categorieRessourcesRepository.findAll().size();
+        // set the field null
+        categorieRessources.setLibelle(null);
+
+        // Create the CategorieRessources, which fails.
+        CategorieRessourcesDTO categorieRessourcesDTO = categorieRessourcesMapper.toDto(categorieRessources);
+
+
+        restCategorieRessourcesMockMvc.perform(post("/api/categorie-ressources")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(categorieRessourcesDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<CategorieRessources> categorieRessourcesList = categorieRessourcesRepository.findAll();
+        assertThat(categorieRessourcesList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllCategorieRessources() throws Exception {
         // Initialize the database
         categorieRessourcesRepository.saveAndFlush(categorieRessources);

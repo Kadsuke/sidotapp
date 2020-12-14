@@ -26,8 +26,8 @@ export class PrevisionPsaUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    elabore: [],
-    miseEnOeuvre: [],
+    elabore: [null, [Validators.required]],
+    miseEnOeuvre: [null, [Validators.required]],
     centreId: [],
     refAnneeId: [],
   });

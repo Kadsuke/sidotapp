@@ -17,7 +17,7 @@ export class TypeBeneficiaireUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
   });
 
   constructor(

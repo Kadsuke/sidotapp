@@ -129,6 +129,46 @@ public class GeuPrevisionSTEPResourceIT {
 
     @Test
     @Transactional
+    public void checkDatePrevStepIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuPrevisionSTEPRepository.findAll().size();
+        // set the field null
+        geuPrevisionSTEP.setDatePrevStep(null);
+
+        // Create the GeuPrevisionSTEP, which fails.
+        GeuPrevisionSTEPDTO geuPrevisionSTEPDTO = geuPrevisionSTEPMapper.toDto(geuPrevisionSTEP);
+
+
+        restGeuPrevisionSTEPMockMvc.perform(post("/api/geu-prevision-steps")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuPrevisionSTEPDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuPrevisionSTEP> geuPrevisionSTEPList = geuPrevisionSTEPRepository.findAll();
+        assertThat(geuPrevisionSTEPList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkVolumePrevStepIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuPrevisionSTEPRepository.findAll().size();
+        // set the field null
+        geuPrevisionSTEP.setVolumePrevStep(null);
+
+        // Create the GeuPrevisionSTEP, which fails.
+        GeuPrevisionSTEPDTO geuPrevisionSTEPDTO = geuPrevisionSTEPMapper.toDto(geuPrevisionSTEP);
+
+
+        restGeuPrevisionSTEPMockMvc.perform(post("/api/geu-prevision-steps")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuPrevisionSTEPDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuPrevisionSTEP> geuPrevisionSTEPList = geuPrevisionSTEPRepository.findAll();
+        assertThat(geuPrevisionSTEPList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeuPrevisionSTEPS() throws Exception {
         // Initialize the database
         geuPrevisionSTEPRepository.saveAndFlush(geuPrevisionSTEP);

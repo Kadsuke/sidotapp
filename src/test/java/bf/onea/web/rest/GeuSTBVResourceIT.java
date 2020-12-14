@@ -133,6 +133,66 @@ public class GeuSTBVResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelStbvIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuSTBVRepository.findAll().size();
+        // set the field null
+        geuSTBV.setLibelStbv(null);
+
+        // Create the GeuSTBV, which fails.
+        GeuSTBVDTO geuSTBVDTO = geuSTBVMapper.toDto(geuSTBV);
+
+
+        restGeuSTBVMockMvc.perform(post("/api/geu-stbvs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuSTBVDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuSTBV> geuSTBVList = geuSTBVRepository.findAll();
+        assertThat(geuSTBVList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkResponsableIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuSTBVRepository.findAll().size();
+        // set the field null
+        geuSTBV.setResponsable(null);
+
+        // Create the GeuSTBV, which fails.
+        GeuSTBVDTO geuSTBVDTO = geuSTBVMapper.toDto(geuSTBV);
+
+
+        restGeuSTBVMockMvc.perform(post("/api/geu-stbvs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuSTBVDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuSTBV> geuSTBVList = geuSTBVRepository.findAll();
+        assertThat(geuSTBVList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkContactIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuSTBVRepository.findAll().size();
+        // set the field null
+        geuSTBV.setContact(null);
+
+        // Create the GeuSTBV, which fails.
+        GeuSTBVDTO geuSTBVDTO = geuSTBVMapper.toDto(geuSTBV);
+
+
+        restGeuSTBVMockMvc.perform(post("/api/geu-stbvs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuSTBVDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuSTBV> geuSTBVList = geuSTBVRepository.findAll();
+        assertThat(geuSTBVList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeuSTBVS() throws Exception {
         // Initialize the database
         geuSTBVRepository.saveAndFlush(geuSTBV);

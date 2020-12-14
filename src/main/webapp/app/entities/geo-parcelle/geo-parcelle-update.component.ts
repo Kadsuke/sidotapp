@@ -20,7 +20,7 @@ export class GeoParcelleUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
     geolotId: [],
   });
 

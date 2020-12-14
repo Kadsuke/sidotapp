@@ -3,19 +3,23 @@
   "fields": [
     {
       "fieldName": "nbStep",
-      "fieldType": "Integer"
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "nbStbv",
-      "fieldType": "Integer"
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "reseaux",
-      "fieldType": "Float"
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "nbRaccordement",
-      "fieldType": "Integer"
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
     }
   ],
   "relationships": [

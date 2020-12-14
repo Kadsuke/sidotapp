@@ -17,7 +17,7 @@ export class GeoRegionUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
   });
 
   constructor(protected geoRegionService: GeoRegionService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

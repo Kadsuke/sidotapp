@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class TypeOuvrageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/type-ouvrages")
-    public ResponseEntity<TypeOuvrageDTO> createTypeOuvrage(@RequestBody TypeOuvrageDTO typeOuvrageDTO) throws URISyntaxException {
+    public ResponseEntity<TypeOuvrageDTO> createTypeOuvrage(@Valid @RequestBody TypeOuvrageDTO typeOuvrageDTO) throws URISyntaxException {
         log.debug("REST request to save TypeOuvrage : {}", typeOuvrageDTO);
         if (typeOuvrageDTO.getId() != null) {
             throw new BadRequestAlertException("A new typeOuvrage cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class TypeOuvrageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/type-ouvrages")
-    public ResponseEntity<TypeOuvrageDTO> updateTypeOuvrage(@RequestBody TypeOuvrageDTO typeOuvrageDTO) throws URISyntaxException {
+    public ResponseEntity<TypeOuvrageDTO> updateTypeOuvrage(@Valid @RequestBody TypeOuvrageDTO typeOuvrageDTO) throws URISyntaxException {
         log.debug("REST request to update TypeOuvrage : {}", typeOuvrageDTO);
         if (typeOuvrageDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

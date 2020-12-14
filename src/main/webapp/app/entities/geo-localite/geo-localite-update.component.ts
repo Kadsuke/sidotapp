@@ -20,7 +20,7 @@ export class GeoLocaliteUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
     geocommuneId: [],
   });
 

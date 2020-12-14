@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class GeoTypeCommuneResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/geo-type-communes")
-    public ResponseEntity<GeoTypeCommuneDTO> createGeoTypeCommune(@RequestBody GeoTypeCommuneDTO geoTypeCommuneDTO) throws URISyntaxException {
+    public ResponseEntity<GeoTypeCommuneDTO> createGeoTypeCommune(@Valid @RequestBody GeoTypeCommuneDTO geoTypeCommuneDTO) throws URISyntaxException {
         log.debug("REST request to save GeoTypeCommune : {}", geoTypeCommuneDTO);
         if (geoTypeCommuneDTO.getId() != null) {
             throw new BadRequestAlertException("A new geoTypeCommune cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class GeoTypeCommuneResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/geo-type-communes")
-    public ResponseEntity<GeoTypeCommuneDTO> updateGeoTypeCommune(@RequestBody GeoTypeCommuneDTO geoTypeCommuneDTO) throws URISyntaxException {
+    public ResponseEntity<GeoTypeCommuneDTO> updateGeoTypeCommune(@Valid @RequestBody GeoTypeCommuneDTO geoTypeCommuneDTO) throws URISyntaxException {
         log.debug("REST request to update GeoTypeCommune : {}", geoTypeCommuneDTO);
         if (geoTypeCommuneDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class TypeAnalyseResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/type-analyses")
-    public ResponseEntity<TypeAnalyseDTO> createTypeAnalyse(@RequestBody TypeAnalyseDTO typeAnalyseDTO) throws URISyntaxException {
+    public ResponseEntity<TypeAnalyseDTO> createTypeAnalyse(@Valid @RequestBody TypeAnalyseDTO typeAnalyseDTO) throws URISyntaxException {
         log.debug("REST request to save TypeAnalyse : {}", typeAnalyseDTO);
         if (typeAnalyseDTO.getId() != null) {
             throw new BadRequestAlertException("A new typeAnalyse cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class TypeAnalyseResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/type-analyses")
-    public ResponseEntity<TypeAnalyseDTO> updateTypeAnalyse(@RequestBody TypeAnalyseDTO typeAnalyseDTO) throws URISyntaxException {
+    public ResponseEntity<TypeAnalyseDTO> updateTypeAnalyse(@Valid @RequestBody TypeAnalyseDTO typeAnalyseDTO) throws URISyntaxException {
         log.debug("REST request to update TypeAnalyse : {}", typeAnalyseDTO);
         if (typeAnalyseDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

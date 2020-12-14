@@ -26,10 +26,10 @@ export class PrevisionAssainissementColUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    nbStep: [],
-    nbStbv: [],
-    reseaux: [],
-    nbRaccordement: [],
+    nbStep: [null, [Validators.required]],
+    nbStbv: [null, [Validators.required]],
+    reseaux: [null, [Validators.required]],
+    nbRaccordement: [null, [Validators.required]],
     refanneeId: [],
     centreId: [],
   });

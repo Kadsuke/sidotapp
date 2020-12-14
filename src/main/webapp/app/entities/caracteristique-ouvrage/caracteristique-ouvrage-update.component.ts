@@ -20,8 +20,8 @@ export class CaracteristiqueOuvrageUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
-    unite: [],
+    libelle: [null, [Validators.required]],
+    unite: [null, [Validators.required]],
     typeouvrageId: [],
   });
 

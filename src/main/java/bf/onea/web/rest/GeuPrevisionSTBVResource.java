@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class GeuPrevisionSTBVResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/geu-prevision-stbvs")
-    public ResponseEntity<GeuPrevisionSTBVDTO> createGeuPrevisionSTBV(@RequestBody GeuPrevisionSTBVDTO geuPrevisionSTBVDTO) throws URISyntaxException {
+    public ResponseEntity<GeuPrevisionSTBVDTO> createGeuPrevisionSTBV(@Valid @RequestBody GeuPrevisionSTBVDTO geuPrevisionSTBVDTO) throws URISyntaxException {
         log.debug("REST request to save GeuPrevisionSTBV : {}", geuPrevisionSTBVDTO);
         if (geuPrevisionSTBVDTO.getId() != null) {
             throw new BadRequestAlertException("A new geuPrevisionSTBV cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class GeuPrevisionSTBVResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/geu-prevision-stbvs")
-    public ResponseEntity<GeuPrevisionSTBVDTO> updateGeuPrevisionSTBV(@RequestBody GeuPrevisionSTBVDTO geuPrevisionSTBVDTO) throws URISyntaxException {
+    public ResponseEntity<GeuPrevisionSTBVDTO> updateGeuPrevisionSTBV(@Valid @RequestBody GeuPrevisionSTBVDTO geuPrevisionSTBVDTO) throws URISyntaxException {
         log.debug("REST request to update GeuPrevisionSTBV : {}", geuPrevisionSTBVDTO);
         if (geuPrevisionSTBVDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

@@ -121,6 +121,26 @@ public class GeuUsageResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuUsageRepository.findAll().size();
+        // set the field null
+        geuUsage.setLibelle(null);
+
+        // Create the GeuUsage, which fails.
+        GeuUsageDTO geuUsageDTO = geuUsageMapper.toDto(geuUsage);
+
+
+        restGeuUsageMockMvc.perform(post("/api/geu-usages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuUsageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuUsage> geuUsageList = geuUsageRepository.findAll();
+        assertThat(geuUsageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeuUsages() throws Exception {
         // Initialize the database
         geuUsageRepository.saveAndFlush(geuUsage);

@@ -1,18 +1,12 @@
 package bf.onea.web.rest;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 import bf.onea.SidotApp;
 import bf.onea.domain.PrevisionAssainissementAu;
 import bf.onea.repository.PrevisionAssainissementAuRepository;
 import bf.onea.service.PrevisionAssainissementAuService;
 import bf.onea.service.dto.PrevisionAssainissementAuDTO;
 import bf.onea.service.mapper.PrevisionAssainissementAuMapper;
-import java.util.List;
-import javax.persistence.EntityManager;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +16,13 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
+import javax.persistence.EntityManager;
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * Integration tests for the {@link PrevisionAssainissementAuResource} REST controller.
@@ -30,6 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AutoConfigureMockMvc
 @WithMockUser
 public class PrevisionAssainissementAuResourceIT {
+
     private static final Integer DEFAULT_NB_LATRINE = 1;
     private static final Integer UPDATED_NB_LATRINE = 2;
 
@@ -81,7 +83,6 @@ public class PrevisionAssainissementAuResourceIT {
             .population(DEFAULT_POPULATION);
         return previsionAssainissementAu;
     }
-
     /**
      * Create an updated entity for this test.
      *
@@ -110,20 +111,15 @@ public class PrevisionAssainissementAuResourceIT {
         int databaseSizeBeforeCreate = previsionAssainissementAuRepository.findAll().size();
         // Create the PrevisionAssainissementAu
         PrevisionAssainissementAuDTO previsionAssainissementAuDTO = previsionAssainissementAuMapper.toDto(previsionAssainissementAu);
-        restPrevisionAssainissementAuMockMvc
-            .perform(
-                post("/api/prevision-assainissement-aus")
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO))
-            )
+        restPrevisionAssainissementAuMockMvc.perform(post("/api/prevision-assainissement-aus")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO)))
             .andExpect(status().isCreated());
 
         // Validate the PrevisionAssainissementAu in the database
         List<PrevisionAssainissementAu> previsionAssainissementAuList = previsionAssainissementAuRepository.findAll();
         assertThat(previsionAssainissementAuList).hasSize(databaseSizeBeforeCreate + 1);
-        PrevisionAssainissementAu testPrevisionAssainissementAu = previsionAssainissementAuList.get(
-            previsionAssainissementAuList.size() - 1
-        );
+        PrevisionAssainissementAu testPrevisionAssainissementAu = previsionAssainissementAuList.get(previsionAssainissementAuList.size() - 1);
         assertThat(testPrevisionAssainissementAu.getNbLatrine()).isEqualTo(DEFAULT_NB_LATRINE);
         assertThat(testPrevisionAssainissementAu.getNbPuisard()).isEqualTo(DEFAULT_NB_PUISARD);
         assertThat(testPrevisionAssainissementAu.getNbPublic()).isEqualTo(DEFAULT_NB_PUBLIC);
@@ -142,17 +138,135 @@ public class PrevisionAssainissementAuResourceIT {
         PrevisionAssainissementAuDTO previsionAssainissementAuDTO = previsionAssainissementAuMapper.toDto(previsionAssainissementAu);
 
         // An entity with an existing ID cannot be created, so this API call must fail
-        restPrevisionAssainissementAuMockMvc
-            .perform(
-                post("/api/prevision-assainissement-aus")
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO))
-            )
+        restPrevisionAssainissementAuMockMvc.perform(post("/api/prevision-assainissement-aus")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO)))
             .andExpect(status().isBadRequest());
 
         // Validate the PrevisionAssainissementAu in the database
         List<PrevisionAssainissementAu> previsionAssainissementAuList = previsionAssainissementAuRepository.findAll();
         assertThat(previsionAssainissementAuList).hasSize(databaseSizeBeforeCreate);
+    }
+
+
+    @Test
+    @Transactional
+    public void checkNbLatrineIsRequired() throws Exception {
+        int databaseSizeBeforeTest = previsionAssainissementAuRepository.findAll().size();
+        // set the field null
+        previsionAssainissementAu.setNbLatrine(null);
+
+        // Create the PrevisionAssainissementAu, which fails.
+        PrevisionAssainissementAuDTO previsionAssainissementAuDTO = previsionAssainissementAuMapper.toDto(previsionAssainissementAu);
+
+
+        restPrevisionAssainissementAuMockMvc.perform(post("/api/prevision-assainissement-aus")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<PrevisionAssainissementAu> previsionAssainissementAuList = previsionAssainissementAuRepository.findAll();
+        assertThat(previsionAssainissementAuList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkNbPuisardIsRequired() throws Exception {
+        int databaseSizeBeforeTest = previsionAssainissementAuRepository.findAll().size();
+        // set the field null
+        previsionAssainissementAu.setNbPuisard(null);
+
+        // Create the PrevisionAssainissementAu, which fails.
+        PrevisionAssainissementAuDTO previsionAssainissementAuDTO = previsionAssainissementAuMapper.toDto(previsionAssainissementAu);
+
+
+        restPrevisionAssainissementAuMockMvc.perform(post("/api/prevision-assainissement-aus")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<PrevisionAssainissementAu> previsionAssainissementAuList = previsionAssainissementAuRepository.findAll();
+        assertThat(previsionAssainissementAuList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkNbPublicIsRequired() throws Exception {
+        int databaseSizeBeforeTest = previsionAssainissementAuRepository.findAll().size();
+        // set the field null
+        previsionAssainissementAu.setNbPublic(null);
+
+        // Create the PrevisionAssainissementAu, which fails.
+        PrevisionAssainissementAuDTO previsionAssainissementAuDTO = previsionAssainissementAuMapper.toDto(previsionAssainissementAu);
+
+
+        restPrevisionAssainissementAuMockMvc.perform(post("/api/prevision-assainissement-aus")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<PrevisionAssainissementAu> previsionAssainissementAuList = previsionAssainissementAuRepository.findAll();
+        assertThat(previsionAssainissementAuList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkNbScolaireIsRequired() throws Exception {
+        int databaseSizeBeforeTest = previsionAssainissementAuRepository.findAll().size();
+        // set the field null
+        previsionAssainissementAu.setNbScolaire(null);
+
+        // Create the PrevisionAssainissementAu, which fails.
+        PrevisionAssainissementAuDTO previsionAssainissementAuDTO = previsionAssainissementAuMapper.toDto(previsionAssainissementAu);
+
+
+        restPrevisionAssainissementAuMockMvc.perform(post("/api/prevision-assainissement-aus")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<PrevisionAssainissementAu> previsionAssainissementAuList = previsionAssainissementAuRepository.findAll();
+        assertThat(previsionAssainissementAuList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkCentreDeSanteIsRequired() throws Exception {
+        int databaseSizeBeforeTest = previsionAssainissementAuRepository.findAll().size();
+        // set the field null
+        previsionAssainissementAu.setCentreDeSante(null);
+
+        // Create the PrevisionAssainissementAu, which fails.
+        PrevisionAssainissementAuDTO previsionAssainissementAuDTO = previsionAssainissementAuMapper.toDto(previsionAssainissementAu);
+
+
+        restPrevisionAssainissementAuMockMvc.perform(post("/api/prevision-assainissement-aus")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<PrevisionAssainissementAu> previsionAssainissementAuList = previsionAssainissementAuRepository.findAll();
+        assertThat(previsionAssainissementAuList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkPopulationIsRequired() throws Exception {
+        int databaseSizeBeforeTest = previsionAssainissementAuRepository.findAll().size();
+        // set the field null
+        previsionAssainissementAu.setPopulation(null);
+
+        // Create the PrevisionAssainissementAu, which fails.
+        PrevisionAssainissementAuDTO previsionAssainissementAuDTO = previsionAssainissementAuMapper.toDto(previsionAssainissementAu);
+
+
+        restPrevisionAssainissementAuMockMvc.perform(post("/api/prevision-assainissement-aus")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<PrevisionAssainissementAu> previsionAssainissementAuList = previsionAssainissementAuRepository.findAll();
+        assertThat(previsionAssainissementAuList).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -162,8 +276,7 @@ public class PrevisionAssainissementAuResourceIT {
         previsionAssainissementAuRepository.saveAndFlush(previsionAssainissementAu);
 
         // Get all the previsionAssainissementAuList
-        restPrevisionAssainissementAuMockMvc
-            .perform(get("/api/prevision-assainissement-aus?sort=id,desc"))
+        restPrevisionAssainissementAuMockMvc.perform(get("/api/prevision-assainissement-aus?sort=id,desc"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(previsionAssainissementAu.getId().intValue())))
@@ -174,7 +287,7 @@ public class PrevisionAssainissementAuResourceIT {
             .andExpect(jsonPath("$.[*].centreDeSante").value(hasItem(DEFAULT_CENTRE_DE_SANTE)))
             .andExpect(jsonPath("$.[*].population").value(hasItem(DEFAULT_POPULATION)));
     }
-
+    
     @Test
     @Transactional
     public void getPrevisionAssainissementAu() throws Exception {
@@ -182,8 +295,7 @@ public class PrevisionAssainissementAuResourceIT {
         previsionAssainissementAuRepository.saveAndFlush(previsionAssainissementAu);
 
         // Get the previsionAssainissementAu
-        restPrevisionAssainissementAuMockMvc
-            .perform(get("/api/prevision-assainissement-aus/{id}", previsionAssainissementAu.getId()))
+        restPrevisionAssainissementAuMockMvc.perform(get("/api/prevision-assainissement-aus/{id}", previsionAssainissementAu.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(previsionAssainissementAu.getId().intValue()))
@@ -194,13 +306,11 @@ public class PrevisionAssainissementAuResourceIT {
             .andExpect(jsonPath("$.centreDeSante").value(DEFAULT_CENTRE_DE_SANTE))
             .andExpect(jsonPath("$.population").value(DEFAULT_POPULATION));
     }
-
     @Test
     @Transactional
     public void getNonExistingPrevisionAssainissementAu() throws Exception {
         // Get the previsionAssainissementAu
-        restPrevisionAssainissementAuMockMvc
-            .perform(get("/api/prevision-assainissement-aus/{id}", Long.MAX_VALUE))
+        restPrevisionAssainissementAuMockMvc.perform(get("/api/prevision-assainissement-aus/{id}", Long.MAX_VALUE))
             .andExpect(status().isNotFound());
     }
 
@@ -213,9 +323,7 @@ public class PrevisionAssainissementAuResourceIT {
         int databaseSizeBeforeUpdate = previsionAssainissementAuRepository.findAll().size();
 
         // Update the previsionAssainissementAu
-        PrevisionAssainissementAu updatedPrevisionAssainissementAu = previsionAssainissementAuRepository
-            .findById(previsionAssainissementAu.getId())
-            .get();
+        PrevisionAssainissementAu updatedPrevisionAssainissementAu = previsionAssainissementAuRepository.findById(previsionAssainissementAu.getId()).get();
         // Disconnect from session so that the updates on updatedPrevisionAssainissementAu are not directly saved in db
         em.detach(updatedPrevisionAssainissementAu);
         updatedPrevisionAssainissementAu
@@ -227,20 +335,15 @@ public class PrevisionAssainissementAuResourceIT {
             .population(UPDATED_POPULATION);
         PrevisionAssainissementAuDTO previsionAssainissementAuDTO = previsionAssainissementAuMapper.toDto(updatedPrevisionAssainissementAu);
 
-        restPrevisionAssainissementAuMockMvc
-            .perform(
-                put("/api/prevision-assainissement-aus")
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO))
-            )
+        restPrevisionAssainissementAuMockMvc.perform(put("/api/prevision-assainissement-aus")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO)))
             .andExpect(status().isOk());
 
         // Validate the PrevisionAssainissementAu in the database
         List<PrevisionAssainissementAu> previsionAssainissementAuList = previsionAssainissementAuRepository.findAll();
         assertThat(previsionAssainissementAuList).hasSize(databaseSizeBeforeUpdate);
-        PrevisionAssainissementAu testPrevisionAssainissementAu = previsionAssainissementAuList.get(
-            previsionAssainissementAuList.size() - 1
-        );
+        PrevisionAssainissementAu testPrevisionAssainissementAu = previsionAssainissementAuList.get(previsionAssainissementAuList.size() - 1);
         assertThat(testPrevisionAssainissementAu.getNbLatrine()).isEqualTo(UPDATED_NB_LATRINE);
         assertThat(testPrevisionAssainissementAu.getNbPuisard()).isEqualTo(UPDATED_NB_PUISARD);
         assertThat(testPrevisionAssainissementAu.getNbPublic()).isEqualTo(UPDATED_NB_PUBLIC);
@@ -258,12 +361,9 @@ public class PrevisionAssainissementAuResourceIT {
         PrevisionAssainissementAuDTO previsionAssainissementAuDTO = previsionAssainissementAuMapper.toDto(previsionAssainissementAu);
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
-        restPrevisionAssainissementAuMockMvc
-            .perform(
-                put("/api/prevision-assainissement-aus")
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO))
-            )
+        restPrevisionAssainissementAuMockMvc.perform(put("/api/prevision-assainissement-aus")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(previsionAssainissementAuDTO)))
             .andExpect(status().isBadRequest());
 
         // Validate the PrevisionAssainissementAu in the database
@@ -280,8 +380,8 @@ public class PrevisionAssainissementAuResourceIT {
         int databaseSizeBeforeDelete = previsionAssainissementAuRepository.findAll().size();
 
         // Delete the previsionAssainissementAu
-        restPrevisionAssainissementAuMockMvc
-            .perform(delete("/api/prevision-assainissement-aus/{id}", previsionAssainissementAu.getId()).accept(MediaType.APPLICATION_JSON))
+        restPrevisionAssainissementAuMockMvc.perform(delete("/api/prevision-assainissement-aus/{id}", previsionAssainissementAu.getId())
+            .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isNoContent());
 
         // Validate the database contains one less item

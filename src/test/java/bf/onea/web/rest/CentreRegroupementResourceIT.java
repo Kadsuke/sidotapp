@@ -133,6 +133,66 @@ public class CentreRegroupementResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = centreRegroupementRepository.findAll().size();
+        // set the field null
+        centreRegroupement.setLibelle(null);
+
+        // Create the CentreRegroupement, which fails.
+        CentreRegroupementDTO centreRegroupementDTO = centreRegroupementMapper.toDto(centreRegroupement);
+
+
+        restCentreRegroupementMockMvc.perform(post("/api/centre-regroupements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(centreRegroupementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<CentreRegroupement> centreRegroupementList = centreRegroupementRepository.findAll();
+        assertThat(centreRegroupementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkResponsableIsRequired() throws Exception {
+        int databaseSizeBeforeTest = centreRegroupementRepository.findAll().size();
+        // set the field null
+        centreRegroupement.setResponsable(null);
+
+        // Create the CentreRegroupement, which fails.
+        CentreRegroupementDTO centreRegroupementDTO = centreRegroupementMapper.toDto(centreRegroupement);
+
+
+        restCentreRegroupementMockMvc.perform(post("/api/centre-regroupements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(centreRegroupementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<CentreRegroupement> centreRegroupementList = centreRegroupementRepository.findAll();
+        assertThat(centreRegroupementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkContactIsRequired() throws Exception {
+        int databaseSizeBeforeTest = centreRegroupementRepository.findAll().size();
+        // set the field null
+        centreRegroupement.setContact(null);
+
+        // Create the CentreRegroupement, which fails.
+        CentreRegroupementDTO centreRegroupementDTO = centreRegroupementMapper.toDto(centreRegroupement);
+
+
+        restCentreRegroupementMockMvc.perform(post("/api/centre-regroupements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(centreRegroupementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<CentreRegroupement> centreRegroupementList = centreRegroupementRepository.findAll();
+        assertThat(centreRegroupementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllCentreRegroupements() throws Exception {
         // Initialize the database
         centreRegroupementRepository.saveAndFlush(centreRegroupement);

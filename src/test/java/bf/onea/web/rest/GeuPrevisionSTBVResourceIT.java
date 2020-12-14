@@ -133,6 +133,66 @@ public class GeuPrevisionSTBVResourceIT {
 
     @Test
     @Transactional
+    public void checkNbCamionsIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuPrevisionSTBVRepository.findAll().size();
+        // set the field null
+        geuPrevisionSTBV.setNbCamions(null);
+
+        // Create the GeuPrevisionSTBV, which fails.
+        GeuPrevisionSTBVDTO geuPrevisionSTBVDTO = geuPrevisionSTBVMapper.toDto(geuPrevisionSTBV);
+
+
+        restGeuPrevisionSTBVMockMvc.perform(post("/api/geu-prevision-stbvs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuPrevisionSTBVDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuPrevisionSTBV> geuPrevisionSTBVList = geuPrevisionSTBVRepository.findAll();
+        assertThat(geuPrevisionSTBVList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkVolumeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuPrevisionSTBVRepository.findAll().size();
+        // set the field null
+        geuPrevisionSTBV.setVolume(null);
+
+        // Create the GeuPrevisionSTBV, which fails.
+        GeuPrevisionSTBVDTO geuPrevisionSTBVDTO = geuPrevisionSTBVMapper.toDto(geuPrevisionSTBV);
+
+
+        restGeuPrevisionSTBVMockMvc.perform(post("/api/geu-prevision-stbvs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuPrevisionSTBVDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuPrevisionSTBV> geuPrevisionSTBVList = geuPrevisionSTBVRepository.findAll();
+        assertThat(geuPrevisionSTBVList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkEnergieIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuPrevisionSTBVRepository.findAll().size();
+        // set the field null
+        geuPrevisionSTBV.setEnergie(null);
+
+        // Create the GeuPrevisionSTBV, which fails.
+        GeuPrevisionSTBVDTO geuPrevisionSTBVDTO = geuPrevisionSTBVMapper.toDto(geuPrevisionSTBV);
+
+
+        restGeuPrevisionSTBVMockMvc.perform(post("/api/geu-prevision-stbvs")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuPrevisionSTBVDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuPrevisionSTBV> geuPrevisionSTBVList = geuPrevisionSTBVRepository.findAll();
+        assertThat(geuPrevisionSTBVList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeuPrevisionSTBVS() throws Exception {
         // Initialize the database
         geuPrevisionSTBVRepository.saveAndFlush(geuPrevisionSTBV);

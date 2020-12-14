@@ -1,9 +1,12 @@
 package bf.onea.domain;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+
+import java.io.Serializable;
 
 /**
  * A PrevisionPsa.
@@ -12,6 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Table(name = "prevision_psa")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class PrevisionPsa implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -19,10 +23,12 @@ public class PrevisionPsa implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "elabore")
+    @NotNull
+    @Column(name = "elabore", nullable = false)
     private Integer elabore;
 
-    @Column(name = "mise_en_oeuvre")
+    @NotNull
+    @Column(name = "mise_en_oeuvre", nullable = false)
     private Integer miseEnOeuvre;
 
     @OneToOne
@@ -93,7 +99,6 @@ public class PrevisionPsa implements Serializable {
     public void setRefAnnee(RefAnnee refAnnee) {
         this.refAnnee = refAnnee;
     }
-
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

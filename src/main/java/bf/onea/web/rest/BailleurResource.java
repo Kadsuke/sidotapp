@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class BailleurResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/bailleurs")
-    public ResponseEntity<BailleurDTO> createBailleur(@RequestBody BailleurDTO bailleurDTO) throws URISyntaxException {
+    public ResponseEntity<BailleurDTO> createBailleur(@Valid @RequestBody BailleurDTO bailleurDTO) throws URISyntaxException {
         log.debug("REST request to save Bailleur : {}", bailleurDTO);
         if (bailleurDTO.getId() != null) {
             throw new BadRequestAlertException("A new bailleur cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class BailleurResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/bailleurs")
-    public ResponseEntity<BailleurDTO> updateBailleur(@RequestBody BailleurDTO bailleurDTO) throws URISyntaxException {
+    public ResponseEntity<BailleurDTO> updateBailleur(@Valid @RequestBody BailleurDTO bailleurDTO) throws URISyntaxException {
         log.debug("REST request to update Bailleur : {}", bailleurDTO);
         if (bailleurDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

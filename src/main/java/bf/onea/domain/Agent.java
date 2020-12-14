@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -25,13 +26,16 @@ public class Agent implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "nom")
+    @NotNull
+    @Column(name = "nom", nullable = false)
     private String nom;
 
-    @Column(name = "numero")
+    @NotNull
+    @Column(name = "numero", nullable = false)
     private String numero;
 
-    @Column(name = "role")
+    @NotNull
+    @Column(name = "role", nullable = false)
     private String role;
 
     @OneToMany(mappedBy = "agent")

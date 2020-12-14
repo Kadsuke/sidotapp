@@ -17,7 +17,7 @@ export class SourceApprovEpUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
   });
 
   constructor(protected sourceApprovEpService: SourceApprovEpService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

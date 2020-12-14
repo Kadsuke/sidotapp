@@ -17,7 +17,7 @@ export class RefMoisUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
   });
 
   constructor(protected refMoisService: RefMoisService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

@@ -17,9 +17,9 @@ export class GeuSTBVUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelStbv: [],
-    responsable: [],
-    contact: [],
+    libelStbv: [null, [Validators.required]],
+    responsable: [null, [Validators.required]],
+    contact: [null, [Validators.required]],
   });
 
   constructor(protected geuSTBVService: GeuSTBVService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

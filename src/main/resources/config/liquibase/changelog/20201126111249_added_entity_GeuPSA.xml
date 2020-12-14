@@ -16,10 +16,10 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="date_elaboration" type="datetime">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="date_mise_en_oeuvre" type="datetime">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             <column name="geocommune_id" type="bigint">
                 <constraints nullable="true" />

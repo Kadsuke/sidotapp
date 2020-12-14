@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class LaboratoireResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/laboratoires")
-    public ResponseEntity<LaboratoireDTO> createLaboratoire(@RequestBody LaboratoireDTO laboratoireDTO) throws URISyntaxException {
+    public ResponseEntity<LaboratoireDTO> createLaboratoire(@Valid @RequestBody LaboratoireDTO laboratoireDTO) throws URISyntaxException {
         log.debug("REST request to save Laboratoire : {}", laboratoireDTO);
         if (laboratoireDTO.getId() != null) {
             throw new BadRequestAlertException("A new laboratoire cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class LaboratoireResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/laboratoires")
-    public ResponseEntity<LaboratoireDTO> updateLaboratoire(@RequestBody LaboratoireDTO laboratoireDTO) throws URISyntaxException {
+    public ResponseEntity<LaboratoireDTO> updateLaboratoire(@Valid @RequestBody LaboratoireDTO laboratoireDTO) throws URISyntaxException {
         log.debug("REST request to update Laboratoire : {}", laboratoireDTO);
         if (laboratoireDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

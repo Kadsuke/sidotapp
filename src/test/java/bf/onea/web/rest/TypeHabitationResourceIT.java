@@ -121,6 +121,26 @@ public class TypeHabitationResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = typeHabitationRepository.findAll().size();
+        // set the field null
+        typeHabitation.setLibelle(null);
+
+        // Create the TypeHabitation, which fails.
+        TypeHabitationDTO typeHabitationDTO = typeHabitationMapper.toDto(typeHabitation);
+
+
+        restTypeHabitationMockMvc.perform(post("/api/type-habitations")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(typeHabitationDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<TypeHabitation> typeHabitationList = typeHabitationRepository.findAll();
+        assertThat(typeHabitationList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllTypeHabitations() throws Exception {
         // Initialize the database
         typeHabitationRepository.saveAndFlush(typeHabitation);

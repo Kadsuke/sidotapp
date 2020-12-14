@@ -35,7 +35,7 @@ export class GeuRaccordementUpdatePage {
   adresseInput = element(by.id('field_adresse'));
   proprietaireParacelleInput = element(by.id('field_proprietaireParacelle'));
   entrepriseInput = element(by.id('field_entreprise'));
-  otherUsageInput = element(by.id('field_otherUsage'));
+  autreUsageInput = element(by.id('field_autreUsage'));
 
   geoparcelleSelect = element(by.id('field_geoparcelle'));
   agentSelect = element(by.id('field_agent'));
@@ -94,12 +94,12 @@ export class GeuRaccordementUpdatePage {
     return await this.entrepriseInput.getAttribute('value');
   }
 
-  async setOtherUsageInput(otherUsage: string): Promise<void> {
-    await this.otherUsageInput.sendKeys(otherUsage);
+  async setAutreUsageInput(autreUsage: string): Promise<void> {
+    await this.autreUsageInput.sendKeys(autreUsage);
   }
 
-  async getOtherUsageInput(): Promise<string> {
-    return await this.otherUsageInput.getAttribute('value');
+  async getAutreUsageInput(): Promise<string> {
+    return await this.autreUsageInput.getAttribute('value');
   }
 
   async geoparcelleSelectLastOption(): Promise<void> {

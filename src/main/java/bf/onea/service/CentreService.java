@@ -12,7 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link Centre}.
@@ -58,6 +62,51 @@ public class CentreService {
             .map(centreMapper::toDto);
     }
 
+
+
+    /**
+     *  Get all the centres where PrevisionAssainissementAu is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<CentreDTO> findAllWherePrevisionAssainissementAuIsNull() {
+        log.debug("Request to get all centres where PrevisionAssainissementAu is null");
+        return StreamSupport
+            .stream(centreRepository.findAll().spliterator(), false)
+            .filter(centre -> centre.getPrevisionAssainissementAu() == null)
+            .map(centreMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+     *  Get all the centres where PrevisionAssainissementCol is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<CentreDTO> findAllWherePrevisionAssainissementColIsNull() {
+        log.debug("Request to get all centres where PrevisionAssainissementCol is null");
+        return StreamSupport
+            .stream(centreRepository.findAll().spliterator(), false)
+            .filter(centre -> centre.getPrevisionAssainissementCol() == null)
+            .map(centreMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+     *  Get all the centres where PrevisionPsa is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<CentreDTO> findAllWherePrevisionPsaIsNull() {
+        log.debug("Request to get all centres where PrevisionPsa is null");
+        return StreamSupport
+            .stream(centreRepository.findAll().spliterator(), false)
+            .filter(centre -> centre.getPrevisionPsa() == null)
+            .map(centreMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one centre by id.

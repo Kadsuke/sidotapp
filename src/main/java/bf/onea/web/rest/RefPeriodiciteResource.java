@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class RefPeriodiciteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/ref-periodicites")
-    public ResponseEntity<RefPeriodiciteDTO> createRefPeriodicite(@RequestBody RefPeriodiciteDTO refPeriodiciteDTO) throws URISyntaxException {
+    public ResponseEntity<RefPeriodiciteDTO> createRefPeriodicite(@Valid @RequestBody RefPeriodiciteDTO refPeriodiciteDTO) throws URISyntaxException {
         log.debug("REST request to save RefPeriodicite : {}", refPeriodiciteDTO);
         if (refPeriodiciteDTO.getId() != null) {
             throw new BadRequestAlertException("A new refPeriodicite cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class RefPeriodiciteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/ref-periodicites")
-    public ResponseEntity<RefPeriodiciteDTO> updateRefPeriodicite(@RequestBody RefPeriodiciteDTO refPeriodiciteDTO) throws URISyntaxException {
+    public ResponseEntity<RefPeriodiciteDTO> updateRefPeriodicite(@Valid @RequestBody RefPeriodiciteDTO refPeriodiciteDTO) throws URISyntaxException {
         log.debug("REST request to update RefPeriodicite : {}", refPeriodiciteDTO);
         if (refPeriodiciteDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

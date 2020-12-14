@@ -121,6 +121,26 @@ public class NatureOuvrageResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = natureOuvrageRepository.findAll().size();
+        // set the field null
+        natureOuvrage.setLibelle(null);
+
+        // Create the NatureOuvrage, which fails.
+        NatureOuvrageDTO natureOuvrageDTO = natureOuvrageMapper.toDto(natureOuvrage);
+
+
+        restNatureOuvrageMockMvc.perform(post("/api/nature-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(natureOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<NatureOuvrage> natureOuvrageList = natureOuvrageRepository.findAll();
+        assertThat(natureOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllNatureOuvrages() throws Exception {
         // Initialize the database
         natureOuvrageRepository.saveAndFlush(natureOuvrage);

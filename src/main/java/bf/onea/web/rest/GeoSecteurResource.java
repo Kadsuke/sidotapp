@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class GeoSecteurResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/geo-secteurs")
-    public ResponseEntity<GeoSecteurDTO> createGeoSecteur(@RequestBody GeoSecteurDTO geoSecteurDTO) throws URISyntaxException {
+    public ResponseEntity<GeoSecteurDTO> createGeoSecteur(@Valid @RequestBody GeoSecteurDTO geoSecteurDTO) throws URISyntaxException {
         log.debug("REST request to save GeoSecteur : {}", geoSecteurDTO);
         if (geoSecteurDTO.getId() != null) {
             throw new BadRequestAlertException("A new geoSecteur cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class GeoSecteurResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/geo-secteurs")
-    public ResponseEntity<GeoSecteurDTO> updateGeoSecteur(@RequestBody GeoSecteurDTO geoSecteurDTO) throws URISyntaxException {
+    public ResponseEntity<GeoSecteurDTO> updateGeoSecteur(@Valid @RequestBody GeoSecteurDTO geoSecteurDTO) throws URISyntaxException {
         log.debug("REST request to update GeoSecteur : {}", geoSecteurDTO);
         if (geoSecteurDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

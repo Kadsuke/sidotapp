@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -24,10 +25,12 @@ public class GeuPSA implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "date_elaboration")
+    @NotNull
+    @Column(name = "date_elaboration", nullable = false)
     private Instant dateElaboration;
 
-    @Column(name = "date_mise_en_oeuvre")
+    @NotNull
+    @Column(name = "date_mise_en_oeuvre", nullable = false)
     private Instant dateMiseEnOeuvre;
 
     @ManyToOne

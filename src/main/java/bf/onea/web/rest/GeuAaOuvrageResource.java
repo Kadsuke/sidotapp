@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class GeuAaOuvrageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/geu-aa-ouvrages")
-    public ResponseEntity<GeuAaOuvrageDTO> createGeuAaOuvrage(@RequestBody GeuAaOuvrageDTO geuAaOuvrageDTO) throws URISyntaxException {
+    public ResponseEntity<GeuAaOuvrageDTO> createGeuAaOuvrage(@Valid @RequestBody GeuAaOuvrageDTO geuAaOuvrageDTO) throws URISyntaxException {
         log.debug("REST request to save GeuAaOuvrage : {}", geuAaOuvrageDTO);
         if (geuAaOuvrageDTO.getId() != null) {
             throw new BadRequestAlertException("A new geuAaOuvrage cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class GeuAaOuvrageResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/geu-aa-ouvrages")
-    public ResponseEntity<GeuAaOuvrageDTO> updateGeuAaOuvrage(@RequestBody GeuAaOuvrageDTO geuAaOuvrageDTO) throws URISyntaxException {
+    public ResponseEntity<GeuAaOuvrageDTO> updateGeuAaOuvrage(@Valid @RequestBody GeuAaOuvrageDTO geuAaOuvrageDTO) throws URISyntaxException {
         log.debug("REST request to update GeuAaOuvrage : {}", geuAaOuvrageDTO);
         if (geuAaOuvrageDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

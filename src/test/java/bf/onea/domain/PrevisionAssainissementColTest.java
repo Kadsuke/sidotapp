@@ -1,9 +1,8 @@
 package bf.onea.domain;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import bf.onea.web.rest.TestUtil;
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import bf.onea.web.rest.TestUtil;
 
 public class PrevisionAssainissementColTest {
 

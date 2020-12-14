@@ -17,7 +17,7 @@ export class RefDomaineUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
   });
 
   constructor(protected refDomaineService: RefDomaineService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

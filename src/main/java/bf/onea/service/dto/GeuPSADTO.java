@@ -1,6 +1,7 @@
 package bf.onea.service.dto;
 
 import java.time.Instant;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -10,8 +11,10 @@ public class GeuPSADTO implements Serializable {
     
     private Long id;
 
+    @NotNull
     private Instant dateElaboration;
 
+    @NotNull
     private Instant dateMiseEnOeuvre;
 
 

@@ -17,9 +17,9 @@ export class TacheronsUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    nom: [],
-    tel: [],
-    adresse: [],
+    nom: [null, [Validators.required]],
+    tel: [null, [Validators.required]],
+    adresse: [null, [Validators.required]],
   });
 
   constructor(protected tacheronsService: TacheronsService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

@@ -12,7 +12,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing {@link RefAnnee}.
@@ -58,6 +62,51 @@ public class RefAnneeService {
             .map(refAnneeMapper::toDto);
     }
 
+
+
+    /**
+     *  Get all the refAnnees where PrevisionAssainissementAu is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<RefAnneeDTO> findAllWherePrevisionAssainissementAuIsNull() {
+        log.debug("Request to get all refAnnees where PrevisionAssainissementAu is null");
+        return StreamSupport
+            .stream(refAnneeRepository.findAll().spliterator(), false)
+            .filter(refAnnee -> refAnnee.getPrevisionAssainissementAu() == null)
+            .map(refAnneeMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+     *  Get all the refAnnees where PrevisionAssainissementCol is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<RefAnneeDTO> findAllWherePrevisionAssainissementColIsNull() {
+        log.debug("Request to get all refAnnees where PrevisionAssainissementCol is null");
+        return StreamSupport
+            .stream(refAnneeRepository.findAll().spliterator(), false)
+            .filter(refAnnee -> refAnnee.getPrevisionAssainissementCol() == null)
+            .map(refAnneeMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+
+    /**
+     *  Get all the refAnnees where PrevisionPsa is {@code null}.
+     *  @return the list of entities.
+     */
+    @Transactional(readOnly = true) 
+    public List<RefAnneeDTO> findAllWherePrevisionPsaIsNull() {
+        log.debug("Request to get all refAnnees where PrevisionPsa is null");
+        return StreamSupport
+            .stream(refAnneeRepository.findAll().spliterator(), false)
+            .filter(refAnnee -> refAnnee.getPrevisionPsa() == null)
+            .map(refAnneeMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
 
     /**
      * Get one refAnnee by id.

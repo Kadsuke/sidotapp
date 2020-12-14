@@ -133,6 +133,66 @@ public class TacheronsResourceIT {
 
     @Test
     @Transactional
+    public void checkNomIsRequired() throws Exception {
+        int databaseSizeBeforeTest = tacheronsRepository.findAll().size();
+        // set the field null
+        tacherons.setNom(null);
+
+        // Create the Tacherons, which fails.
+        TacheronsDTO tacheronsDTO = tacheronsMapper.toDto(tacherons);
+
+
+        restTacheronsMockMvc.perform(post("/api/tacherons")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(tacheronsDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Tacherons> tacheronsList = tacheronsRepository.findAll();
+        assertThat(tacheronsList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkTelIsRequired() throws Exception {
+        int databaseSizeBeforeTest = tacheronsRepository.findAll().size();
+        // set the field null
+        tacherons.setTel(null);
+
+        // Create the Tacherons, which fails.
+        TacheronsDTO tacheronsDTO = tacheronsMapper.toDto(tacherons);
+
+
+        restTacheronsMockMvc.perform(post("/api/tacherons")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(tacheronsDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Tacherons> tacheronsList = tacheronsRepository.findAll();
+        assertThat(tacheronsList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkAdresseIsRequired() throws Exception {
+        int databaseSizeBeforeTest = tacheronsRepository.findAll().size();
+        // set the field null
+        tacherons.setAdresse(null);
+
+        // Create the Tacherons, which fails.
+        TacheronsDTO tacheronsDTO = tacheronsMapper.toDto(tacherons);
+
+
+        restTacheronsMockMvc.perform(post("/api/tacherons")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(tacheronsDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Tacherons> tacheronsList = tacheronsRepository.findAll();
+        assertThat(tacheronsList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllTacherons() throws Exception {
         // Initialize the database
         tacheronsRepository.saveAndFlush(tacherons);

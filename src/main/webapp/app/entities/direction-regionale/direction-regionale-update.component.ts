@@ -17,9 +17,9 @@ export class DirectionRegionaleUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
-    responsable: [],
-    contact: [],
+    libelle: [null, [Validators.required]],
+    responsable: [null, [Validators.required]],
+    contact: [null, [Validators.required]],
   });
 
   constructor(

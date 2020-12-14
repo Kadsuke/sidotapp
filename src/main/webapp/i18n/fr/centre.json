@@ -20,6 +20,9 @@
       "responsable": "Responsable",
       "contact": "Contact",
       "site": "Site",
+      "previsionAssainissementAu": "Prevision Assainissement Au",
+      "previsionAssainissementCol": "Prevision Assainissement Col",
+      "previsionPsa": "Prevision Psa",
       "centreregroupement": "Centreregroupement"
     }
   }

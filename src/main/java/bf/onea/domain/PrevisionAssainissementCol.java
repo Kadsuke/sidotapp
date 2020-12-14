@@ -1,9 +1,12 @@
 package bf.onea.domain;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+
+import java.io.Serializable;
 
 /**
  * A PrevisionAssainissementCol.
@@ -12,6 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Table(name = "prevision_assainissement_col")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class PrevisionAssainissementCol implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -19,16 +23,20 @@ public class PrevisionAssainissementCol implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "nb_step")
+    @NotNull
+    @Column(name = "nb_step", nullable = false)
     private Integer nbStep;
 
-    @Column(name = "nb_stbv")
+    @NotNull
+    @Column(name = "nb_stbv", nullable = false)
     private Integer nbStbv;
 
-    @Column(name = "reseaux")
+    @NotNull
+    @Column(name = "reseaux", nullable = false)
     private Float reseaux;
 
-    @Column(name = "nb_raccordement")
+    @NotNull
+    @Column(name = "nb_raccordement", nullable = false)
     private Integer nbRaccordement;
 
     @OneToOne
@@ -125,7 +133,6 @@ public class PrevisionAssainissementCol implements Serializable {
     public void setCentre(Centre centre) {
         this.centre = centre;
     }
-
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

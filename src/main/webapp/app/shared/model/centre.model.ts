@@ -6,6 +6,9 @@ export interface ICentre {
   responsable?: string;
   contact?: string;
   sites?: ISite[];
+  previsionAssainissementAuId?: number;
+  previsionAssainissementColId?: number;
+  previsionPsaId?: number;
   centreregroupementId?: number;
 }
 
@@ -16,6 +19,9 @@ export class Centre implements ICentre {
     public responsable?: string,
     public contact?: string,
     public sites?: ISite[],
+    public previsionAssainissementAuId?: number,
+    public previsionAssainissementColId?: number,
+    public previsionPsaId?: number,
     public centreregroupementId?: number
   ) {}
 }

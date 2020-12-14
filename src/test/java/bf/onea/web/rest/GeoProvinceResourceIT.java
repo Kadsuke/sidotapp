@@ -121,6 +121,26 @@ public class GeoProvinceResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geoProvinceRepository.findAll().size();
+        // set the field null
+        geoProvince.setLibelle(null);
+
+        // Create the GeoProvince, which fails.
+        GeoProvinceDTO geoProvinceDTO = geoProvinceMapper.toDto(geoProvince);
+
+
+        restGeoProvinceMockMvc.perform(post("/api/geo-provinces")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geoProvinceDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeoProvince> geoProvinceList = geoProvinceRepository.findAll();
+        assertThat(geoProvinceList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeoProvinces() throws Exception {
         // Initialize the database
         geoProvinceRepository.saveAndFlush(geoProvince);

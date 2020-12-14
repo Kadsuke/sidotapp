@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class PrefabricantResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/prefabricants")
-    public ResponseEntity<PrefabricantDTO> createPrefabricant(@RequestBody PrefabricantDTO prefabricantDTO) throws URISyntaxException {
+    public ResponseEntity<PrefabricantDTO> createPrefabricant(@Valid @RequestBody PrefabricantDTO prefabricantDTO) throws URISyntaxException {
         log.debug("REST request to save Prefabricant : {}", prefabricantDTO);
         if (prefabricantDTO.getId() != null) {
             throw new BadRequestAlertException("A new prefabricant cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class PrefabricantResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/prefabricants")
-    public ResponseEntity<PrefabricantDTO> updatePrefabricant(@RequestBody PrefabricantDTO prefabricantDTO) throws URISyntaxException {
+    public ResponseEntity<PrefabricantDTO> updatePrefabricant(@Valid @RequestBody PrefabricantDTO prefabricantDTO) throws URISyntaxException {
         log.debug("REST request to update Prefabricant : {}", prefabricantDTO);
         if (prefabricantDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

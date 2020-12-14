@@ -133,6 +133,66 @@ public class PrestataireResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = prestataireRepository.findAll().size();
+        // set the field null
+        prestataire.setLibelle(null);
+
+        // Create the Prestataire, which fails.
+        PrestataireDTO prestataireDTO = prestataireMapper.toDto(prestataire);
+
+
+        restPrestataireMockMvc.perform(post("/api/prestataires")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(prestataireDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Prestataire> prestataireList = prestataireRepository.findAll();
+        assertThat(prestataireList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkResponsableIsRequired() throws Exception {
+        int databaseSizeBeforeTest = prestataireRepository.findAll().size();
+        // set the field null
+        prestataire.setResponsable(null);
+
+        // Create the Prestataire, which fails.
+        PrestataireDTO prestataireDTO = prestataireMapper.toDto(prestataire);
+
+
+        restPrestataireMockMvc.perform(post("/api/prestataires")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(prestataireDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Prestataire> prestataireList = prestataireRepository.findAll();
+        assertThat(prestataireList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkContactIsRequired() throws Exception {
+        int databaseSizeBeforeTest = prestataireRepository.findAll().size();
+        // set the field null
+        prestataire.setContact(null);
+
+        // Create the Prestataire, which fails.
+        PrestataireDTO prestataireDTO = prestataireMapper.toDto(prestataire);
+
+
+        restPrestataireMockMvc.perform(post("/api/prestataires")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(prestataireDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Prestataire> prestataireList = prestataireRepository.findAll();
+        assertThat(prestataireList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllPrestataires() throws Exception {
         // Initialize the database
         prestataireRepository.saveAndFlush(prestataire);

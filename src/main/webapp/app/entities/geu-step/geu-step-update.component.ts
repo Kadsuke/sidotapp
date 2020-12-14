@@ -17,9 +17,9 @@ export class GeuSTEPUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelSTEP: [],
-    responsable: [],
-    contact: [],
+    libelSTEP: [null, [Validators.required]],
+    responsable: [null, [Validators.required]],
+    contact: [null, [Validators.required]],
   });
 
   constructor(protected geuSTEPService: GeuSTEPService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

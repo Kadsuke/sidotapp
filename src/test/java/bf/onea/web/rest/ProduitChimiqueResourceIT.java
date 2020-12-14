@@ -121,6 +121,26 @@ public class ProduitChimiqueResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = produitChimiqueRepository.findAll().size();
+        // set the field null
+        produitChimique.setLibelle(null);
+
+        // Create the ProduitChimique, which fails.
+        ProduitChimiqueDTO produitChimiqueDTO = produitChimiqueMapper.toDto(produitChimique);
+
+
+        restProduitChimiqueMockMvc.perform(post("/api/produit-chimiques")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(produitChimiqueDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<ProduitChimique> produitChimiqueList = produitChimiqueRepository.findAll();
+        assertThat(produitChimiqueList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllProduitChimiques() throws Exception {
         // Initialize the database
         produitChimiqueRepository.saveAndFlush(produitChimique);

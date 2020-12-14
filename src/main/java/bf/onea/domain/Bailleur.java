@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 
@@ -22,13 +23,16 @@ public class Bailleur implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "libelle")
+    @NotNull
+    @Column(name = "libelle", nullable = false)
     private String libelle;
 
-    @Column(name = "responsbale")
+    @NotNull
+    @Column(name = "responsbale", nullable = false)
     private String responsbale;
 
-    @Column(name = "contact")
+    @NotNull
+    @Column(name = "contact", nullable = false)
     private String contact;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 
@@ -23,26 +24,33 @@ public class GeuRaccordement implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "num_abonnement")
+    @NotNull
+    @Column(name = "num_abonnement", nullable = false)
     private Long numAbonnement;
 
-    @Column(name = "nom")
+    @NotNull
+    @Column(name = "nom", nullable = false)
     private String nom;
 
-    @Column(name = "prenom")
+    @NotNull
+    @Column(name = "prenom", nullable = false)
     private String prenom;
 
-    @Column(name = "adresse")
+    @NotNull
+    @Column(name = "adresse", nullable = false)
     private String adresse;
 
-    @Column(name = "proprietaire_paracelle")
+    @NotNull
+    @Column(name = "proprietaire_paracelle", nullable = false)
     private String proprietaireParacelle;
 
-    @Column(name = "entreprise")
+    @NotNull
+    @Column(name = "entreprise", nullable = false)
     private String entreprise;
 
-    @Column(name = "other_usage")
-    private String otherUsage;
+    @NotNull
+    @Column(name = "autre_usage", nullable = false)
+    private String autreUsage;
 
     @ManyToOne
     @JsonIgnoreProperties(value = "geuRaccordements", allowSetters = true)
@@ -147,17 +155,17 @@ public class GeuRaccordement implements Serializable {
         this.entreprise = entreprise;
     }
 
-    public String getOtherUsage() {
-        return otherUsage;
+    public String getAutreUsage() {
+        return autreUsage;
     }
 
-    public GeuRaccordement otherUsage(String otherUsage) {
-        this.otherUsage = otherUsage;
+    public GeuRaccordement autreUsage(String autreUsage) {
+        this.autreUsage = autreUsage;
         return this;
     }
 
-    public void setOtherUsage(String otherUsage) {
-        this.otherUsage = otherUsage;
+    public void setAutreUsage(String autreUsage) {
+        this.autreUsage = autreUsage;
     }
 
     public GeoParcelle getGeoparcelle() {
@@ -240,7 +248,7 @@ public class GeuRaccordement implements Serializable {
             ", adresse='" + getAdresse() + "'" +
             ", proprietaireParacelle='" + getProprietaireParacelle() + "'" +
             ", entreprise='" + getEntreprise() + "'" +
-            ", otherUsage='" + getOtherUsage() + "'" +
+            ", autreUsage='" + getAutreUsage() + "'" +
             "}";
     }
 }

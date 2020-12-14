@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class TypeInterventionResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/type-interventions")
-    public ResponseEntity<TypeInterventionDTO> createTypeIntervention(@RequestBody TypeInterventionDTO typeInterventionDTO) throws URISyntaxException {
+    public ResponseEntity<TypeInterventionDTO> createTypeIntervention(@Valid @RequestBody TypeInterventionDTO typeInterventionDTO) throws URISyntaxException {
         log.debug("REST request to save TypeIntervention : {}", typeInterventionDTO);
         if (typeInterventionDTO.getId() != null) {
             throw new BadRequestAlertException("A new typeIntervention cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class TypeInterventionResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/type-interventions")
-    public ResponseEntity<TypeInterventionDTO> updateTypeIntervention(@RequestBody TypeInterventionDTO typeInterventionDTO) throws URISyntaxException {
+    public ResponseEntity<TypeInterventionDTO> updateTypeIntervention(@Valid @RequestBody TypeInterventionDTO typeInterventionDTO) throws URISyntaxException {
         log.debug("REST request to update TypeIntervention : {}", typeInterventionDTO);
         if (typeInterventionDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

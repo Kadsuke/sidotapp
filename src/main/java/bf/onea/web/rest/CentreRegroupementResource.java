@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class CentreRegroupementResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/centre-regroupements")
-    public ResponseEntity<CentreRegroupementDTO> createCentreRegroupement(@RequestBody CentreRegroupementDTO centreRegroupementDTO) throws URISyntaxException {
+    public ResponseEntity<CentreRegroupementDTO> createCentreRegroupement(@Valid @RequestBody CentreRegroupementDTO centreRegroupementDTO) throws URISyntaxException {
         log.debug("REST request to save CentreRegroupement : {}", centreRegroupementDTO);
         if (centreRegroupementDTO.getId() != null) {
             throw new BadRequestAlertException("A new centreRegroupement cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class CentreRegroupementResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/centre-regroupements")
-    public ResponseEntity<CentreRegroupementDTO> updateCentreRegroupement(@RequestBody CentreRegroupementDTO centreRegroupementDTO) throws URISyntaxException {
+    public ResponseEntity<CentreRegroupementDTO> updateCentreRegroupement(@Valid @RequestBody CentreRegroupementDTO centreRegroupementDTO) throws URISyntaxException {
         log.debug("REST request to update CentreRegroupement : {}", centreRegroupementDTO);
         if (centreRegroupementDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

@@ -255,6 +255,446 @@ public class GeuAaOuvrageResourceIT {
 
     @Test
     @Transactional
+    public void checkPrjAppuisIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setPrjAppuis(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkNumCompteurIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setNumCompteur(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkNomBenefIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setNomBenef(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkPrenomBenefIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setPrenomBenef(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkProfessionBenefIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setProfessionBenef(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkNbUsagersIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setNbUsagers(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkCodeUnIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setCodeUn(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkDateRemiseDevisIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setDateRemiseDevis(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkDateDebutTravauxIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setDateDebutTravaux(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkDateFinTravauxIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setDateFinTravaux(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkNumNomRueIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setNumNomRue(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkNumNomPorteIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setNumNomPorte(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkMenageIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setMenage(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkSubvOneaIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setSubvOnea(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkSubvProjetIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setSubvProjet(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkAutreSubvIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setAutreSubv(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkRefBonFournitureIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setRefBonFourniture(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkRealisPorteIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setRealisPorte(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkRealisTolesIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setRealisToles(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkAnimateurIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setAnimateur(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkSuperviseurIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setSuperviseur(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkControleurIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuAaOuvrageRepository.findAll().size();
+        // set the field null
+        geuAaOuvrage.setControleur(null);
+
+        // Create the GeuAaOuvrage, which fails.
+        GeuAaOuvrageDTO geuAaOuvrageDTO = geuAaOuvrageMapper.toDto(geuAaOuvrage);
+
+
+        restGeuAaOuvrageMockMvc.perform(post("/api/geu-aa-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuAaOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuAaOuvrage> geuAaOuvrageList = geuAaOuvrageRepository.findAll();
+        assertThat(geuAaOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeuAaOuvrages() throws Exception {
         // Initialize the database
         geuAaOuvrageRepository.saveAndFlush(geuAaOuvrage);

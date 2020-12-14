@@ -1,9 +1,12 @@
 package bf.onea.domain;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+
+import java.io.Serializable;
 
 /**
  * A PrevisionAssainissementAu.
@@ -12,6 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Table(name = "prevision_assainissement_au")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class PrevisionAssainissementAu implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -19,22 +23,28 @@ public class PrevisionAssainissementAu implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "nb_latrine")
+    @NotNull
+    @Column(name = "nb_latrine", nullable = false)
     private Integer nbLatrine;
 
-    @Column(name = "nb_puisard")
+    @NotNull
+    @Column(name = "nb_puisard", nullable = false)
     private Integer nbPuisard;
 
-    @Column(name = "nb_public")
+    @NotNull
+    @Column(name = "nb_public", nullable = false)
     private Integer nbPublic;
 
-    @Column(name = "nb_scolaire")
+    @NotNull
+    @Column(name = "nb_scolaire", nullable = false)
     private Integer nbScolaire;
 
-    @Column(name = "centre_de_sante")
+    @NotNull
+    @Column(name = "centre_de_sante", nullable = false)
     private Integer centreDeSante;
 
-    @Column(name = "population")
+    @NotNull
+    @Column(name = "population", nullable = false)
     private Integer population;
 
     @OneToOne
@@ -157,7 +167,6 @@ public class PrevisionAssainissementAu implements Serializable {
     public void setCentre(Centre centre) {
         this.centre = centre;
     }
-
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

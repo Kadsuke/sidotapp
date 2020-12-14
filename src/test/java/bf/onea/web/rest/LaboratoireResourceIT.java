@@ -121,6 +121,26 @@ public class LaboratoireResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = laboratoireRepository.findAll().size();
+        // set the field null
+        laboratoire.setLibelle(null);
+
+        // Create the Laboratoire, which fails.
+        LaboratoireDTO laboratoireDTO = laboratoireMapper.toDto(laboratoire);
+
+
+        restLaboratoireMockMvc.perform(post("/api/laboratoires")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(laboratoireDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Laboratoire> laboratoireList = laboratoireRepository.findAll();
+        assertThat(laboratoireList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllLaboratoires() throws Exception {
         // Initialize the database
         laboratoireRepository.saveAndFlush(laboratoire);

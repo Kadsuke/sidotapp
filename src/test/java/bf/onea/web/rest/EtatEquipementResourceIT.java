@@ -121,6 +121,26 @@ public class EtatEquipementResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = etatEquipementRepository.findAll().size();
+        // set the field null
+        etatEquipement.setLibelle(null);
+
+        // Create the EtatEquipement, which fails.
+        EtatEquipementDTO etatEquipementDTO = etatEquipementMapper.toDto(etatEquipement);
+
+
+        restEtatEquipementMockMvc.perform(post("/api/etat-equipements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(etatEquipementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<EtatEquipement> etatEquipementList = etatEquipementRepository.findAll();
+        assertThat(etatEquipementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllEtatEquipements() throws Exception {
         // Initialize the database
         etatEquipementRepository.saveAndFlush(etatEquipement);

@@ -17,7 +17,7 @@ export class NatureOuvrageUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
   });
 
   constructor(protected natureOuvrageService: NatureOuvrageService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}

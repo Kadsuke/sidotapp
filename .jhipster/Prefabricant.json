@@ -3,7 +3,8 @@
   "fields": [
     {
       "fieldName": "libelle",
-      "fieldType": "String"
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
     }
   ],
   "relationships": [

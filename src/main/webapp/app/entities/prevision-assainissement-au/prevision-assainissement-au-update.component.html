@@ -15,36 +15,96 @@
                     <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementAu.nbLatrine" for="field_nbLatrine">Nb Latrine</label>
                     <input type="number" class="form-control" name="nbLatrine" id="field_nbLatrine"
                            formControlName="nbLatrine"/>
+                    <div *ngIf="editForm.get('nbLatrine')!.invalid && (editForm.get('nbLatrine')!.dirty || editForm.get('nbLatrine')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbLatrine')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('nbLatrine')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementAu.nbPuisard" for="field_nbPuisard">Nb Puisard</label>
                     <input type="number" class="form-control" name="nbPuisard" id="field_nbPuisard"
                            formControlName="nbPuisard"/>
+                    <div *ngIf="editForm.get('nbPuisard')!.invalid && (editForm.get('nbPuisard')!.dirty || editForm.get('nbPuisard')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbPuisard')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('nbPuisard')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementAu.nbPublic" for="field_nbPublic">Nb Public</label>
                     <input type="number" class="form-control" name="nbPublic" id="field_nbPublic"
                            formControlName="nbPublic"/>
+                    <div *ngIf="editForm.get('nbPublic')!.invalid && (editForm.get('nbPublic')!.dirty || editForm.get('nbPublic')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbPublic')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('nbPublic')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementAu.nbScolaire" for="field_nbScolaire">Nb Scolaire</label>
                     <input type="number" class="form-control" name="nbScolaire" id="field_nbScolaire"
                            formControlName="nbScolaire"/>
+                    <div *ngIf="editForm.get('nbScolaire')!.invalid && (editForm.get('nbScolaire')!.dirty || editForm.get('nbScolaire')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nbScolaire')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('nbScolaire')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementAu.centreDeSante" for="field_centreDeSante">Centre De Sante</label>
                     <input type="number" class="form-control" name="centreDeSante" id="field_centreDeSante"
                            formControlName="centreDeSante"/>
+                    <div *ngIf="editForm.get('centreDeSante')!.invalid && (editForm.get('centreDeSante')!.dirty || editForm.get('centreDeSante')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('centreDeSante')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('centreDeSante')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.previsionAssainissementAu.population" for="field_population">Population</label>
                     <input type="number" class="form-control" name="population" id="field_population"
                            formControlName="population"/>
+                    <div *ngIf="editForm.get('population')!.invalid && (editForm.get('population')!.dirty || editForm.get('population')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('population')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('population')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">

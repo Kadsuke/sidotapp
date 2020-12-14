@@ -133,6 +133,66 @@ public class GeuSTEPResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelSTEPIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuSTEPRepository.findAll().size();
+        // set the field null
+        geuSTEP.setLibelSTEP(null);
+
+        // Create the GeuSTEP, which fails.
+        GeuSTEPDTO geuSTEPDTO = geuSTEPMapper.toDto(geuSTEP);
+
+
+        restGeuSTEPMockMvc.perform(post("/api/geu-steps")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuSTEPDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuSTEP> geuSTEPList = geuSTEPRepository.findAll();
+        assertThat(geuSTEPList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkResponsableIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuSTEPRepository.findAll().size();
+        // set the field null
+        geuSTEP.setResponsable(null);
+
+        // Create the GeuSTEP, which fails.
+        GeuSTEPDTO geuSTEPDTO = geuSTEPMapper.toDto(geuSTEP);
+
+
+        restGeuSTEPMockMvc.perform(post("/api/geu-steps")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuSTEPDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuSTEP> geuSTEPList = geuSTEPRepository.findAll();
+        assertThat(geuSTEPList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkContactIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geuSTEPRepository.findAll().size();
+        // set the field null
+        geuSTEP.setContact(null);
+
+        // Create the GeuSTEP, which fails.
+        GeuSTEPDTO geuSTEPDTO = geuSTEPMapper.toDto(geuSTEP);
+
+
+        restGeuSTEPMockMvc.perform(post("/api/geu-steps")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geuSTEPDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeuSTEP> geuSTEPList = geuSTEPRepository.findAll();
+        assertThat(geuSTEPList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeuSTEPS() throws Exception {
         // Initialize the database
         geuSTEPRepository.saveAndFlush(geuSTEP);

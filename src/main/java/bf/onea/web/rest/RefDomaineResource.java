@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class RefDomaineResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/ref-domaines")
-    public ResponseEntity<RefDomaineDTO> createRefDomaine(@RequestBody RefDomaineDTO refDomaineDTO) throws URISyntaxException {
+    public ResponseEntity<RefDomaineDTO> createRefDomaine(@Valid @RequestBody RefDomaineDTO refDomaineDTO) throws URISyntaxException {
         log.debug("REST request to save RefDomaine : {}", refDomaineDTO);
         if (refDomaineDTO.getId() != null) {
             throw new BadRequestAlertException("A new refDomaine cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class RefDomaineResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/ref-domaines")
-    public ResponseEntity<RefDomaineDTO> updateRefDomaine(@RequestBody RefDomaineDTO refDomaineDTO) throws URISyntaxException {
+    public ResponseEntity<RefDomaineDTO> updateRefDomaine(@Valid @RequestBody RefDomaineDTO refDomaineDTO) throws URISyntaxException {
         log.debug("REST request to update RefDomaine : {}", refDomaineDTO);
         if (refDomaineDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

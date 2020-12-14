@@ -22,8 +22,8 @@ export class GeuPSAUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    dateElaboration: [],
-    dateMiseEnOeuvre: [],
+    dateElaboration: [null, [Validators.required]],
+    dateMiseEnOeuvre: [null, [Validators.required]],
     geocommuneId: [],
   });
 

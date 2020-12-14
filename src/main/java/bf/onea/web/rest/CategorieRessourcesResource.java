@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class CategorieRessourcesResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/categorie-ressources")
-    public ResponseEntity<CategorieRessourcesDTO> createCategorieRessources(@RequestBody CategorieRessourcesDTO categorieRessourcesDTO) throws URISyntaxException {
+    public ResponseEntity<CategorieRessourcesDTO> createCategorieRessources(@Valid @RequestBody CategorieRessourcesDTO categorieRessourcesDTO) throws URISyntaxException {
         log.debug("REST request to save CategorieRessources : {}", categorieRessourcesDTO);
         if (categorieRessourcesDTO.getId() != null) {
             throw new BadRequestAlertException("A new categorieRessources cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class CategorieRessourcesResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/categorie-ressources")
-    public ResponseEntity<CategorieRessourcesDTO> updateCategorieRessources(@RequestBody CategorieRessourcesDTO categorieRessourcesDTO) throws URISyntaxException {
+    public ResponseEntity<CategorieRessourcesDTO> updateCategorieRessources(@Valid @RequestBody CategorieRessourcesDTO categorieRessourcesDTO) throws URISyntaxException {
         log.debug("REST request to update CategorieRessources : {}", categorieRessourcesDTO);
         if (categorieRessourcesDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

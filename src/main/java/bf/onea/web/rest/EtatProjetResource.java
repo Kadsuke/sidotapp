@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class EtatProjetResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/etat-projets")
-    public ResponseEntity<EtatProjetDTO> createEtatProjet(@RequestBody EtatProjetDTO etatProjetDTO) throws URISyntaxException {
+    public ResponseEntity<EtatProjetDTO> createEtatProjet(@Valid @RequestBody EtatProjetDTO etatProjetDTO) throws URISyntaxException {
         log.debug("REST request to save EtatProjet : {}", etatProjetDTO);
         if (etatProjetDTO.getId() != null) {
             throw new BadRequestAlertException("A new etatProjet cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class EtatProjetResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/etat-projets")
-    public ResponseEntity<EtatProjetDTO> updateEtatProjet(@RequestBody EtatProjetDTO etatProjetDTO) throws URISyntaxException {
+    public ResponseEntity<EtatProjetDTO> updateEtatProjet(@Valid @RequestBody EtatProjetDTO etatProjetDTO) throws URISyntaxException {
         log.debug("REST request to update EtatProjet : {}", etatProjetDTO);
         if (etatProjetDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

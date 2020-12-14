@@ -121,6 +121,26 @@ public class AnalyseSpecialiteResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = analyseSpecialiteRepository.findAll().size();
+        // set the field null
+        analyseSpecialite.setLibelle(null);
+
+        // Create the AnalyseSpecialite, which fails.
+        AnalyseSpecialiteDTO analyseSpecialiteDTO = analyseSpecialiteMapper.toDto(analyseSpecialite);
+
+
+        restAnalyseSpecialiteMockMvc.perform(post("/api/analyse-specialites")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(analyseSpecialiteDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<AnalyseSpecialite> analyseSpecialiteList = analyseSpecialiteRepository.findAll();
+        assertThat(analyseSpecialiteList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllAnalyseSpecialites() throws Exception {
         // Initialize the database
         analyseSpecialiteRepository.saveAndFlush(analyseSpecialite);

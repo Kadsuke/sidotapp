@@ -1,5 +1,6 @@
 package bf.onea.service.dto;
 
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
@@ -9,10 +10,13 @@ public class GeuPrevisionSTBVDTO implements Serializable {
     
     private Long id;
 
+    @NotNull
     private String nbCamions;
 
+    @NotNull
     private String volume;
 
+    @NotNull
     private String energie;
 
 

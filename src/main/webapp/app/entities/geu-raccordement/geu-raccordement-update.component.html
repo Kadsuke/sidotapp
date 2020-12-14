@@ -15,42 +15,88 @@
                     <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.numAbonnement" for="field_numAbonnement">Num Abonnement</label>
                     <input type="number" class="form-control" name="numAbonnement" id="field_numAbonnement"
                            formControlName="numAbonnement"/>
+                    <div *ngIf="editForm.get('numAbonnement')!.invalid && (editForm.get('numAbonnement')!.dirty || editForm.get('numAbonnement')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numAbonnement')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('numAbonnement')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.nom" for="field_nom">Nom</label>
                     <input type="text" class="form-control" name="nom" id="field_nom"
                            formControlName="nom"/>
+                    <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.prenom" for="field_prenom">Prenom</label>
                     <input type="text" class="form-control" name="prenom" id="field_prenom"
                            formControlName="prenom"/>
+                    <div *ngIf="editForm.get('prenom')!.invalid && (editForm.get('prenom')!.dirty || editForm.get('prenom')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('prenom')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.adresse" for="field_adresse">Adresse</label>
                     <input type="text" class="form-control" name="adresse" id="field_adresse"
                            formControlName="adresse"/>
+                    <div *ngIf="editForm.get('adresse')!.invalid && (editForm.get('adresse')!.dirty || editForm.get('adresse')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('adresse')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.proprietaireParacelle" for="field_proprietaireParacelle">Proprietaire Paracelle</label>
                     <input type="text" class="form-control" name="proprietaireParacelle" id="field_proprietaireParacelle"
                            formControlName="proprietaireParacelle"/>
+                    <div *ngIf="editForm.get('proprietaireParacelle')!.invalid && (editForm.get('proprietaireParacelle')!.dirty || editForm.get('proprietaireParacelle')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('proprietaireParacelle')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.entreprise" for="field_entreprise">Entreprise</label>
                     <input type="text" class="form-control" name="entreprise" id="field_entreprise"
                            formControlName="entreprise"/>
+                    <div *ngIf="editForm.get('entreprise')!.invalid && (editForm.get('entreprise')!.dirty || editForm.get('entreprise')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('entreprise')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.otherUsage" for="field_otherUsage">Other Usage</label>
-                    <input type="text" class="form-control" name="otherUsage" id="field_otherUsage"
-                           formControlName="otherUsage"/>
+                    <label class="form-control-label" jhiTranslate="sidotApp.geuRaccordement.autreUsage" for="field_autreUsage">Autre Usage</label>
+                    <input type="text" class="form-control" name="autreUsage" id="field_autreUsage"
+                           formControlName="autreUsage"/>
+                    <div *ngIf="editForm.get('autreUsage')!.invalid && (editForm.get('autreUsage')!.dirty || editForm.get('autreUsage')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('autreUsage')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">

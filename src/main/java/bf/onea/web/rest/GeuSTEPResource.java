@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class GeuSTEPResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/geu-steps")
-    public ResponseEntity<GeuSTEPDTO> createGeuSTEP(@RequestBody GeuSTEPDTO geuSTEPDTO) throws URISyntaxException {
+    public ResponseEntity<GeuSTEPDTO> createGeuSTEP(@Valid @RequestBody GeuSTEPDTO geuSTEPDTO) throws URISyntaxException {
         log.debug("REST request to save GeuSTEP : {}", geuSTEPDTO);
         if (geuSTEPDTO.getId() != null) {
             throw new BadRequestAlertException("A new geuSTEP cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class GeuSTEPResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/geu-steps")
-    public ResponseEntity<GeuSTEPDTO> updateGeuSTEP(@RequestBody GeuSTEPDTO geuSTEPDTO) throws URISyntaxException {
+    public ResponseEntity<GeuSTEPDTO> updateGeuSTEP(@Valid @RequestBody GeuSTEPDTO geuSTEPDTO) throws URISyntaxException {
         log.debug("REST request to update GeuSTEP : {}", geuSTEPDTO);
         if (geuSTEPDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

@@ -20,7 +20,7 @@ export class GeuRealisationUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    nbRealisation: [],
+    nbRealisation: [null, [Validators.required]],
     geuaaouvrageId: [],
   });
 

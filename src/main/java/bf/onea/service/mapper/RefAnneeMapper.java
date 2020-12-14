@@ -13,6 +13,10 @@ import org.mapstruct.*;
 public interface RefAnneeMapper extends EntityMapper<RefAnneeDTO, RefAnnee> {
 
 
+    @Mapping(target = "previsionAssainissementAu", ignore = true)
+    @Mapping(target = "previsionAssainissementCol", ignore = true)
+    @Mapping(target = "previsionPsa", ignore = true)
+    RefAnnee toEntity(RefAnneeDTO refAnneeDTO);
 
     default RefAnnee fromId(Long id) {
         if (id == null) {

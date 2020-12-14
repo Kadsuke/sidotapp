@@ -20,7 +20,7 @@ export class AnalyseParametreUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    libelle: [],
+    libelle: [null, [Validators.required]],
     analysespecialiteId: [],
   });
 

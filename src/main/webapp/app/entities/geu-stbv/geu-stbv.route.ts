@@ -39,7 +39,7 @@ export const geuSTBVRoute: Routes = [
     path: '',
     component: GeuSTBVComponent,
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       defaultSort: 'id,asc',
       pageTitle: 'sidotApp.geuSTBV.home.title',
     },
@@ -52,7 +52,7 @@ export const geuSTBVRoute: Routes = [
       geuSTBV: GeuSTBVResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuSTBV.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -64,7 +64,7 @@ export const geuSTBVRoute: Routes = [
       geuSTBV: GeuSTBVResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuSTBV.home.title',
     },
     canActivate: [UserRouteAccessService],
@@ -76,7 +76,7 @@ export const geuSTBVRoute: Routes = [
       geuSTBV: GeuSTBVResolve,
     },
     data: {
-      authorities: [Authority.SEAC],
+      authorities: [Authority.USER],
       pageTitle: 'sidotApp.geuSTBV.home.title',
     },
     canActivate: [UserRouteAccessService],

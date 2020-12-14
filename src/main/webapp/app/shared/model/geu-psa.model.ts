@@ -5,15 +5,8 @@ export interface IGeuPSA {
   dateElaboration?: Moment;
   dateMiseEnOeuvre?: Moment;
   geocommuneId?: number;
-  geocommuneLibelle?: string;
 }
 
 export class GeuPSA implements IGeuPSA {
-  constructor(
-    public id?: number,
-    public dateElaboration?: Moment,
-    public dateMiseEnOeuvre?: Moment,
-    public geocommuneId?: number,
-    public geocommuneLibelle?: string
-  ) {}
+  constructor(public id?: number, public dateElaboration?: Moment, public dateMiseEnOeuvre?: Moment, public geocommuneId?: number) {}
 }

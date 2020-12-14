@@ -121,6 +121,26 @@ public class TypeEquipementResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = typeEquipementRepository.findAll().size();
+        // set the field null
+        typeEquipement.setLibelle(null);
+
+        // Create the TypeEquipement, which fails.
+        TypeEquipementDTO typeEquipementDTO = typeEquipementMapper.toDto(typeEquipement);
+
+
+        restTypeEquipementMockMvc.perform(post("/api/type-equipements")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(typeEquipementDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<TypeEquipement> typeEquipementList = typeEquipementRepository.findAll();
+        assertThat(typeEquipementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllTypeEquipements() throws Exception {
         // Initialize the database
         typeEquipementRepository.saveAndFlush(typeEquipement);

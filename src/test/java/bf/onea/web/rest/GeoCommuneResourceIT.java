@@ -121,6 +121,26 @@ public class GeoCommuneResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = geoCommuneRepository.findAll().size();
+        // set the field null
+        geoCommune.setLibelle(null);
+
+        // Create the GeoCommune, which fails.
+        GeoCommuneDTO geoCommuneDTO = geoCommuneMapper.toDto(geoCommune);
+
+
+        restGeoCommuneMockMvc.perform(post("/api/geo-communes")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(geoCommuneDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<GeoCommune> geoCommuneList = geoCommuneRepository.findAll();
+        assertThat(geoCommuneList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllGeoCommunes() throws Exception {
         // Initialize the database
         geoCommuneRepository.saveAndFlush(geoCommune);

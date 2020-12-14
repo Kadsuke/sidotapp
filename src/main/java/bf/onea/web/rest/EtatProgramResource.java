@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class EtatProgramResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/etat-programs")
-    public ResponseEntity<EtatProgramDTO> createEtatProgram(@RequestBody EtatProgramDTO etatProgramDTO) throws URISyntaxException {
+    public ResponseEntity<EtatProgramDTO> createEtatProgram(@Valid @RequestBody EtatProgramDTO etatProgramDTO) throws URISyntaxException {
         log.debug("REST request to save EtatProgram : {}", etatProgramDTO);
         if (etatProgramDTO.getId() != null) {
             throw new BadRequestAlertException("A new etatProgram cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class EtatProgramResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/etat-programs")
-    public ResponseEntity<EtatProgramDTO> updateEtatProgram(@RequestBody EtatProgramDTO etatProgramDTO) throws URISyntaxException {
+    public ResponseEntity<EtatProgramDTO> updateEtatProgram(@Valid @RequestBody EtatProgramDTO etatProgramDTO) throws URISyntaxException {
         log.debug("REST request to update EtatProgram : {}", etatProgramDTO);
         if (etatProgramDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

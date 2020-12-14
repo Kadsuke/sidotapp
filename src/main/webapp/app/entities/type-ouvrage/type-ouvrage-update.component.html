@@ -15,6 +15,12 @@
                     <label class="form-control-label" jhiTranslate="sidotApp.typeOuvrage.libelle" for="field_libelle">Libelle</label>
                     <input type="text" class="form-control" name="libelle" id="field_libelle"
                            formControlName="libelle"/>
+                    <div *ngIf="editForm.get('libelle')!.invalid && (editForm.get('libelle')!.dirty || editForm.get('libelle')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('libelle')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">

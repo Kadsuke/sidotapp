@@ -3,10 +3,33 @@
   "fields": [
     {
       "fieldName": "libelle",
-      "fieldType": "String"
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "previsionAssainissementAu",
+      "otherEntityRelationshipName": "refannee",
+      "relationshipName": "previsionAssainissementAu",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "previsionAssainissementCol",
+      "otherEntityRelationshipName": "refannee",
+      "relationshipName": "previsionAssainissementCol",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "previsionPsa",
+      "otherEntityRelationshipName": "refAnnee",
+      "relationshipName": "previsionPsa",
+      "ownerSide": false
+    }
+  ],
   "changelogDate": "20201126102449",
   "javadoc": "Les entites",
   "entityTableName": "ref_annee",

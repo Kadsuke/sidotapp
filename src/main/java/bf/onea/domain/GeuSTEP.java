@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -24,13 +25,16 @@ public class GeuSTEP implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "libel_step")
+    @NotNull
+    @Column(name = "libel_step", nullable = false)
     private String libelSTEP;
 
-    @Column(name = "responsable")
+    @NotNull
+    @Column(name = "responsable", nullable = false)
     private String responsable;
 
-    @Column(name = "contact")
+    @NotNull
+    @Column(name = "contact", nullable = false)
     private String contact;
 
     @OneToMany(mappedBy = "geustep")

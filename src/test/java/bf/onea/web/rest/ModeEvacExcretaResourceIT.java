@@ -121,6 +121,26 @@ public class ModeEvacExcretaResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = modeEvacExcretaRepository.findAll().size();
+        // set the field null
+        modeEvacExcreta.setLibelle(null);
+
+        // Create the ModeEvacExcreta, which fails.
+        ModeEvacExcretaDTO modeEvacExcretaDTO = modeEvacExcretaMapper.toDto(modeEvacExcreta);
+
+
+        restModeEvacExcretaMockMvc.perform(post("/api/mode-evac-excretas")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(modeEvacExcretaDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<ModeEvacExcreta> modeEvacExcretaList = modeEvacExcretaRepository.findAll();
+        assertThat(modeEvacExcretaList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllModeEvacExcretas() throws Exception {
         // Initialize the database
         modeEvacExcretaRepository.saveAndFlush(modeEvacExcreta);

@@ -121,6 +121,26 @@ public class AnalyseParametreResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = analyseParametreRepository.findAll().size();
+        // set the field null
+        analyseParametre.setLibelle(null);
+
+        // Create the AnalyseParametre, which fails.
+        AnalyseParametreDTO analyseParametreDTO = analyseParametreMapper.toDto(analyseParametre);
+
+
+        restAnalyseParametreMockMvc.perform(post("/api/analyse-parametres")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(analyseParametreDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<AnalyseParametre> analyseParametreList = analyseParametreRepository.findAll();
+        assertThat(analyseParametreList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllAnalyseParametres() throws Exception {
         // Initialize the database
         analyseParametreRepository.saveAndFlush(analyseParametre);

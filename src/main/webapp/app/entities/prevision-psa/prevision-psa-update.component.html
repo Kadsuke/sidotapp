@@ -15,12 +15,32 @@
                     <label class="form-control-label" jhiTranslate="sidotApp.previsionPsa.elabore" for="field_elabore">Elabore</label>
                     <input type="number" class="form-control" name="elabore" id="field_elabore"
                            formControlName="elabore"/>
+                    <div *ngIf="editForm.get('elabore')!.invalid && (editForm.get('elabore')!.dirty || editForm.get('elabore')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('elabore')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('elabore')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="sidotApp.previsionPsa.miseEnOeuvre" for="field_miseEnOeuvre">Mise En Oeuvre</label>
                     <input type="number" class="form-control" name="miseEnOeuvre" id="field_miseEnOeuvre"
                            formControlName="miseEnOeuvre"/>
+                    <div *ngIf="editForm.get('miseEnOeuvre')!.invalid && (editForm.get('miseEnOeuvre')!.dirty || editForm.get('miseEnOeuvre')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('miseEnOeuvre')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('miseEnOeuvre')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
                 </div>
 
                 <div class="form-group">

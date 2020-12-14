@@ -16,7 +16,10 @@
       "detail": {
         "title": "Ref Annee"
       },
-      "libelle": "Libelle"
+      "libelle": "Libelle",
+      "previsionAssainissementAu": "Prevision Assainissement Au",
+      "previsionAssainissementCol": "Prevision Assainissement Col",
+      "previsionPsa": "Prevision Psa"
     }
   }
 }

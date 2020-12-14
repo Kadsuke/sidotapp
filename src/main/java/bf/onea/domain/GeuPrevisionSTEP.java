@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -24,10 +25,12 @@ public class GeuPrevisionSTEP implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "date_prev_step")
+    @NotNull
+    @Column(name = "date_prev_step", nullable = false)
     private Instant datePrevStep;
 
-    @Column(name = "volume_prev_step")
+    @NotNull
+    @Column(name = "volume_prev_step", nullable = false)
     private String volumePrevStep;
 
     @ManyToOne

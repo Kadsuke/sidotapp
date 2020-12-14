@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class TypePlainteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/type-plaintes")
-    public ResponseEntity<TypePlainteDTO> createTypePlainte(@RequestBody TypePlainteDTO typePlainteDTO) throws URISyntaxException {
+    public ResponseEntity<TypePlainteDTO> createTypePlainte(@Valid @RequestBody TypePlainteDTO typePlainteDTO) throws URISyntaxException {
         log.debug("REST request to save TypePlainte : {}", typePlainteDTO);
         if (typePlainteDTO.getId() != null) {
             throw new BadRequestAlertException("A new typePlainte cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class TypePlainteResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/type-plaintes")
-    public ResponseEntity<TypePlainteDTO> updateTypePlainte(@RequestBody TypePlainteDTO typePlainteDTO) throws URISyntaxException {
+    public ResponseEntity<TypePlainteDTO> updateTypePlainte(@Valid @RequestBody TypePlainteDTO typePlainteDTO) throws URISyntaxException {
         log.debug("REST request to update TypePlainte : {}", typePlainteDTO);
         if (typePlainteDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

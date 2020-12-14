@@ -4,13 +4,15 @@ import bf.onea.domain.PrevisionAssainissementAu;
 import bf.onea.repository.PrevisionAssainissementAuRepository;
 import bf.onea.service.dto.PrevisionAssainissementAuDTO;
 import bf.onea.service.mapper.PrevisionAssainissementAuMapper;
-import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 /**
  * Service Implementation for managing {@link PrevisionAssainissementAu}.
@@ -18,16 +20,14 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class PrevisionAssainissementAuService {
+
     private final Logger log = LoggerFactory.getLogger(PrevisionAssainissementAuService.class);
 
     private final PrevisionAssainissementAuRepository previsionAssainissementAuRepository;
 
     private final PrevisionAssainissementAuMapper previsionAssainissementAuMapper;
 
-    public PrevisionAssainissementAuService(
-        PrevisionAssainissementAuRepository previsionAssainissementAuRepository,
-        PrevisionAssainissementAuMapper previsionAssainissementAuMapper
-    ) {
+    public PrevisionAssainissementAuService(PrevisionAssainissementAuRepository previsionAssainissementAuRepository, PrevisionAssainissementAuMapper previsionAssainissementAuMapper) {
         this.previsionAssainissementAuRepository = previsionAssainissementAuRepository;
         this.previsionAssainissementAuMapper = previsionAssainissementAuMapper;
     }
@@ -54,8 +54,10 @@ public class PrevisionAssainissementAuService {
     @Transactional(readOnly = true)
     public Page<PrevisionAssainissementAuDTO> findAll(Pageable pageable) {
         log.debug("Request to get all PrevisionAssainissementAus");
-        return previsionAssainissementAuRepository.findAll(pageable).map(previsionAssainissementAuMapper::toDto);
+        return previsionAssainissementAuRepository.findAll(pageable)
+            .map(previsionAssainissementAuMapper::toDto);
     }
+
 
     /**
      * Get one previsionAssainissementAu by id.
@@ -66,7 +68,8 @@ public class PrevisionAssainissementAuService {
     @Transactional(readOnly = true)
     public Optional<PrevisionAssainissementAuDTO> findOne(Long id) {
         log.debug("Request to get PrevisionAssainissementAu : {}", id);
-        return previsionAssainissementAuRepository.findById(id).map(previsionAssainissementAuMapper::toDto);
+        return previsionAssainissementAuRepository.findById(id)
+            .map(previsionAssainissementAuMapper::toDto);
     }
 
     /**

@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class GeoParcelleResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/geo-parcelles")
-    public ResponseEntity<GeoParcelleDTO> createGeoParcelle(@RequestBody GeoParcelleDTO geoParcelleDTO) throws URISyntaxException {
+    public ResponseEntity<GeoParcelleDTO> createGeoParcelle(@Valid @RequestBody GeoParcelleDTO geoParcelleDTO) throws URISyntaxException {
         log.debug("REST request to save GeoParcelle : {}", geoParcelleDTO);
         if (geoParcelleDTO.getId() != null) {
             throw new BadRequestAlertException("A new geoParcelle cannot already have an ID", ENTITY_NAME, "idexists");
@@ -72,7 +73,7 @@ public class GeoParcelleResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/geo-parcelles")
-    public ResponseEntity<GeoParcelleDTO> updateGeoParcelle(@RequestBody GeoParcelleDTO geoParcelleDTO) throws URISyntaxException {
+    public ResponseEntity<GeoParcelleDTO> updateGeoParcelle(@Valid @RequestBody GeoParcelleDTO geoParcelleDTO) throws URISyntaxException {
         log.debug("REST request to update GeoParcelle : {}", geoParcelleDTO);
         if (geoParcelleDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

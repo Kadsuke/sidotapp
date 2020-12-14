@@ -1,9 +1,11 @@
 package bf.onea.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 
@@ -22,8 +24,21 @@ public class RefAnnee implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "libelle")
+    @NotNull
+    @Column(name = "libelle", nullable = false)
     private String libelle;
+
+    @OneToOne(mappedBy = "refannee")
+    @JsonIgnore
+    private PrevisionAssainissementAu previsionAssainissementAu;
+
+    @OneToOne(mappedBy = "refannee")
+    @JsonIgnore
+    private PrevisionAssainissementCol previsionAssainissementCol;
+
+    @OneToOne(mappedBy = "refAnnee")
+    @JsonIgnore
+    private PrevisionPsa previsionPsa;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -45,6 +60,45 @@ public class RefAnnee implements Serializable {
 
     public void setLibelle(String libelle) {
         this.libelle = libelle;
+    }
+
+    public PrevisionAssainissementAu getPrevisionAssainissementAu() {
+        return previsionAssainissementAu;
+    }
+
+    public RefAnnee previsionAssainissementAu(PrevisionAssainissementAu previsionAssainissementAu) {
+        this.previsionAssainissementAu = previsionAssainissementAu;
+        return this;
+    }
+
+    public void setPrevisionAssainissementAu(PrevisionAssainissementAu previsionAssainissementAu) {
+        this.previsionAssainissementAu = previsionAssainissementAu;
+    }
+
+    public PrevisionAssainissementCol getPrevisionAssainissementCol() {
+        return previsionAssainissementCol;
+    }
+
+    public RefAnnee previsionAssainissementCol(PrevisionAssainissementCol previsionAssainissementCol) {
+        this.previsionAssainissementCol = previsionAssainissementCol;
+        return this;
+    }
+
+    public void setPrevisionAssainissementCol(PrevisionAssainissementCol previsionAssainissementCol) {
+        this.previsionAssainissementCol = previsionAssainissementCol;
+    }
+
+    public PrevisionPsa getPrevisionPsa() {
+        return previsionPsa;
+    }
+
+    public RefAnnee previsionPsa(PrevisionPsa previsionPsa) {
+        this.previsionPsa = previsionPsa;
+        return this;
+    }
+
+    public void setPrevisionPsa(PrevisionPsa previsionPsa) {
+        this.previsionPsa = previsionPsa;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

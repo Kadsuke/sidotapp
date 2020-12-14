@@ -121,6 +121,26 @@ public class EtatOuvrageResourceIT {
 
     @Test
     @Transactional
+    public void checkLibelleIsRequired() throws Exception {
+        int databaseSizeBeforeTest = etatOuvrageRepository.findAll().size();
+        // set the field null
+        etatOuvrage.setLibelle(null);
+
+        // Create the EtatOuvrage, which fails.
+        EtatOuvrageDTO etatOuvrageDTO = etatOuvrageMapper.toDto(etatOuvrage);
+
+
+        restEtatOuvrageMockMvc.perform(post("/api/etat-ouvrages")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(etatOuvrageDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<EtatOuvrage> etatOuvrageList = etatOuvrageRepository.findAll();
+        assertThat(etatOuvrageList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllEtatOuvrages() throws Exception {
         // Initialize the database
         etatOuvrageRepository.saveAndFlush(etatOuvrage);
